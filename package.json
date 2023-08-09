@@ -1,0 +1,16 @@
+{
+  "name": "full-stack-react",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "lint": "prettier --check .",
+    "test": "concurrently \"npm:test:*\"",
+    "ci": "npm run lint && npm run test",
+    "test:client": "npm run test --prefix=client",
+    "test:api": "npm run test --prefix=api"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "prettier": "^2.8.4"
+  }
+}

@@ -1,0 +1,13 @@
+.root {
+  border: 1px solid black;
+  padding: 0.5rem;
+  display: inline-block;
+}
+
+.root > * + * {
+  margin-left: 0.25rem;
+}
+
+.action {
+  width: 1.5rem;
+}

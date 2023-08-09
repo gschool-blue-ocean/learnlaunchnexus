@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+  database:
+    image: postgres:15-alpine
+    # Load all env vars from .env into the container's environment.
+    env_file: .env
+    ports:
+      - 5432:5432
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - ./api/src/db/migration.sql:/docker-entrypoint-initdb.d/migration.sql
+      - ./api/src/db/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+  api:
+    build: ./api
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database/${POSTGRES_DB}
+      NODE_ENV: development
+      PORT: 80
+    depends_on:
+      - database
+    ports:
+      - ${API_PORT}:80
+    volumes:
+      # This allows live reload inside a docker container by mapping your
+      # filesystem to the container's.
+      - ./api/src:/code/src
+    command: npm run dev
+  app:
+    build: ./client
+    environment:
+      API_URL: http://api
+      PORT: ${CLIENT_PORT}
+    depends_on:
+      - api
+    ports:
+      - ${CLIENT_PORT}:${CLIENT_PORT}
+    volumes:
+      # This allows live reload inside a docker container by mapping your
+      # filesystem to the container's.
+      - ./client/src:/code/src
+    command: npm run dev
+volumes:
+  pg-data:
