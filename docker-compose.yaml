@@ -13,7 +13,8 @@ services:
   api:
     build: ./api
     environment:
-      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database/${POSTGRES_DB}
+      DATABASE_URL: postgres://vidia_database_user:ETt8D6r7WL3H09LGHYJkCwATNNfEwuZd@dpg-cisqavtiuie5ebbvq74g-a.oregon-postgres.render.com/career_services_db?ssl=true
+      DEV_DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database/${POSTGRES_DB}
       NODE_ENV: development
       PORT: 80
     depends_on:
