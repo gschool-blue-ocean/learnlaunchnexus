@@ -38,71 +38,60 @@ const App = () => {
     }
   }
 
-
-
-
-
-  
-  return (    /*<main>
-      <h2>Tasks</h2>
-      <div className={c.tasks}>
-        {tasks.length > 0 ? (
-          tasks.map(({ id, description }) => (
-            <div key={id}>
-              <button onClick={() => deleteTask(id)}>X</button>
-              <span>{description}</span>
-            </div>
-          ))
-        ) : (
-          <span>No Tasks Remaining</span>
-        )}
-      </div>
-      <h2>Counter</h2>
-      <Counter />
-    </main>
-  ;*/
+  return (   
     <Router>
 
       <div className="container" >
       <Routes>
         <Route 
-        exact path = "/login"
-        render = {props => 
+        path = "/"
+        element={(
           !isAuthenticated ? (
-            <Login {...props} setAuth={setAuth} />
+            <Link to="/login" />
           ) : (
             <Link to="/dashboard" />
           )
-        }
-        /> 
-
+        )}
+        />
         <Route 
-        exact path = "/register"
-        render = {props => 
+        path = "/login"
+        element={(
           !isAuthenticated ? (
-            <Register {...props} setAuth={setAuth} />
+            <Login setAuth={setAuth} />
           ) : (
             <Link to="/dashboard" />
           )
-        }
-        /> 
-
+        )}
+        />
         <Route 
-        exact path = "/dashboard"
-        render = {props => 
+        path = "/register"
+        element={(
           !isAuthenticated ? (
-            <Dashboard {...props} setAuth={setAuth} />
+            <Register setAuth={setAuth} />
+          ) : (
+            <Link to="/dashboard" />
+          )
+        )}
+        /> 
+        <Route 
+        path = "/dashboard"
+        element={(
+          !isAuthenticated ? (
+            <Dashboard setAuth={setAuth} />
           ) : (
             <Link to="/login" />
           )
-        }
+        )}
         /> 
 
       </Routes>
 
       </div>
-    </Router>
+    </Router>  
   )
+  
+
 };
+
 
 export default App;
