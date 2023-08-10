@@ -9,7 +9,7 @@ const router = express.Router();
 router.post("/register", validInfo, async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    const user = await pool.query("SELECT * FROM auth WHERE user_email = $1", [
+    const user = await pool.query("SELECT * FROM authentication WHERE user_email = $1", [
       email,
     ]);
 
@@ -22,7 +22,7 @@ router.post("/register", validInfo, async (req, res) => {
     const bcryptPassword = await bcrypt.hash(password, salt);
 
     const newUser = await pool.query(
-      "INSERT INTO auth(user_name, user_email, user_password) VALUES($1, $2, $3) RETURNING *",
+      "INSERT INTO authentication(user_name, user_email, user_password) VALUES($1, $2, $3) RETURNING *",
       [name, email, bcryptPassword]
     );
 
@@ -39,7 +39,7 @@ router.post("/login", validInfo, async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await pool.query("SELECT * FROM auth WHERE user_email = $1", [
+    const user = await pool.query("SELECT * FROM authentication WHERE user_email = $1", [
       email,
     ]);
 
