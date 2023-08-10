@@ -8,8 +8,6 @@ services:
       - 5432:5432
     volumes:
       - pg-data:/var/lib/postgresql/data
-      - ./api/src/db/migration.sql:/docker-entrypoint-initdb.d/migration.sql
-      - ./api/src/db/seed.sql:/docker-entrypoint-initdb.d/seed.sql
   api:
     build: ./api
     environment:
