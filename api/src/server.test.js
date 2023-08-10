@@ -1,53 +1,76 @@
-import { it, expect, beforeAll, afterEach, afterAll } from "vitest";
-import request from "supertest";
-import server from "./server.js";
-import db from "./db/db.js";
+const request = require('supertest');
+const app = require('../server.js');
+const server = require('../server.js');  
 
-// FIXME: Use docker in GitHub CI to setup a real database.
+/*describe('User API', () => {
+  it('should create a new user', async () => {
+    const res = await request(app)
+      .post('/users')
+      .send({
+        id: 1,
+        name: 'John Doe'
+      });
+    expect(res.statusCode).toEqual(201);
+    expect(res.body).toHaveProperty('name', 'John Doe');
+  });
 
-// beforeAll(() => {
-//   // Run migrations against in-memory database.
-//   return db.migrate.latest();
-// });
+  it('should fetch all users', async () => {
+    const res = await request(app)
+      .get('/users');
+    expect(res.statusCode).toEqual(200);
+    expect(Array.isArray(res.body)).toBeTruthy();
+    expect(res.body.length).toBeGreaterThan(0);
+  });
 
-// afterEach(() => {
-//   // Clear out table after each test.
-//   return db.table("tasks").truncate();
-// });
+  it('should update a user', async () => {
+    const res = await request(app)
+      .put('/users/1')
+      .send({
+        name: 'Jane Doe'
+      });
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('name', 'Jane Doe');
+  });
 
-// afterAll(() => {
-//   return db.destroy();
-// });
+  it('should delete a user', async () => {
+    const res = await request(app)
+      .delete('/users/1');
+    expect(res.statusCode).toEqual(200);
+    expect(res.body[0]).toHaveProperty('id', 1);
+  });
+});
+*/
+describe('Student Routes', () => {
+     it('should fetch all students', async () => {
+        const res = await request(server).get('/students');
+        expect(res.statusCode).toEqual(200);
+    });
+ 
+ });
 
-// it("GET /api/tasks returns tasks", async () => {
-//   await request(server)
-//     .post("/api/tasks")
-//     .send({ description: "Clean bathroom" });
-//   await request(server)
-//     .post("/api/tasks")
-//     .send({ description: "Do the laundry" });
+describe('User Routes', () => {
+     it('should create a new user', async () => {
+        const res = await request(server)
+            .post('/users')
+            .send({ name: 'John Doe' });
+        expect(res.statusCode).toEqual(201);
+        expect(res.body).toHaveProperty('name', 'John Doe');
+    });
 
-//   const tasks = await request(server).get("/api/tasks");
-//   expect(tasks.body).toEqual([
-//     { id: expect.any(Number), description: "Clean bathroom" },
-//     { id: expect.any(Number), description: "Do the laundry" },
-//   ]);
-// });
+ });
 
-// it("DELETE /api/tasks deletes a task", async () => {
-//   await request(server).post("/api/tasks").send({ description: "Do dishes" });
+describe('Admin Routes', () => {
+     it('should perform an admin task', async () => {
+        const res = await request(server).get('/admins');
+        expect(res.statusCode).toEqual(200);
 
-//   const {
-//     body: { id },
-//   } = await request(server).get("/api/tasks");
+    });
 
-//   await request(server)
-//     .delete(`/api/tasks/${id}`)
-//     .send({ description: "Do dishes" });
+ });
 
-//   const { status } = await request(server)
-//     .get(`/api/tasks/${id}`)
-//     .send({ description: "Do dishes" });
+afterAll(() => {
+    server.close();
+  });
+  
 
-//   expect(status).toBe(404);
-// });
+module.imports = app;
