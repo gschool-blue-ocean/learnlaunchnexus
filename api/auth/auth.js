@@ -56,7 +56,7 @@ router.post("/login", middlewareValidInfo, async (req, res) => {
       return res.status(401).send("Incorrect name or email...");
     }
 
-    const token = JWT(user.rows[0].user_id);
+    const token = jwtGenerator(user.rows[0].user_id);
 
     return res.json({ token });
   } catch (err) {
