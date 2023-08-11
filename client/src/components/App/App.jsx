@@ -26,7 +26,7 @@ const App = () => {
     try {
       const res = await fetch("http://localhost:8000/authentication/verify", {
         method: "GET",
-        headers: { jwt_token: localStorage.token }
+        headers: { token: localStorage.token }
 
       })
       const parseRes = await res.json();
