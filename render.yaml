@@ -4,5 +4,5 @@
   repo: https://github.com/gschool-blue-ocean/learnlaunchnexus
   plan: individual
   branch: production
-  rootDit: learnlaunchnexus
-  dockerCommand: docker compose up
+  rootDir: learnlaunchnexus
+  dockerCommand: docker compose up --build -f ./docker-compose.yml
