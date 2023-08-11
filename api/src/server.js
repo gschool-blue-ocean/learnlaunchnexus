@@ -8,9 +8,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
  
-const studentRoutes = require('./routes/students');
-const userRoutes = require('./routes/users');
-const adminRoutes = require('./routes/admin');
+import studentRoutes from './routes/students'
+import userRoutes from './routes/users'
+import adminRoutes from './routes/admin'
 
  app.use('/students', studentRoutes);
  app.use('/users', userRoutes);
