@@ -1,6 +1,21 @@
 import express from 'express'
 import cors from 'cors'
- 
+import * as dotenv from "dotenv";
+import pkg from "pg";
+const { Pool } = pkg;
+
+dotenv.config();
+
+//new pool instance
+
+const dbString = process.env.DATABASE_URL;
+
+export const pool = new Pool({
+  connectionString: dbString,
+});
+
+
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -28,4 +43,4 @@ const server = app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}!`);
 });
 
-export default server; // Export for testing
+export default server ; // Export for testing
