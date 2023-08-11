@@ -4,5 +4,6 @@ services:
     runtime: docker
     repo: https://github.com/gschool-blue-ocean/learnlaunchnexus
     branch: production
+    plan: free
     rootDir: learnlaunchnexus
     dockerCommand: docker compose up --build -f ./docker-compose.yml
