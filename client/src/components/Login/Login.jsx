@@ -18,7 +18,7 @@ const Login = ({ setAuth }) => {
         e.preventDefault();
         try {
             const body = { email, password }
-            const response = await fetch("https://prod-api-b36y.onrender.com:8000/authentication/login", {
+            const response = await fetch("https://prod-api-b36y.onrender.com:10000/authentication/login", {
                 method: "POST",
                 headers: { "content-type": "application.json" },
                 body: JSON.stringify(body)
