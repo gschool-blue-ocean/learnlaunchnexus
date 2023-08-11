@@ -1,46 +1,70 @@
 import express from 'express'
 const router = express.Router();
 
-const admins = [
-    { id: 1, name: 'John Doe' },
-    { id: 2, name: 'Jane Doe' },
-];
+ 
 
-// CREATE: Add a new user
-router.post('/', (req, res) => {
-    const user = req.body;
-    admins.push(user);
-    res.status(201).send(user);
+// Get all admins
+router.get('/', async (req, res) => {
+    try {
+        const results = await pool.query("SELECT * FROM admin");
+        res.json(results.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server error");
+    }
 });
 
-// READ: Get a list of all admins
-router.get('/', (req, res) => {
-    res.status(200).send(admins); // First status, then send
+// Get a specific admin by ID
+router.get('/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await pool.query("SELECT * FROM admin WHERE id = $1", [id]);
+        if (result.rows.length === 0) return res.status(404).json({ message: "Admin not found." });
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server error");
+    }
 });
 
-
-// READ: Get a single user by ID
-router.get('/:id', (req, res) => {
-    const user = admins.find(u => u.id === parseInt(req.params.id));
-    if (!user) return res.status(404).send('User not found');
-    res.send(user);
+// Add a new admin
+router.post('/', async (req, res) => {
+    const { user_id } = req.body;
+    try {
+        const result = await pool.query("INSERT INTO admin (user_id) VALUES ($1) RETURNING *", [user_id]);
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server error");
+    }
 });
 
-// UPDATE: Update a user by ID
-router.put('/:id', (req, res) => {
-    const user = admins.find(u => u.id === parseInt(req.params.id));
-    if (!user) return res.status(404).send('User not found');
-    Object.assign(user, req.body);
-    res.send(user);
+// Update an admin's details by ID
+router.put('/:id', async (req, res) => {
+    const { id } = req.params;
+    const { user_id } = req.body;
+    try {
+        const result = await pool.query("UPDATE admin SET user_id = $1 WHERE id = $2 RETURNING *", [user_id, id]);
+        if (result.rows.length === 0) return res.status(404).json({ message: "Admin not found." });
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server error");
+    }
 });
 
-// DELETE: Delete a user by ID
-router.delete('/:id', (req, res) => {
-    const index = admins.findIndex(u => u.id === parseInt(req.params.id));
-    if (index === -1) return res.status(404).send('User not found');
-    const user = admins.splice(index, 1);
-    res.send(user);
+// Delete an admin by ID
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        await pool.query("DELETE FROM admin WHERE id = $1", [id]);
+        res.json({ message: "Admin removed successfully." });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server error");
+    }
 });
+
 
 
 export default router;
