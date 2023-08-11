@@ -1,5 +1,5 @@
 import middlewareAUTH from "./middlewareAUTH.js";
-import JWT from "./JWT.js";
+import jwtGenerator from "./jwtGenerator.js";
 import middlewareValidInfo from "./middlewareValidInfo.js";
 import pool from "../db.js";
 import express from "express";
