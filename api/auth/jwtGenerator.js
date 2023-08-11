@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const secret = process.env.secret;
+const secret = '123';
 
 const jwtGenerator = (user_id) => {
   const payload = {

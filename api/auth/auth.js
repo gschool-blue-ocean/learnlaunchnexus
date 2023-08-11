@@ -10,7 +10,7 @@ router.post("/register", middlewareValidInfo, async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const user = await pool.query("SELECT * FROM authentication WHERE user_email = $1", [
-      email,
+      email
     ]);
 
     if (user.rows.length !== 0) {
@@ -26,7 +26,7 @@ router.post("/register", middlewareValidInfo, async (req, res) => {
       [name, email, bcryptPassword]
     );
 
-    const token = JWT(newUser.rows[0].user_id);
+    const token = jwtGenerator(newUser.rows[0].user_id);
 
     return res.json({ token });
   } catch (err) {
@@ -56,7 +56,7 @@ router.post("/login", middlewareValidInfo, async (req, res) => {
       return res.status(401).send("Incorrect name or email...");
     }
 
-    const token = JWT(user.rows[0].user_id);
+    const token = jwtGenerator(user.rows[0].user_id);
 
     return res.json({ token });
   } catch (err) {
