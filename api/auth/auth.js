@@ -1,12 +1,12 @@
-import authorization from "middlewareAUTH.js";
-import jwtGenerator from "JWT.js";
-import validInfo from "middlewareValidInfo.js";
+import middlewareAUTH from "middlewareAUTH.js";
+import JWT from "JWT.js";
+import middlewareValidInfo from "middlewareValidInfo.js";
 import pool from "../src/server.js";
 import express from "express";
 import bcrypt from "bcrypt";
 const router = express.Router();
 
-router.post("/register", validInfo, async (req, res) => {
+router.post("/register", middlewareValidInfo, async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const user = await pool.query("SELECT * FROM authentication WHERE user_email = $1", [
@@ -26,7 +26,7 @@ router.post("/register", validInfo, async (req, res) => {
       [name, email, bcryptPassword]
     );
 
-    const token = jwtGenerator(newUser.rows[0].user_id);
+    const token = JWT(newUser.rows[0].user_id);
 
     return res.json({ token });
   } catch (err) {
@@ -35,7 +35,7 @@ router.post("/register", validInfo, async (req, res) => {
   }
 });
 
-router.post("/login", validInfo, async (req, res) => {
+router.post("/login", middlewareValidInfo, async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -56,7 +56,7 @@ router.post("/login", validInfo, async (req, res) => {
       return res.status(401).send("Incorrect name or email...");
     }
 
-    const token = jwtGenerator(user.rows[0].user_id);
+    const token = JWT(user.rows[0].user_id);
 
     return res.json({ token });
   } catch (err) {
@@ -65,7 +65,7 @@ router.post("/login", validInfo, async (req, res) => {
   }
 });
 
-router.get("/verify", authorization, async (req, res) => {
+router.get("/verify", middlewareAUTH, async (req, res) => {
   try {
     console.log(req)
     return res.json(true);
