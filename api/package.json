@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "test": "echo 'add tests'"
+    "test": "jest"
   },
   "devDependencies": {
     "nodemon": "^2.0.15",
@@ -17,8 +17,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "jest": "^29.6.2",
     "jsonwebtoken": "^9.0.1",
     "pg": "^8.9.0"
   }
 }
-

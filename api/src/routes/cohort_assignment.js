@@ -5,6 +5,7 @@ POST /cohort_assignments : Assign an assignment to a cohort.
 DELETE /cohort_assignments/:id : Remove an assignment from a cohort.*/
 
 import express from 'express'
+import pool from "../../db.js";
 const router = express.Router();
 
 

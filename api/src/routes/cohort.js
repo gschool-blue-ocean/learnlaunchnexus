@@ -7,6 +7,7 @@ DELETE /cohorts/:id : Delete a cohort.
 */
 
 import express from 'express'
+import pool from "../../db.js";
 const router = express.Router();
 
 

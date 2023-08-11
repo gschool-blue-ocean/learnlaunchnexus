@@ -6,6 +6,7 @@ DELETE /submissions/:id : Delete a submission.*/
 
 
 import express from 'express'
+import pool from "../../db.js";
 const router = express.Router();
 
 // Get all submissions
@@ -37,7 +38,7 @@ router.post('/', async (req, res) => {
     const { info, student_id, assignment_id, tracking_id } = req.body;
     try {
         const result = await pool.query("INSERT INTO submission (info, submission_time, student_id, assignment_id, tracking_id) VALUES ($1, NOW(), $2, $3, $4) RETURNING *",
-                                        [info, student_id, assignment_id, tracking_id]);
+            [info, student_id, assignment_id, tracking_id]);
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
@@ -51,7 +52,7 @@ router.put('/:id', async (req, res) => {
     const { info, student_id, assignment_id, tracking_id } = req.body;
     try {
         const result = await pool.query("UPDATE submission SET info = $1, student_id = $2, assignment_id = $3, tracking_id = $4 WHERE id = $5 RETURNING *",
-                                        [info, student_id, assignment_id, tracking_id, id]);
+            [info, student_id, assignment_id, tracking_id, id]);
         if (result.rows.length === 0) return res.status(404).json({ message: "Submission not found." });
         res.json(result.rows[0]);
     } catch (err) {

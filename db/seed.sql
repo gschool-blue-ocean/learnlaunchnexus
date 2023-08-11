@@ -79,7 +79,7 @@ INSERT INTO assignment (name) VALUES
 
 INSERT INTO cohort (start_date, end_date, name) VALUES
 ('2023-01-01', '2023-05-05', 1),
-('2023-05-08', '2023-10-15', 'TTFN-2');
+('2023-05-08', '2023-10-15', 'TTFN-1');
 
 INSERT INTO cohort_assignment (assignment_id, cohort_id) VALUES
 (1, 1),

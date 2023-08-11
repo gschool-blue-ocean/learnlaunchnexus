@@ -26,11 +26,17 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// READ: Get a single user by ID
-router.get('/:id', (req, res) => {
-    const user = users.find(u => u.id === parseInt(req.params.id));
-    if (!user) return res.status(404).send('User not found');
-    res.send(user);
+// Add a new user
+router.post('/', async (req, res) => {
+    const { auth_id, first_name, last_name, isAdmin } = req.body;
+    try {
+        const result = await pool.query("INSERT INTO users (auth_id, first_name, last_name, isAdmin) VALUES ($1, $2, $3, $4) RETURNING *",
+            [auth_id, first_name, last_name, isAdmin]);
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server error");
+    }
 });
 
 // Update a user's details by ID
