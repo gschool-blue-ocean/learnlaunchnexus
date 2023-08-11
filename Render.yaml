@@ -1,7 +1,7 @@
 - type: web
   name: production
   runtime: docker
-  repo: https://github.com/gschool-blue-ocean/learnlaunchnexus
+  repo: https://github.com/gschool-blue-ocean/learnlaunchnexus.git
   plan: individual
   branch: production
   rootDit: learnlaunchnexus
