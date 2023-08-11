@@ -21,7 +21,7 @@ secret.
 use in our routes
     */
 
-    const payload = jwt.verify(token, process.env.secret);
+    const payload = jwt.verify(token, '123');
     console.log("1", payload);
 
     /*
