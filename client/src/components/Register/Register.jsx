@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
+import "./reg.css"
 
 const Register = ({setAuth}) => {
     const [inputs, setInputs] = useState({
@@ -42,35 +43,50 @@ const Register = ({setAuth}) => {
     
       return (
         <>
-          <h1 className="register-page">Register</h1>
+        <diV id='regpage'>
+          <div id='reg'>
+          <img id='logo' src='public/Galvanizelogo.png'></img>
+          <h1 className="mt-5 text-center">Galvanize Services Register</h1>
+          <div id='reginput'>
           <form onSubmit={onSubmitForm}>
-            <input
+            <h2>Email</h2>
+            <input id='input1'
               type="text"
               name="email"
               value={email}
               placeholder="email"
               onChange={e => onChange(e)}
-              className="input-field"
+              className="form-control my-3"
             />
-            <input
+            <br></br>
+            <h2>Password</h2>
+            <input id='input1'
               type="password"
               name="password"
               value={password}
               placeholder="password"
               onChange={e => onChange(e)}
-              className="input-field"
+              className="form-control my-3"
             />
-            <input
+            <br></br>
+            <h2>Username</h2>
+            <input id='input1'
               type="text"
               name="name"
               value={name}
               placeholder="name"
               onChange={e => onChange(e)}
-              className="input-field"
+              className="form-control my-3"
             />
-            <button className="submit-button">Submit</button>
+            <br></br>
+            <h2></h2>
+            <button id='logbtn' className="btn btn-success btn-block">Register</button>
           </form>
-          <Link to="/login">login</Link>
+          </div>
+          <h2></h2>
+          <Link id='reglin' to="/login">Login</Link>
+          </div>
+        </diV>
         </>
       );
 }
