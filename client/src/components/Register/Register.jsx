@@ -18,7 +18,7 @@ const Register = ({setAuth}) => {
         try {
           const body = { email, password, name };
           const response = await fetch(
-            "http://localhost:8004/authentication/register",
+            "https://prod-api-b36y.onrender.com:8000/authentication/register",
             {
               method: "POST",
               headers: {
