@@ -1,23 +1,9 @@
 import express from 'express'
 import cors from 'cors'
-import * as dotenv from "dotenv";
-import pkg from "pg";
-const { Pool } = pkg;
-
-dotenv.config();
-
-//new pool instance
-
-const dbString = process.env.DATABASE_URL;
-
-export const pool = new Pool({
-  connectionString: dbString,
-});
-
 
 
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3007;
 
 // Middleware
 app.use(cors());

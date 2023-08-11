@@ -1,4 +1,5 @@
 import express from 'express'
+import pool from "../../db.js";
 const router = express.Router();
 
 const users = [
@@ -18,6 +19,22 @@ router.get('/', (req, res) => {
     res.send(users);
 });
 
+router.get("/test", async (req, res) => {
+	try {
+		const result = await pool.query("SELECT * FROM users");
+		if (result.rowCount === 0) {
+			res.status(404).send("No Information Found");
+		} else {
+			res
+				.status(200)
+				.setHeader("Content-Type", "application/json")
+				.json(result.rows);
+		}
+	} catch (err) {
+		console.error(err);
+		res.status(500).json(err.message);
+	}
+});
 // READ: Get a single user by ID
 router.get('/:id', (req, res) => {
     const user = users.find(u => u.id === parseInt(req.params.id));
