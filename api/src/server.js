@@ -28,4 +28,4 @@ const server = app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}!`);
 });
 
-module.exports = server; // Export for testing
+export default server; // Export for testing
