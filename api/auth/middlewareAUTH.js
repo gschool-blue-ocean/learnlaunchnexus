@@ -6,9 +6,9 @@ dotenv.config();
 export default async (req, res, next) => {
   console.log(req);
   try {
-    const jwtToken = req.header("token");
+    const token = req.header("token");
 
-    if (!jwtToken) {
+    if (!token) {
       return res.status(403).send("not authorized");
     }
 
@@ -21,7 +21,7 @@ secret.
 use in our routes
     */
 
-    const payload = jwt.verify(jwtToken, process.env.secret);
+    const payload = jwt.verify(token, process.env.secret);
     console.log("1", payload);
 
     /*
