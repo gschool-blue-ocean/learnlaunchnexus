@@ -24,7 +24,7 @@ const App = () => {
 
   const checkAuthenticated = async () => {
     try {
-      const res = await fetch("http://localhost:8000/authentication/verify", {
+      const res = await fetch("http://localhost:3000/authentication/verify", {
         method: "GET",
         headers: { token: localStorage.token }
 
@@ -66,7 +66,7 @@ const App = () => {
         <Route 
         path = "/dashboard"
         element={(
-          !isAuthenticated ? (
+          isAuthenticated ? (
             <Dashboard setAuth={setAuth} />
           ) : (
             <Link to="/login" />

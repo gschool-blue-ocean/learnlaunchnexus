@@ -13,20 +13,25 @@ const Login = ({ setAuth }) => {
         setInputs({ ...inputs, [e.target.name]: e.target.value })
     }
 
+    const onClick = (e) => {
+        console.log('inside onClick')
+        onSubmitForm(e)
+    }
 
     const onSubmitForm = async (e) => {
         e.preventDefault();
         try {
             const body = { email, password }
-            const response = await fetch("localhost:8000/authentication/login", {
+            const response = await fetch("http://localhost:3000/authentication/login", {
                 method: "POST",
-                headers: { "content-type": "application.json" },
+                headers: { "content-type": "application/json" },
                 body: JSON.stringify(body)
 
             })
             const parseRes = await response.json();
-            if (parseRes.jwtToken) {
-                localStorage.setItem("token", parseRes.jwtToken);
+            console.log(parseRes)
+            if (parseRes.token) {
+                localStorage.setItem("token", parseRes.token);
                 setAuth(true);
             } else {
                 setAuth(false);
@@ -45,7 +50,7 @@ const Login = ({ setAuth }) => {
             Login
         </h1>
 
-        <form  onSubmitForm={onSubmitForm} >
+        <form  >
 
             <input type="text" name="email" value={email} onChange={e => onChange(e)} className="input-field">
 
@@ -55,7 +60,7 @@ const Login = ({ setAuth }) => {
         
             <input type="password"  name="password" value={password} onChange={e => onChange(e)} className="input-field">
              </input>
-            <button className="submit-button"> submit </button>
+            <button onClick={onClick} className="submit-button"> submit </button>
 
         </form>
         <Link to="/register">
