@@ -22,7 +22,9 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
- 
+app.use(express.static("../client/src/dist")); 
+
+
 import studentRoutes from './routes/students.js'
 import userRoutes from './routes/users.js'
 import adminRoutes from './routes/admin.js'
