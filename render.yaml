@@ -3,7 +3,7 @@ services:
     name: production
     runtime: docker
     repo: https://github.com/gschool-blue-ocean/learnlaunchnexus.git
-    branch: production
+    branch: Production
     plan: free
     rootDir: learnlaunchnexus
     dockerCommand: docker compose up --build -f ./docker-compose.yml
