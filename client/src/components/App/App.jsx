@@ -47,16 +47,6 @@ const App = () => {
         path = "/"
         element={(
           !isAuthenticated ? (
-            <Link to="/login" />
-          ) : (
-            <Link to="/dashboard" />
-          )
-        )}
-        />
-        <Route 
-        path = "/login"
-        element={(
-          !isAuthenticated ? (
             <Login setAuth={setAuth} />
           ) : (
             <Link to="/dashboard" />
