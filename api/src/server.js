@@ -1,4 +1,5 @@
 import express from 'express'
+const app = express();
 import cors from 'cors'
 import * as dotenv from "dotenv";
 import pkg from "pg";
@@ -16,7 +17,6 @@ export const pool = new Pool({
 
 
 
-const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
