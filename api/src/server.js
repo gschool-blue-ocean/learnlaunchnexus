@@ -8,9 +8,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
  
-import studentRoutes from './routes/students'
-import userRoutes from './routes/users'
-import adminRoutes from './routes/admin'
+import studentRoutes from './routes/students.js'
+import userRoutes from './routes/users.js'
+import adminRoutes from './routes/admin.js'
 
  app.use('/students', studentRoutes);
  app.use('/users', userRoutes);
