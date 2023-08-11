@@ -70,7 +70,7 @@ const Register = ({setAuth}) => {
             />
             <button className="submit-button">Submit</button>
           </form>
-          <Link to="/login">login</Link>
+          <Link to="/">login</Link>
         </>
       );
 }

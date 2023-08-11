@@ -24,7 +24,7 @@ const App = () => {
 
   const checkAuthenticated = async () => {
     try {
-      const res = await fetch("https://prod-api-b36y.onrender.com:10000/authentication/verify", {
+      const res = await fetch("http://localhost:8000/authentication/verify", {
         method: "GET",
         headers: { jwt_token: localStorage.token }
 
@@ -45,16 +45,6 @@ const App = () => {
       <Routes>
         <Route 
         path = "/"
-        element={(
-          !isAuthenticated ? (
-            <Link to="/login" />
-          ) : (
-            <Link to="/dashboard" />
-          )
-        )}
-        />
-        <Route 
-        path = "/login"
         element={(
           !isAuthenticated ? (
             <Login setAuth={setAuth} />
