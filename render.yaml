@@ -1,4 +1,5 @@
-- type: web
+services:
+  - type: web
   name: production
   runtime: docker
   repo: https://github.com/gschool-blue-ocean/learnlaunchnexus
