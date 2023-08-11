@@ -26,11 +26,12 @@ app.use(express.json());
 import studentRoutes from './routes/students.js'
 import userRoutes from './routes/users.js'
 import adminRoutes from './routes/admin.js'
+import authRoutes from '../auth/auth.js'
 
  app.use('/students', studentRoutes);
  app.use('/users', userRoutes);
  app.use('/admins', adminRoutes);
-
+ app.use('/authentication', authRoutes);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
