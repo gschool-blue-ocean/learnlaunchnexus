@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "deploy": "concurrently  \"npm --prefix ./api run start\"  \"npm --prefix ./client run build && npm --prefix ./client run dev\"",
+    "deploy": "npm --prefix ./api run start",
+    "dev_deploy": "concurrently  \"npm --prefix ./api run start\"  \"npm --prefix ./client run build && npm --prefix ./client run dev\"",
     "lint": "prettier --check .",
     "test": "concurrently \"npm:test:*\"",
     "ci": "npm run lint && npm run test",
