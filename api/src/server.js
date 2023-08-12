@@ -9,7 +9,7 @@ console.log(process.env)
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use('client/src/', express.static("dist")); 
+app.use(express.static("dist")); 
 
 //Routes
 import adminRoutes from './routes/admin.js'
