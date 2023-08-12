@@ -4,6 +4,8 @@ PUT /trackings/:id : Update a status.
 DELETE /trackings/:id : Delete a status.*/
 
 import express from 'express'
+import pool from "../../db.js";
+
 const router = express.Router();
 
 

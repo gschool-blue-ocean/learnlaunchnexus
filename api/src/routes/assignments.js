@@ -5,6 +5,7 @@ PUT /assignments/:id : Update an assignment.
 DELETE /assignments/:id : Delete an assignment.*/
 
 import express from 'express'
+import pool from "../../db.js";
 const router = express.Router();
 
 // Get all assignments
