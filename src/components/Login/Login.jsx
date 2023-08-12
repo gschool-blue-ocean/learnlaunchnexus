@@ -22,7 +22,7 @@ const Login = ({ setAuth }) => {
         try {
             const body = { email, password }
             
-            const response = await fetch(`/authentication/login`, {
+            const response = await fetch(`https://production-learnlaunchnexus.onrender.com/authentication/login`, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(body)

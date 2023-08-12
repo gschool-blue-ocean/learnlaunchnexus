@@ -23,7 +23,7 @@ const App = () => {
 
   const checkAuthenticated = async () => {
     try {
-      const res = await fetch(`/authentication/verify`, {
+      const res = await fetch(`https://production-learnlaunchnexus.onrender.com/authentication/verify`, {
         method: "GET",
         headers: { token: localStorage.token }
 

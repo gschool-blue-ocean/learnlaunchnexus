@@ -17,7 +17,7 @@ const Register = ({setAuth}) => {
         try {
           const body = { email, password, name };
           const response = await fetch(
-            `/authentication/register`,
+            `https://production-learnlaunchnexus.onrender.com/authentication/register`,
             {
               method: "POST",
               headers: {
