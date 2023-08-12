@@ -3,12 +3,12 @@ const app = express();
 import cors from 'cors'
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3010;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static("../../client/src/dist"));
+app.use(express.static("client/src/dist")); 
 
 //Routes
 import adminRoutes from './routes/admin.js'
