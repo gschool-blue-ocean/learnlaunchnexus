@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-
+const api =`${process.env.API}`
 const Login = ({ setAuth }) => {
 
     const [inputs, setInputs] = useState({
@@ -22,7 +22,8 @@ const Login = ({ setAuth }) => {
         e.preventDefault();
         try {
             const body = { email, password }
-            const response = await fetch(`${process.env.API}/authentication/login`, {
+            
+            const response = await fetch(`${api}/authentication/login`, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(body)

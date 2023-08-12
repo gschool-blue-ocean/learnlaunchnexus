@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard"
 import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
-
+const api =`${process.env.API}`
 
 
 
@@ -24,7 +24,7 @@ const App = () => {
 
   const checkAuthenticated = async () => {
     try {
-      const res = await fetch(`${process.env.API}/authentication/verify`, {
+      const res = await fetch(`${api}/authentication/verify`, {
         method: "GET",
         headers: { token: localStorage.token }
 

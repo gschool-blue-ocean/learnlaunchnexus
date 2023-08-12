@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
-
+const api =`${process.env.API}`
 const Register = ({setAuth}) => {
     const [inputs, setInputs] = useState({
         email: "",
@@ -18,7 +18,7 @@ const Register = ({setAuth}) => {
         try {
           const body = { email, password, name };
           const response = await fetch(
-            `${process.env.API}/authentication/register`,
+            `${api}/authentication/register`,
             {
               method: "POST",
               headers: {
