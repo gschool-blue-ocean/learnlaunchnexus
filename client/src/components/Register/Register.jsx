@@ -18,7 +18,7 @@ const Register = ({setAuth}) => {
         try {
           const body = { email, password, name };
           const response = await fetch(
-            "localhost:3000/authentication/register",
+            `${process.env.API}/authentication/register`,
             {
               method: "POST",
               headers: {

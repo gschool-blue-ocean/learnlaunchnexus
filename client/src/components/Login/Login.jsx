@@ -22,7 +22,7 @@ const Login = ({ setAuth }) => {
         e.preventDefault();
         try {
             const body = { email, password }
-            const response = await fetch("http://localhost:3000/authentication/login", {
+            const response = await fetch(`${process.env.API}/authentication/login`, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(body)
@@ -42,7 +42,7 @@ const Login = ({ setAuth }) => {
     }
 
 
-
+    console.log(process.env.API)
     return (
         <>
         <h1 className="login-page">

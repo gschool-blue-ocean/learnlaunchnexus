@@ -24,7 +24,7 @@ const App = () => {
 
   const checkAuthenticated = async () => {
     try {
-      const res = await fetch("http://localhost:3000/authentication/verify", {
+      const res = await fetch(`${process.env.API}/authentication/verify`, {
         method: "GET",
         headers: { token: localStorage.token }
 

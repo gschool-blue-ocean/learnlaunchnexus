@@ -3,7 +3,8 @@ const app = express();
 import cors from 'cors'
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT
+console.log(process.env)
 
 // Middleware
 app.use(cors());
