@@ -59,8 +59,8 @@ app.get('/test', async (req, res) => {
 app.get('/*', function(req,res) {
   try {
     console.log(__filename);
-    console.log(__dirname, '..');
-    res.sendFile(path.join(__dirname + '../dist/index.html'));
+    console.log(path.join(__dirname, '..', '..', 'dist', 'index.html'));
+    res.sendFile('/opt/render/project/src/dist/index.html');
   } catch (error) {
     res.json(error.message)
   }
