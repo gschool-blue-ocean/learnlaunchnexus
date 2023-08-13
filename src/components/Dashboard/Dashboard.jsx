@@ -2,9 +2,9 @@ import React from 'react'
 
 const Dashboard = ({setAuth}) => {
 
-    const onClick = (e) => {
+    const onClick = () => {
         setAuth(false)
-        window.location.href = '../'
+        setTimeout(window.location.href = '../', 3000)
     }
  return (
     <>
