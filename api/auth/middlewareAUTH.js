@@ -6,7 +6,6 @@ dotenv.config();
 export default async (req, res, next) => {
  
     const token = req.header("token");
-    console.log(req.header())
     console.log(token)
     if (!token) {
       return res.status(403).send("not authorized");
@@ -36,6 +35,6 @@ user_id, and we can use that in our routes.
         console.error(err.message);
     console.log("2", err.message);
     console.log("there was a problem");
-    return res.status(403).json(req.header());
+    return res.status(403).json(token);
   }
 };
