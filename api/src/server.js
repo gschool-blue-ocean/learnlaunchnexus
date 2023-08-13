@@ -53,7 +53,13 @@ app.get('/test', async (req, res) => {
 
 
 app.get('/*', function(req,res) {
-		res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  try {
+    console.log(path.join(__dirname, 'dist', 'index.html'))
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  } catch (error) {
+    res.json(error.message)
+  }
+		
 });
 
 // Start Server
