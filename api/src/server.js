@@ -10,7 +10,6 @@ const __dirname = dirname(__filename)
 
 
 const PORT = process.env.PORT
-console.log(process.env)
 
 // Middleware
 app.use(cors());
@@ -60,8 +59,8 @@ app.get('/test', async (req, res) => {
 app.get('/*', function(req,res) {
   try {
     console.log(__filename);
-    console.log(__dirname);
-    res.sendFile(path.join(__dirname + 'dist/index.html'));
+    console.log(__dirname, '..');
+    res.sendFile(path.join(__dirname + '../dist/index.html'));
   } catch (error) {
     res.json(error.message)
   }
