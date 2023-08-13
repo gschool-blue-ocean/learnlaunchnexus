@@ -2,16 +2,19 @@ import React, {useEffect, useState} from 'react';
 
 const Dashboard = ({setAuth}) => {
     const [name, setName] = useState("");
+    const [admin, setAdmin] = useState("");
 
     const getProfile = async () => {
       try {
-        const res = await fetch("https://production-learnlaunchnexus.onrender.com/users", {
+        console.log(email.current)
+        let user_email = email.current
+        const res = await fetch(`https://production-learnlaunchnexus.onrender.com/init/${user_email}`, {
           method: "GET",
-          headers: { token: localStorage.token }
         });
   
         const parseData = await res.json();
-        setName(parseData.user_name);
+        setName(parseData.first_name);
+        setAdmin(parseData.isadmin)
       } catch (err) {
         console.error(err.message);
       }
@@ -22,6 +25,7 @@ const Dashboard = ({setAuth}) => {
       try {
         localStorage.removeItem("token");
         setAuth(false);
+        window.location.href = "../"
       } catch (err) {
         console.error(err.message);
       }

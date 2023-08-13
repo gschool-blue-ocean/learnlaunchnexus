@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./App.module.css";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -10,8 +10,8 @@ import Login from "../Login/Login.jsx"
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const setAuth = boolean => {
+  const email = useRef('');
+  const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   }
 
@@ -45,20 +45,20 @@ const App = () => {
         <Route 
         path = "/"
         element={(
-          !isAuthenticated ? (
-            <Login setAuth={setAuth} />
-          ) : (
+          isAuthenticated ? (
             <Link to="/dashboard" />
+          ) : (
+            <Login setAuth={setAuth} email={email}/>
           )
         )}
         />
         <Route 
         path = "/register"
         element={(
-          !isAuthenticated ? (
-            <Register setAuth={setAuth} />
-          ) : (
+          isAuthenticated ? (
             <Link to="/dashboard" />
+          ) : (
+            <Register setAuth={setAuth} />
           )
         )}
         /> 

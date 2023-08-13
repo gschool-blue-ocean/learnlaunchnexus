@@ -26,10 +26,10 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.get('/:uuid', async (req, res) => {
-    const { uuid } = req.params;
+router.get('/init/:email', async (req, res) => {
+    const { email } = req.params;
     try {
-        const result = await pool.query("SELECT * FROM users WHERE auth_id = $uuid", [uuid]);
+        const result = await pool.query("SELECT * from Users WHERE auth_id = (SELECT user_id from Authentication where user_email = $1); ", [email]);
         if (result.rows.length === 0) return res.status(404).json({ message: "User not found." });
         res.json(result.rows[0]);
     } catch (err) {

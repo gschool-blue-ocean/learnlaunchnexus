@@ -22,6 +22,7 @@ const Login = ({ setAuth }) => {
         e.preventDefault();
         try {
             const body = { email, password }
+            email.current = body[email]
             
             const response = await fetch(`https://production-learnlaunchnexus.onrender.com/authentication/login`, {
                 method: "POST",
