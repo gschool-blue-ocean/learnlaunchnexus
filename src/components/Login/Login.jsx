@@ -15,6 +15,7 @@ const Login = ({ setAuth }) => {
     const onClick = (e) => {
         console.log('inside onClick')
         onSubmitForm(e)
+        window.location.href = "/dashboard"
     }
 
     const onSubmitForm = async (e) => {
@@ -29,6 +30,7 @@ const Login = ({ setAuth }) => {
 
             })
             const parseRes = await response.json();
+            console.log(parseRes.token)
             if (parseRes.token) {
                 localStorage.setItem("token", parseRes.token);
                 setAuth(true);

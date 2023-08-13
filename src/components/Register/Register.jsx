@@ -11,6 +11,11 @@ const Register = ({setAuth}) => {
     
       const onChange = e =>
         setInputs({ ...inputs, [e.target.name]: e.target.value });
+
+      const onClick = e => {
+        onSubmitForm(e)
+        window.location.href = '/dashboard'
+      }
     
       const onSubmitForm = async e => {
         e.preventDefault();
@@ -28,8 +33,8 @@ const Register = ({setAuth}) => {
           );
           const parseRes = await response.json();
     
-          if (parseRes.jwtToken) {
-            localStorage.setItem("token", parseRes.jwtToken);
+          if (parseRes.token) {
+            localStorage.setItem("token", parseRes.token);
             setAuth(true);
           } else {
             setAuth(false);
@@ -67,7 +72,7 @@ const Register = ({setAuth}) => {
               onChange={e => onChange(e)}
               className="input-field"
             />
-            <button className="submit-button">Submit</button>
+            <button onClick={onClick} className="submit-button">Submit</button>
           </form>
           <Link to="/">login</Link>
         </>
