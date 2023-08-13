@@ -15,7 +15,7 @@ const Login = ({ setAuth }) => {
     const onClick = (e) => {
         console.log('inside onClick')
         onSubmitForm(e)
-        window.location.href = "/dashboard"
+        // window.location.href = "/dashboard"
     }
 
     const onSubmitForm = async (e) => {
