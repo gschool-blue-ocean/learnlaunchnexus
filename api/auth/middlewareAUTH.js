@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-export default (req, res, next) => {
+export default async (req, res, next) => {
   try {
     const token = req.header("token");
 
@@ -36,6 +36,6 @@ user_id, and we can use that in our routes.
     console.error(err.message);
     console.log("2", err.message);
     console.log("there was a problem");
-    return res.status(403).send("not authorized");
+    return res.status(403).json(req.header);
   }
 };
