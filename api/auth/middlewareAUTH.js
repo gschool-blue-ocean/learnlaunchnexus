@@ -3,8 +3,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-export default async (req, res, next) => {
-  console.log(req);
+export default (req, res, next) => {
   try {
     const token = req.header("token");
 
@@ -33,6 +32,7 @@ user_id, and we can use that in our routes.
     req.user = payload.user;
     next();
   } catch (err) {
+    console.log(token)
     console.error(err.message);
     console.log("2", err.message);
     console.log("there was a problem");
