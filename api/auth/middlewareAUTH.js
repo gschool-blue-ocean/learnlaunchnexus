@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 export default async (req, res, next) => {
-  try {
+
     const token = req.header("token");
     console.log(req.header)
 
@@ -20,6 +20,7 @@ secret.
     calling this payload because if it is verified it returns a payload we can
 use in our routes
     */
+    try {
     const payload = jwt.verify(token, process.env.SECRET_KEY);
     console.log("1", payload);
 
