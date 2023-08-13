@@ -4,21 +4,21 @@ const Dashboard = ({setAuth}) => {
     const [name, setName] = useState("");
     const [admin, setAdmin] = useState("");
 
-    const getProfile = async () => {
-      try {
-        console.log(email.current)
-        let user_email = email.current
-        const res = await fetch(`https://production-learnlaunchnexus.onrender.com/init/${user_email}`, {
-          method: "GET",
-        });
+    // const getProfile = async () => {
+    //   try {
+    //     console.log(email.current)
+    //     let user_email = email.current
+    //     const res = await fetch(`https://production-learnlaunchnexus.onrender.com/init/${user_email}`, {
+    //       method: "GET",
+    //     });
   
-        const parseData = await res.json();
-        setName(parseData.first_name);
-        setAdmin(parseData.isadmin)
-      } catch (err) {
-        console.error(err.message);
-      }
-    };
+    //     const parseData = await res.json();
+    //     setName(parseData.first_name);
+    //     setAdmin(parseData.isadmin)
+    //   } catch (err) {
+    //     console.error(err.message);
+    //   }
+    // };
   
     const logout = async e => {
       e.preventDefault();
@@ -31,9 +31,9 @@ const Dashboard = ({setAuth}) => {
       }
     };
   
-    useEffect(() => {
-      getProfile();
-    }, []);
+    // useEffect(() => {
+    //   getProfile();
+    // }, []);
   
 // const Dashboard = ({setAuth}) => {
 
