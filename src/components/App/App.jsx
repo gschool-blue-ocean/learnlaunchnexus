@@ -10,7 +10,7 @@ import Login from "../Login/Login.jsx"
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const email = useRef('');
+  // const email = useRef('');
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   }
@@ -23,7 +23,7 @@ const App = () => {
 
   const checkAuthenticated = async () => {
     try {
-      const res = await fetch(`https://production-learnlaunchnexus.onrender.com/authentication/verify`, {
+      const res = await fetch(`http://localhost:10000/authentication/verify`, {
         method: "GET",
         headers: { token: localStorage.token }
 

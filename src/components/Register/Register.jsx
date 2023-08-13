@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
+import "./reg.css"
+
 const Register = ({setAuth}) => {
     const [inputs, setInputs] = useState({
         email: "",
@@ -22,7 +24,7 @@ const Register = ({setAuth}) => {
         try {
           const body = { email, password, name };
           const response = await fetch(
-            `https://production-learnlaunchnexus.onrender.com/authentication/register`,
+            `http://localhost:10000/authentication/register`,
             {
               method: "POST",
               headers: {
@@ -46,35 +48,50 @@ const Register = ({setAuth}) => {
     
       return (
         <>
-          <h1 className="register-page">Register</h1>
+          <diV id='regpage'>
+          <div id='reg'>
+          <img id='logo' src='public/Galvanizelogo.png'></img>
+          <h1 className="mt-5 text-center">Galvanize Services Register</h1>
+          <div id='reginput'>
           <form onSubmit={onSubmitForm}>
+          <h2>Email</h2> 
             <input
               type="text"
               name="email"
               value={email}
               placeholder="email"
               onChange={e => onChange(e)}
-              className="input-field"
+              className="form-control my-3"
             />
-            <input
+                        <br></br>
+            <h2>Password</h2>
+            <input id='input1'
               type="password"
               name="password"
               value={password}
               placeholder="password"
               onChange={e => onChange(e)}
-              className="input-field"
+              className="form-control my-3"
             />
-            <input
+                        <br></br>
+            <h2>Username</h2>
+            <input id='input1'
               type="text"
               name="name"
               value={name}
               placeholder="name"
               onChange={e => onChange(e)}
-              className="input-field"
+              className="form-control my-3"
             />
-            <button onClick={onClick} className="submit-button">Submit</button>
-          </form>
-          <Link to="/">login</Link>
+                        <br></br>
+            <h2></h2>
+            <button id='logbtn' className="btn btn-success btn-block">Register</button>
+            </form>
+          </div>
+          <h2></h2>
+          <Link id='reglin' to="/">Login</Link>
+          </div>
+        </diV>
         </>
       );
 }
