@@ -2,7 +2,7 @@ import express from 'express'
 const app = express();
 import cors from 'cors'
 import pool from '../db.js'
-
+import path from 'path'
 
 const PORT = process.env.PORT
 console.log(process.env)
@@ -51,6 +51,10 @@ app.get('/test', async (req, res) => {
   }
 });
 
+
+app.get('/*', function(req,res) {
+		res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 // Start Server
 const server = app.listen(PORT, () => {
