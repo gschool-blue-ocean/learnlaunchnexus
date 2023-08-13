@@ -3,6 +3,11 @@ const app = express();
 import cors from 'cors'
 import pool from '../db.js'
 import path from 'path'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 
 const PORT = process.env.PORT
 console.log(process.env)
@@ -54,7 +59,8 @@ app.get('/test', async (req, res) => {
 
 app.get('/*', function(req,res) {
   try {
-    console.log(path.join(__dirname))
+    console.log(__filename);
+    console.log(__dirname);
     res.sendFile(path.join(__dirname + 'dist/index.html'));
   } catch (error) {
     res.json(error.message)
