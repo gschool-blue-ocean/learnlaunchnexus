@@ -41,8 +41,6 @@ const Login = ({ setAuth }) => {
         }
     }
 
-
-    console.log(process.env.API)
     return (
         <>
         <h1 className="login-page">

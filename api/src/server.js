@@ -40,6 +40,17 @@ app.use((err, req, res, next) => {
   res.status(500).send('Internal Server Error');
 });
 
+router.get('/test', async (req, res) => {
+  try {
+      const results = await pool.query("SELECT * FROM users");
+      res.json(results.rows);
+  } catch (err) {
+      console.error(err.message);
+      res.status(500).json(err.message);
+  }
+});
+
+
 // Start Server
 const server = app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}!`);
