@@ -40,7 +40,7 @@ app.use((err, req, res, next) => {
   res.status(500).send('Internal Server Error');
 });
 
-router.get('/test', async (req, res) => {
+app.get('/test', async (req, res) => {
   try {
       const results = await pool.query("SELECT * FROM users");
       res.json(results.rows);
