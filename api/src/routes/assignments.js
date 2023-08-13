@@ -1,13 +1,17 @@
+/*GET /assignments : List all assignments.
+GET /assignments/:id : Retrieve a specific assignment.
+POST /assignments : Create a new assignment.
+PUT /assignments/:id : Update an assignment.
+DELETE /assignments/:id : Delete an assignment.*/
+
 import express from 'express'
 import pool from "../../db.js";
 const router = express.Router();
 
- 
-
-// Get all admins
+// Get all assignments
 router.get('/', async (req, res) => {
     try {
-        const results = await pool.query("SELECT * FROM admin");
+        const results = await pool.query("SELECT * FROM assignment");
         res.json(results.rows);
     } catch (err) {
         console.error(err.message);
@@ -15,12 +19,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Get a specific admin by ID
+// Get a specific assignment
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query("SELECT * FROM admin WHERE id = $1", [id]);
-        if (result.rows.length === 0) return res.status(404).json({ message: "Admin not found." });
+        const result = await pool.query("SELECT * FROM assignment WHERE id = $1", [id]);
+        if (result.rows.length === 0) return res.status(404).json({ message: "Assignment not found." });
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
@@ -28,11 +32,11 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// Add a new admin
+// Create a new assignment
 router.post('/', async (req, res) => {
-    const { user_id } = req.body;
+    const { name } = req.body;
     try {
-        const result = await pool.query("INSERT INTO admin (user_id) VALUES ($1) RETURNING *", [user_id]);
+        const result = await pool.query("INSERT INTO assignment (name) VALUES ($1) RETURNING *", [name]);
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
@@ -40,13 +44,13 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Update an admin's details by ID
+// Update an assignment
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
-    const { user_id } = req.body;
+    const { name } = req.body;
     try {
-        const result = await pool.query("UPDATE admin SET user_id = $1 WHERE id = $2 RETURNING *", [user_id, id]);
-        if (result.rows.length === 0) return res.status(404).json({ message: "Admin not found." });
+        const result = await pool.query("UPDATE assignment SET name = $1 WHERE id = $2 RETURNING *", [name, id]);
+        if (result.rows.length === 0) return res.status(404).json({ message: "Assignment not found." });
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
@@ -54,18 +58,16 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// Delete an admin by ID
+// Delete an assignment
 router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        await pool.query("DELETE FROM admin WHERE id = $1", [id]);
-        res.json({ message: "Admin removed successfully." });
+        await pool.query("DELETE FROM assignment WHERE id = $1", [id]);
+        res.json({ message: "Assignment deleted successfully." });
     } catch (err) {
         console.error(err.message);
         res.status(500).send("Server error");
     }
 });
-
-
 
 export default router;

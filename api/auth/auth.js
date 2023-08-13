@@ -1,16 +1,16 @@
-import authorization from "middlewareAUTH.js";
-import jwtGenerator from "JWT.js";
-import validInfo from "middlewareValidInfo.js";
-import pool from "../src/server.js";
+import middlewareAUTH from "./middlewareAUTH.js";
+import jwtGenerator from "./jwtGenerator.js";
+import middlewareValidInfo from "./middlewareValidInfo.js";
+import pool from "../db.js";
 import express from "express";
 import bcrypt from "bcrypt";
 const router = express.Router();
 
-router.post("/register", validInfo, async (req, res) => {
+router.post("/register", middlewareValidInfo, async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const user = await pool.query("SELECT * FROM authentication WHERE user_email = $1", [
-      email,
+      email
     ]);
 
     if (user.rows.length !== 0) {
@@ -35,7 +35,7 @@ router.post("/register", validInfo, async (req, res) => {
   }
 });
 
-router.post("/login", validInfo, async (req, res) => {
+router.post("/login", middlewareValidInfo, async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -65,7 +65,7 @@ router.post("/login", validInfo, async (req, res) => {
   }
 });
 
-router.get("/verify", authorization, async (req, res) => {
+router.get("/verify", middlewareAUTH, async (req, res) => {
   try {
     console.log(req)
     return res.json(true);
