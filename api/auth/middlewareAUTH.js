@@ -4,10 +4,10 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 export default async (req, res, next) => {
-
+ 
     const token = req.header("token");
-    console.log(req.header)
-
+    console.log(req.header())
+    console.log(token)
     if (!token) {
       return res.status(403).send("not authorized");
     }
@@ -20,7 +20,7 @@ secret.
     calling this payload because if it is verified it returns a payload we can
 use in our routes
     */
-    try {
+ try {
     const payload = jwt.verify(token, process.env.SECRET_KEY);
     console.log("1", payload);
 
@@ -33,10 +33,9 @@ user_id, and we can use that in our routes.
     req.user = payload.user;
     next();
   } catch (err) {
-    console.log(token)
-    console.error(err.message);
+        console.error(err.message);
     console.log("2", err.message);
     console.log("there was a problem");
-    return res.status(403).json(req.header);
+    return res.status(403).json(req.header());
   }
 };
