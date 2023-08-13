@@ -4,7 +4,7 @@ const Dashboard = ({setAuth}) => {
 
     const onClick = (e) => {
         setAuth(false)
-        window.location.href = '../login'
+        window.location.href = '../'
     }
  return (
     <>

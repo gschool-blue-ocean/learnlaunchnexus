@@ -68,7 +68,7 @@ const App = () => {
           isAuthenticated ? (
             <Dashboard setAuth={setAuth} />
           ) : (
-            <Link to="/login" />
+            <Link to="/" />
           )
         )}
         /> 
