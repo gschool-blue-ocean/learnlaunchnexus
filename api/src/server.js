@@ -1,6 +1,7 @@
 import express from 'express'
 const app = express();
 import cors from 'cors'
+import pool from '../db.js'
 
 
 const PORT = process.env.PORT
