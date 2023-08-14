@@ -48,7 +48,7 @@ const App = () => {
           isAuthenticated ? (
             <Link to="/dashboard" />
           ) : (
-            <Login setAuth={setAuth} email={email}/>
+            <Login setAuth={setAuth}/>
           )
         )}
         />
