@@ -17,6 +17,7 @@ const Register = ({setAuth}) => {
 
       const onClick = e => {
         onSubmitForm(e)
+
         window.location.href = '/dashboard'
       }
     
