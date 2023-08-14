@@ -73,7 +73,7 @@ const Login = ({ setAuth }) => {
                     />
                     <br></br>
                     <h2></h2>
-                    <button onclick={onClick(e)} id='logbtn' className="btn btn-success btn-block">Login</button>
+                    <button onClick={onClick(e)} id='logbtn' className="btn btn-success btn-block">Login</button>
                   </form>
                   <br></br>
                   </div>

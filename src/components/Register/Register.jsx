@@ -85,7 +85,7 @@ const Register = ({setAuth}) => {
             />
                         <br></br>
             <h2></h2>
-            <button id='logbtn' className="btn btn-success btn-block">Register</button>
+            <button id='logbtn' onClick={onClick} className="btn btn-success btn-block">Register</button>
             </form>
           </div>
           <h2></h2>
