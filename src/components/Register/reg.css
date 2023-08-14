@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+#regpage {
+    background-color: #f1f1f1;
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    text-align: center;
+    margin: 0px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#reg {
+    margin: auto;
+    position: absolute;
+    top: 18%;
+    left: 20%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+    background-color: white;
+}
+
+#reginput {
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 2%;
+    left: 1%;
+    width: 95%;
+    background-color: darkgrey;
+    position: relative;
+    right: 10%;
+}
+

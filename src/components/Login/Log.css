@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+#logpage {
+    background-color: #f1f1f1;
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    text-align: center;
+    margin: 0px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#log {
+    margin: auto;
+    position: absolute;
+    top: 18%;
+    left: 28%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+    background-color: white;
+}
+
+#loginput {
+    padding-left: 12%;
+    padding-right: 18%;
+    width: 90%;
+    background-color: darkgrey;
+    position: relative;
+    right: 10%;
+}
+
+#galhead {
+    color: darkblue;
+}
+
+#logo {
+    width: 10%;
+    top: 13%;
+    left: 5%;
+    position: absolute;
+}
+
+#logbtn {
+    background-color: inherit;
+    background-color: rgb(62, 190, 178);
+    padding-left: 35%;
+    padding-right: 35%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#logbtn:hover {
+    background-color: rgb(82, 158, 150);
+}
+
+#reglin {
+    background-color: rgb(62, 190, 178);
+    border: 1px solid black;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+#reglin:hover {
+    background-color: rgb(82, 158, 150);
+}
+
+#input1 {
+    background-color: rgb(217, 232, 252);
+}
+
+#input2 {
+    background-color: rgb(217, 232, 252);
+}
+
+
+
