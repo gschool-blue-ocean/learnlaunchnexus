@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
  import "./reg.css"
-// import dotenv from 'dotenv'
-// dotenv.config()
+//  import * as dotenv from "dotenv";
+//  dotenv.config()
 const Register = ({setAuth}) => {
     const [inputs, setInputs] = useState({
         email: "",
@@ -25,7 +25,7 @@ const Register = ({setAuth}) => {
         try {
           const body = { email, password, name };
           const response = await fetch(
-            `http://localhost:10017/authentication/register`,
+            `${import.meta.env.VITE_API}/authentication/register`,
             {
               method: "POST",
               headers: {

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-// import dotenv from 'dotenv'
-// dotenv.config()
+// import * as dotenv from "dotenv";
+
 import './Log.css'
+// dotenv.config();
 const Login = ({ setAuth }) => {
 
     const [inputs, setInputs] = useState({
@@ -26,7 +27,7 @@ const Login = ({ setAuth }) => {
         e.preventDefault();
         try {
             const body = { email, password }
-            const response = await fetch(`http://localhost:10017/authentication/login`, {
+            const response = await fetch(`${import.meta.env.VITE_API}/authentication/login`, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(body)
