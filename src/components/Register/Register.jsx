@@ -52,11 +52,11 @@ const Register = ({setAuth}) => {
           <diV id='regpage'>
           <div id='reg'>
           <img id='logo' src='public/Galvanizelogo.png'></img>
-          <h1 className="mt-5 text-center">Galvanize Services Register</h1>
+          <h1 id='reghead' className="mt-5 text-center">Galvanize Services Register</h1>
           <div id='reginput'>
           <form onSubmit={onSubmitForm}>
           <h2>Email</h2> 
-            <input
+            <input id='input1'
               type="text"
               name="email"
               value={email}
@@ -86,11 +86,13 @@ const Register = ({setAuth}) => {
             />
                         <br></br>
             <h2></h2>
-            <button id='logbtn' onClick={onClick} className="btn btn-success btn-block">Register</button>
+            <button id='regbtn' onClick={onClick} className="btn btn-success btn-block">Register</button>
             </form>
           </div>
           <h2></h2>
-          <Link id='reglin' to="/">Login</Link>
+          <Link to="/">
+          <button id='loglin' >Login</button>
+          </Link>
           </div>
         </diV>
         </>
