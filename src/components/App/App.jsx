@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard"
 import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
-// import dotenv from 'dotenv'
-// dotenv.config()
+// import * as dotenv from "dotenv";
+// dotenv.config();
 
 
 
@@ -25,7 +25,7 @@ const App = () => {
 
   const checkAuthenticated = async () => {
     try {
-      const res = await fetch(`http://localhost:10017/authentication/verify`, {
+      const res = await fetch(`${import.meta.env.VITE_API}/authentication/verify`, {
         method: "GET",
         headers: { token: localStorage.token }
 
