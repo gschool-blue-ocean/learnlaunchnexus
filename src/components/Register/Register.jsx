@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
+import galvanizelogo from './assets/galvanizelogo.png'
  import "./reg.css"
 //  import * as dotenv from "dotenv";
 //  dotenv.config()
@@ -51,7 +52,7 @@ const Register = ({setAuth}) => {
         <>
           <diV id='regpage'>
           <div id='reg'>
-          <img id='logo' src='public/Galvanizelogo.png'></img>
+          <img id='logo' src={galvanizelogo}></img>
           <h1 className="mt-5 text-center">Galvanize Services Register</h1>
           <div id='reginput'>
           <form onSubmit={onSubmitForm}>
