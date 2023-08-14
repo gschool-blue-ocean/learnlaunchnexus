@@ -5,8 +5,8 @@ import pool from '../db.js'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
-// const __filename = fileURLToPath(import.meta.url)
-// const __dirname = dirname(__filename)
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 
 const PORT = process.env.PORT
@@ -60,8 +60,8 @@ app.get('/*', function(req,res) {
   try {
     console.log(__filename);
     console.log(path.join(__dirname, 'dist', 'index.html'));
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'))
-    //res.sendFile('/opt/render/project/src/dist/index.html');
+    // res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+    res.sendFile('/opt/render/project/src/dist/index.html');
   } catch (error) {
     res.json(error.message)
   }
