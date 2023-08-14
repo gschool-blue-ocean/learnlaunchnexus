@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
-import "./reg.css"
-
+ import "./reg.css"
+// import dotenv from 'dotenv'
+// dotenv.config()
 const Register = ({setAuth}) => {
     const [inputs, setInputs] = useState({
         email: "",
@@ -24,7 +25,7 @@ const Register = ({setAuth}) => {
         try {
           const body = { email, password, name };
           const response = await fetch(
-            `http://localhost:10000/authentication/register`,
+            `http://localhost:10017/authentication/register`,
             {
               method: "POST",
               headers: {

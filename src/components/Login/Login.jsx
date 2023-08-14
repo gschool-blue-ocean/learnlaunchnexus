@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+// import dotenv from 'dotenv'
+// dotenv.config()
 import './Log.css'
 const Login = ({ setAuth }) => {
 
@@ -24,8 +26,7 @@ const Login = ({ setAuth }) => {
         e.preventDefault();
         try {
             const body = { email, password }
-            
-            const response = await fetch(`http://localhost:10000/authentication/login`, {
+            const response = await fetch(`http://localhost:10017/authentication/login`, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(body)
@@ -73,7 +74,7 @@ const Login = ({ setAuth }) => {
                     />
                     <br></br>
                     <h2></h2>
-                    <button onClick={onClick(e)} id='logbtn' className="btn btn-success btn-block">Login</button>
+                    <button onClick={onClick} id='logbtn' className="btn btn-success btn-block">Login</button>
                   </form>
                   <br></br>
                   </div>
