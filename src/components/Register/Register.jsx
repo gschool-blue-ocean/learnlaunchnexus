@@ -51,7 +51,7 @@ const Register = ({setAuth}) => {
         <>
           <diV id='regpage'>
           <div id='reg'>
-          <img id='logo' src='public/Galvanizelogo.png'></img>
+          <img id='logo' src='src/public/galvanizelogo.png'></img>
           <h1 className="mt-5 text-center">Galvanize Services Register</h1>
           <div id='reginput'>
           <form onSubmit={onSubmitForm}>
