@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import AppContext from "../App/AppContext";
+
 // import * as dotenv from "dotenv";
 
 import './Log.css'
 // dotenv.config();
-const Login = ({ setAuth }) => {
-    const { userEmail, setUserEmail, user, setUser } = useContext(AppContext);
+const Login = ({ setAuth, setEmail, userEmail}) => {
+
     const [inputs, setInputs] = useState({
         email: "",
         password: "",
@@ -28,9 +28,6 @@ const Login = ({ setAuth }) => {
         e.preventDefault();
         try {
             
-            setUserEmail(email)
-            console.log(`email in the form is ${email}`);
-            console.log(`useContext userEmail is ${userEmail}`);
             const body = { email, password }
             const response = await fetch(`${import.meta.env.VITE_API}/authentication/login`, {
                 method: "POST",
@@ -42,8 +39,12 @@ const Login = ({ setAuth }) => {
             console.log(parseRes.token)
             if (parseRes.token) {
                 localStorage.setItem("token", parseRes.token);
-                setAuth(true);
-                window.location.href = "/dashboard"
+                    setAuth(true);
+                    setEmail(`${email}`)
+                    console.log(`email in the form is ${email}`);
+                    console.log(`useState userEmail is ${userEmail}`);
+                    window.location.href = "/dashboard"
+
             } else {
                 setAuth(false);
             }

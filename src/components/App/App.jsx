@@ -1,17 +1,22 @@
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./App.module.css";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard"
 import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
-import { AppProvider } from "./AppContext.jsx";
+
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
   // const email = useRef('');
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
+  }
+
+  const setEmail = (str) => {
+    setUserEmail(str);
   }
 
 
@@ -39,7 +44,7 @@ const App = () => {
 
   return (   
     <Router>
-      <AppProvider>
+    
       <div className="container" >
       <Routes>
         <Route 
@@ -48,7 +53,7 @@ const App = () => {
           isAuthenticated ? (
             <Link to="/dashboard" />
           ) : (
-            <Login setAuth={setAuth}/>
+            <Login setAuth={setAuth} setEmail={setEmail} userEmail={userEmail}/>
           )
         )}
         />
@@ -58,7 +63,7 @@ const App = () => {
           isAuthenticated ? (
             <Link to="/dashboard" />
           ) : (
-            <Register setAuth={setAuth} />
+            <Register setAuth={setAuth} setEmail={setEmail} userEmail={userEmail}/>
           )
         )}
         /> 
@@ -76,7 +81,7 @@ const App = () => {
       </Routes>
 
       </div>
-      </AppProvider>
+
     </Router>  
   )
   

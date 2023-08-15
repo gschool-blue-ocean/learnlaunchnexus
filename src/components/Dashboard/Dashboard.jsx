@@ -1,13 +1,9 @@
-import React, {useEffect, useState, useContext} from 'react';
-import AppContext from "../App/AppContext";
+import React, {useEffect, useState} from 'react';
 
-const Dashboard = ({setAuth}) => {
+const Dashboard = ({setAuth, email}) => {
     const [name, setName] = useState("");
     const [admin, setAdmin] = useState("");
 
-    const { userEmail, setUserEmail, user, setUser } = useContext(AppContext);
- 
-  
     const logout = async e => {
       e.preventDefault();
       try {
@@ -25,7 +21,7 @@ const Dashboard = ({setAuth}) => {
       <div>
         <h1 className="dashboard-page">Dashboard</h1>
         <h2>Welcome {name}</h2>
-        <h3>Your email per useContext is {userEmail}</h3>
+        <h3>Your email is {email}</h3>
         <button onClick={e => logout(e)} className="logout-button">
           Logout
         </button>

@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
  import "./reg.css"
 //  import * as dotenv from "dotenv";
 //  dotenv.config()
-const Register = ({setAuth}) => {
+const Register = ({setAuth,setEmail,userEmail}) => {
     const [inputs, setInputs] = useState({
         email: "",
         password: "",
@@ -40,6 +40,10 @@ const Register = ({setAuth}) => {
           if (parseRes.token) {
             localStorage.setItem("token", parseRes.token);
             setAuth(true);
+            setEmail(email)
+            console.log(`email in the form is ${email}`);
+            console.log(`useContext userEmail is ${userEmail}`);
+            window.location.href = "/dashboard"
           } else {
             setAuth(false);
           }
