@@ -36,7 +36,7 @@ getProfile(EMAIL)
 
     return (
       <div>
-        <Header   />
+        <Header admin={admin} />
         <h1 className="dashboard-page">Dashboard</h1>
         <h2>Welcome {name}</h2>
         <h3>Your email is {EMAIL}</h3>

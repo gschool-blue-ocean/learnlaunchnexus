@@ -4,8 +4,11 @@ import styles from './Header.module.css';
 import settings from './settings-gear.svg'
 import galvanizelogo from '../login/assets/galvanizelogo.png'
 import AssignmentModal from '../modal/AssignmentModal.jsx'
+import SettingDropdown from './SettingDropdown';
 
-const Header = () => {
+
+
+const Header = ({ getProfile, admin }) => {
 
     const [name, setName] = useState(""); // State for user's name
     const [assignment, setAssignment] = useState(""); // State for assignment data
@@ -73,7 +76,8 @@ const Header = () => {
                     <li><Link to="/Contact-us"><a href="mailto:email@example.com">Contact Us</a>
                     </Link></li>
 
-                    <img className={styles.id} src={settings} ></img>
+                    {/* <img className={styles.id} src={settings} ></img> */}
+                    <SettingDropdown admin={admin}/>
                     <button className={styles.logbtn}>Log Out</button>
                 </ul>
                 
