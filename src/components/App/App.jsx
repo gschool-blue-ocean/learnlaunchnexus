@@ -7,6 +7,7 @@ import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
 
 
+
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userEmail, setUserEmail] = useState('');
@@ -42,7 +43,7 @@ const App = () => {
     }
   }
 
-  return (   
+  return (
     <Router>
     
       <div className="container" >
@@ -78,13 +79,13 @@ const App = () => {
         )}
         /> 
 
-      </Routes>
+        </Routes>
 
       </div>
 
     </Router>  
   )
-  
+
 
 };
 
