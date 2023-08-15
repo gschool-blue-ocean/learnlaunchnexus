@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {reactLocalStorage, reactlocalstorage} from 'reactjs-localstorage'
+import Header from "../global/global.jsx";
 import Admin from '../admin/Admin.jsx'
 import Student from '../student/Student.jsx'
+
 
 const Dashboard = ({setAuth, userEmail}) => {
     const [name, setName] = useState("");
@@ -46,6 +47,7 @@ getProfile(EMAIL)
       <div><h1>HORIZONTAL CONTAINER</h1>
       <div> <h1>View container</h1>
       <div>
+        <Header admin={admin} />
         <h1 className="dashboard-page">Dashboard</h1>
         <h2>Welcome {name}</h2>
         <h3>Your email is {EMAIL}</h3>
