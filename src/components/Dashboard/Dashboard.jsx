@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Header from "../global/global.jsx";
+import Header from "../global/Header.jsx";
 import Admin from '../admin/Admin.jsx'
 import Student from '../student/Student.jsx'
 
