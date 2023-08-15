@@ -56,17 +56,17 @@ app.get('/test', async (req, res) => {
 });
 
 
-// app.get('/*', function(req,res) {
-//   try {
-//     console.log(__filename);
-//     console.log(path.join(__dirname, '..', '..', 'dist', 'index.html'));
-//     // res.sendFile(path.join(__dirname, 'dist', 'index.html'))
-//     res.sendFile(path.join(__dirname, '..', '..', 'dist', 'index.html'));
-//   } catch (error) {
-//     res.json(error.message)
-//   }
+app.get('/*', function(req,res) {
+  try {
+    console.log(__filename);
+    console.log(path.join(__dirname, '..', '..', 'dist', 'index.html'));
+    // res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+    res.sendFile(path.join(__dirname, '..', '..', 'dist', 'index.html'));
+  } catch (error) {
+    res.json(error.message)
+  }
 		
-//  });
+ });
 
 // Start Server
 const server = app.listen(PORT, () => {
