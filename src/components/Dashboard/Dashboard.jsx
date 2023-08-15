@@ -6,6 +6,7 @@ import Student from '../student/Student.jsx'
 const Dashboard = ({setAuth, userEmail}) => {
     const [name, setName] = useState("");
     const [admin, setAdmin] = useState("");
+    let USER_ID;
 
 
     const getProfile = async (EMAIL) => {
@@ -17,6 +18,7 @@ const Dashboard = ({setAuth, userEmail}) => {
           const parseData = await res.json();
           setName(parseData.first_name);
           setAdmin(parseData.isadmin)
+          USER_ID=parseData.id
           return parseData
         } catch (err) {
           console.error(err.message);
@@ -49,8 +51,8 @@ getProfile(EMAIL)
           Logout
         </button>
       </div>
-       {admin && <Admin></Admin>} 
-       {!admin && <Student></Student>} 
+       {admin && <Admin USER_ID={USER_ID}></Admin>} 
+       {!admin && <Student USER_ID={USER_ID}></Student>} 
        </div>
        <div><h1>VERTICAL CONTAINER</h1>
        <div><h1>CALENDER</h1></div>
