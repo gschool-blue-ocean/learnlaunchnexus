@@ -6,6 +6,26 @@ import express from "express";
 import bcrypt from "bcrypt";
 const router = express.Router();
 
+router.post("/updatePass/:pass", middlewareValidInfo, async (req, res) => {
+  try {
+    
+
+    const saltRounds = 10;
+    const salt = await bcrypt.genSalt(saltRounds);
+    const bcryptPassword = await bcrypt.hash(req.params.pass , salt);
+
+    const newUser = await pool.query(
+      "UPDATE authentication SET user_password = $2 WHERE user_password = $1 returning *", [req.params.pass,bcryptPassword],
+    );
+
+    return res.json( newUser.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send(err.message);
+  }
+});
+
+
 router.post("/register", middlewareValidInfo, async (req, res) => {
   try {
     const { name, email, password } = req.body;
