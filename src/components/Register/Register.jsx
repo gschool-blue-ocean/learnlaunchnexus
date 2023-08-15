@@ -58,7 +58,7 @@ const Register = ({setAuth,setEmail,userEmail}) => {
           <diV id='regpage'>
           <div id='reg'>
 
-          <img id='logo' src={galvanizelogo></img>
+          <img id='logo' src={galvanizelogo}></img>
           <h1 id='reghead' className="mt-5 text-center">Galvanize Services Register</h1>
 
 
