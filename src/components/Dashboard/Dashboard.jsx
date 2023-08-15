@@ -47,7 +47,7 @@ getProfile(EMAIL)
       <div><h1>HORIZONTAL CONTAINER</h1>
       <div> <h1>View container</h1>
       <div>
-        <Header admin={admin} />
+        <Header admin={admin} USER_ID={USER_ID} />
         <h1 className="dashboard-page">Dashboard</h1>
         <h2>Welcome {name}</h2>
         <h3>Your email is {EMAIL}</h3>

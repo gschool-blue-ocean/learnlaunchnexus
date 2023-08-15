@@ -28,6 +28,46 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.get('/special/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await pool.query(
+            `SELECT 
+            u.id AS user_id_number,
+            a.user_email,
+            u.first_name,
+            u.last_name,
+            s.location,
+            COALESCE(json_agg(
+                json_build_object(
+                    'assignment_id', ass.id,
+                    'assignment_name', ass.name
+                )
+            ) FILTER (WHERE ass.id IS NOT NULL), '[]') AS assignments
+        FROM
+            authentication AS a
+            JOIN users AS u ON a.user_id = u.auth_id
+            LEFT JOIN student AS s ON u.id = s.user_id
+            LEFT JOIN submission AS sub ON s.id = sub.student_id
+            LEFT JOIN assignment AS ass ON sub.assignment_id = ass.id
+        WHERE
+            s.id = $1
+        GROUP BY 
+            u.id, a.user_email, u.first_name, u.last_name, s.location`,
+            [id]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ message: "Student not found." });
+        }
+
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server error");
+    }
+});
+
 // Add a new admin
 router.post('/', async (req, res) => {
     const { user_id } = req.body;

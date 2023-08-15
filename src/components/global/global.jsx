@@ -5,10 +5,12 @@ import settings from './settings-gear.svg'
 import galvanizelogo from '../login/assets/galvanizelogo.png'
 // import AssignmentModal from '../modal/AssignmentModal.jsx'
 import SettingDropdown from './SettingDropdown';
+import UpdateEmailForm from './UpdateEmailForm.jsx'
+import UpdateLocationForm from './UpdateLocationForm.jsx'
+import UpdateDesiredLocationForm from './UpdateDesiredLocationForm.jsx'
 
 
-
-const Header = ({ getProfile, admin }) => {
+const Header = ({ USER_ID, admin }) => {
 
     const [name, setName] = useState(""); // State for user's name
     // const [assignment, setAssignment] = useState([]); // State for assignment data
@@ -24,7 +26,7 @@ const Header = ({ getProfile, admin }) => {
 
             const parseData = await res.json();
             console.log(parseData);
-            return `${parseData.first_name} ${parseData.last_name} ${parseData.id}`;
+            return `${parseData.first_name} ${parseData.last_name}  `;
         } catch (err) {
             console.error(err.message);
         }
@@ -42,32 +44,14 @@ const Header = ({ getProfile, admin }) => {
         fetchData(); // Fetch user's name
     }, [EMAIL]);
 
-    // Define the fetchAssignmentData function
-    // const fetchAssignmentData = async (userId) => {
-    //     try {
-    //         const res = await fetch(`${import.meta.env.VITE_API}/submission/student/${userId}`, {
-    //             method: "GET",
-    //         });
-
-    //         const parseData2 = await res.json();
-    //         console.log(parseData2);
-    //         setAssignment(parseData2); // Set assignment data
-    //     } catch (err) {
-    //         console.error(err.message);
-    //     }
-    // };
-
-    // const openModal = () => {
-    //     console.log('Opening modal');
-    //     setIsModalOpen(true);
-    // };
-    
+     
  
     return (
         <header className={styles.appheader}>
             <h1 className={styles.apptitle}>{name}</h1>
-            {/* <a onClick={openModal}>Show Assignments</a> */}
-             
+            <button><UpdateEmailForm/></button>
+            <button><UpdateLocationForm USER_ID={USER_ID} /></button>
+            <button><UpdateDesiredLocationForm USER_ID={USER_ID} /></button>
 
             <img className={styles.galvanize_logo} src={galvanizelogo} ></img>
             <nav className={styles.navmenu}>
@@ -82,7 +66,6 @@ const Header = ({ getProfile, admin }) => {
                 </ul>
                 
             </nav>
-            {/* <AssignmentModal isOpen={isOpen} onRequestClose={() => setIsModalOpen(false)} assignments={assignment} /> */}
          </header>
         
     );
