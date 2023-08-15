@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
         res.json(results.rows);
     } catch (err) {
         console.error(err.message);
-        res.status(500).send("Server error");
+        res.status(500).json(err.message);
     }
 });
 
@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
-        res.status(500).send("Server error");
+        res.status(500).json(err.message);
     }
 });
 
@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
-        res.status(500).send("Server error");
+        res.status(500).json(err.message);
     }
 });
 
@@ -54,7 +54,7 @@ router.put('/:id', async (req, res) => {
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
-        res.status(500).send("Server error");
+        res.status(500).json(err.message);
     }
 });
 
@@ -66,7 +66,7 @@ router.delete('/:id', async (req, res) => {
         res.json({ message: "Assignment deleted successfully." });
     } catch (err) {
         console.error(err.message);
-        res.status(500).send("Server error");
+        res.status(500).json(err.message);
     }
 });
 
