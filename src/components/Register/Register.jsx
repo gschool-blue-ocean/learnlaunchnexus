@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
-import galvanizelogo from './assets/galvanizelogo.png'
+import galvanizelogo from '/assets/galvanizelogo.png'
  import "./reg.css"
 //  import * as dotenv from "dotenv";
 //  dotenv.config()
@@ -57,12 +57,15 @@ const Register = ({setAuth,setEmail,userEmail}) => {
         <>
           <diV id='regpage'>
           <div id='reg'>
-          <img id='logo' src={galvanizelogo}></img>
-          <h1 className="mt-5 text-center">Galvanize Services Register</h1>
+
+          <img id='logo' src={galvanizelogo></img>
+          <h1 id='reghead' className="mt-5 text-center">Galvanize Services Register</h1>
+
+
           <div id='reginput'>
           <form onSubmit={onSubmitForm}>
           <h2>Email</h2> 
-            <input
+            <input id='input1'
               type="text"
               name="email"
               value={email}
@@ -92,11 +95,13 @@ const Register = ({setAuth,setEmail,userEmail}) => {
             />
                         <br></br>
             <h2></h2>
-            <button id='logbtn' onClick={onClick} className="btn btn-success btn-block">Register</button>
+            <button id='regbtn' onClick={onClick} className="btn btn-success btn-block">Register</button>
             </form>
           </div>
           <h2></h2>
-          <Link id='reglin' to="/">Login</Link>
+          <Link to="/">
+          <button id='loglin' >Login</button>
+          </Link>
           </div>
         </diV>
         </>
