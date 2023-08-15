@@ -45,7 +45,7 @@ router.get('/student/:id', async (req, res) => {
         res.status(500).json(err.message);
     }
 });
-
+/*
 router.get('/student/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -57,7 +57,7 @@ router.get('/student/:id', async (req, res) => {
         res.status(500).send("Server error");
     }
 });
-
+*/
 
 
 // Create a new submission
