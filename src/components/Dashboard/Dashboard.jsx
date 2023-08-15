@@ -7,7 +7,7 @@ const Dashboard = ({setAuth, userEmail}) => {
 
     const getProfile = async (EMAIL) => {
         try {
-          const res = await fetch(`${import.meta.env.VITE_API}/init/${EMAIL}`, {
+          const res = await fetch(`${import.meta.env.VITE_API}/users/init/${EMAIL}`, {
             method: "GET",
           });
   
