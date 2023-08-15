@@ -9,6 +9,7 @@ const SettingDropdown = ({admin}) => {
 
     const handleSelect = (menu) => {
         setSelectedOption(menu);
+        console.log(menu)
     }
     
     if(admin === true) {
