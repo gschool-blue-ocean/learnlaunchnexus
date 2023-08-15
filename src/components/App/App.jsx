@@ -7,13 +7,18 @@ import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
 
 
-
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const email = useRef('');
+  const [userEmail, setUserEmail] = useState('');
+  // const email = useRef('');
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   }
+
+  const setEmail = (str) => {
+    setUserEmail(str);
+  }
+
 
   useEffect(() => {
     checkAuthenticated()
@@ -23,7 +28,7 @@ const App = () => {
 
   const checkAuthenticated = async () => {
     try {
-      const res = await fetch(`https://production-learnlaunchnexus.onrender.com/authentication/verify`, {
+      const res = await fetch(`${import.meta.env.VITE_API}/authentication/verify`, {
         method: "GET",
         headers: { token: localStorage.token }
 
@@ -39,7 +44,7 @@ const App = () => {
 
   return (   
     <Router>
-
+    
       <div className="container" >
       <Routes>
         <Route 
@@ -48,7 +53,7 @@ const App = () => {
           isAuthenticated ? (
             <Link to="/dashboard" />
           ) : (
-            <Login setAuth={setAuth} email={email}/>
+            <Login setAuth={setAuth} setEmail={setEmail} userEmail={userEmail}/>
           )
         )}
         />
@@ -58,7 +63,7 @@ const App = () => {
           isAuthenticated ? (
             <Link to="/dashboard" />
           ) : (
-            <Register setAuth={setAuth} />
+            <Register setAuth={setAuth} setEmail={setEmail} userEmail={userEmail}/>
           )
         )}
         /> 
@@ -66,7 +71,7 @@ const App = () => {
         path = "/dashboard"
         element={(
           isAuthenticated ? (
-            <Dashboard setAuth={setAuth} />
+            <Dashboard setAuth={setAuth} userEmail={userEmail}/>
           ) : (
             <Link to="/" />
           )
@@ -76,6 +81,7 @@ const App = () => {
       </Routes>
 
       </div>
+
     </Router>  
   )
   
