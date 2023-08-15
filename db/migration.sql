@@ -71,6 +71,7 @@ CREATE TABLE tracking (
 CREATE TABLE submission (
     id SERIAL PRIMARY KEY,
     info TEXT,
+    feedback TEXT,
     submission_time TIMESTAMP,
     student_id INT REFERENCES student(id) ON DELETE CASCADE,
     assignment_id INT REFERENCES assignment(id) ON DELETE CASCADE,

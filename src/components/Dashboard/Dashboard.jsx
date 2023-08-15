@@ -1,9 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import Header from "../global/global.jsx";
+import Admin from '../admin/Admin.jsx'
+import Student from '../student/Student.jsx'
 
-const Dashboard = ({setAuth}) => {
+
+const Dashboard = ({setAuth, userEmail}) => {
     const [name, setName] = useState("");
     const [admin, setAdmin] = useState("");
+    const [USER_ID, setUSER_ID] = useState(0)
 
 
     const getProfile = async (EMAIL) => {
@@ -15,6 +19,9 @@ const Dashboard = ({setAuth}) => {
           const parseData = await res.json();
           setName(parseData.first_name);
           setAdmin(parseData.isadmin)
+          setUSER_ID(parseData.id)
+          console.log('fulldata', parseData)
+          console.log('user_id', USER_ID)
           return parseData
         } catch (err) {
           console.error(err.message);
@@ -34,16 +41,31 @@ const Dashboard = ({setAuth}) => {
 const EMAIL = JSON.parse(localStorage.getItem('email'))
 getProfile(EMAIL)
 
-    return (
+    return (<>
+      
+      <div><h1>HEADER</h1></div>
+      <div><h1>HORIZONTAL CONTAINER</h1>
+      <div> <h1>View container</h1>
       <div>
         <Header admin={admin} />
         <h1 className="dashboard-page">Dashboard</h1>
         <h2>Welcome {name}</h2>
         <h3>Your email is {EMAIL}</h3>
+        <h3>Your id is {USER_ID}</h3>
         <button onClick={e => logout(e)} className="logout-button">
           Logout
         </button>
       </div>
+       {admin && <Admin USER_ID={USER_ID}></Admin>} 
+       {!admin && <Student USER_ID={USER_ID}></Student>} 
+       </div>
+       <div><h1>VERTICAL CONTAINER</h1>
+       <div><h1>CALENDER</h1></div>
+       <div><h1>TODO LIST</h1></div>
+       </div>
+       </div>
+       <div><h1>FOOTER</h1></div>
+      </>
     );
 }
 
