@@ -53,7 +53,7 @@ getProfile(EMAIL)
        {!admin && <Student></Student>} 
        </div>
        <div><h1>VERTICAL CONTAINER</h1>
-       <div><h1>CALANDER</h1></div>
+       <div><h1>CALENDER</h1></div>
        <div><h1>TODO LIST</h1></div>
        </div>
        </div>
