@@ -1,12 +1,8 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import {reactlocalstorage} from 'reactjs-localstorage'
-
-// import * as dotenv from "dotenv";
-
 import './Log.css'
-// dotenv.config();
-const Login = ({ setAuth, setEmail, userEmail}) => {
+
+const Login = ({ setAuth }) => {
 
     const [inputs, setInputs] = useState({
         email: "",

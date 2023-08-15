@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {reactLocalStorage, reactlocalstorage} from 'reactjs-localstorage'
-const Dashboard = ({setAuth, userEmail}) => {
+
+const Dashboard = ({setAuth}) => {
     const [name, setName] = useState("");
     const [admin, setAdmin] = useState("");
 
