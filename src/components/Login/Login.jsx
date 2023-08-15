@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Log.css'
-import galvanizelogo from '/assets/galvanizelogo.png'
+//import galvanizelogo from 'public/images/galvanizelogo.png'
 
 const Login = ({ setAuth }) => {
 
@@ -54,7 +54,7 @@ const Login = ({ setAuth }) => {
         <>
                 <div id='logpage'>
                   <div id='log'>
-                  <img id='logo' src={galvanizelogo} ></img>
+                  <img id='logo' src={'/images/galvanizelogo.png'} ></img>
                   <h1 id='galhead' className="mt-5 text-center">Galvanize Services</h1>
                   <div id='loginput'>
                     <h2>Username</h2>
