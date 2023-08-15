@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {reactLocalStorage, reactlocalstorage} from 'reactjs-localstorage'
+import Admin from '../admin/Admin';
+import Student from '../student/Student';
 const Dashboard = ({setAuth, userEmail}) => {
     const [name, setName] = useState("");
     const [admin, setAdmin] = useState("");
@@ -33,7 +35,7 @@ const Dashboard = ({setAuth, userEmail}) => {
 const EMAIL = JSON.parse(localStorage.getItem('email'))
 getProfile(EMAIL)
 
-    return (
+    return (<>
       <div>
         <h1 className="dashboard-page">Dashboard</h1>
         <h2>Welcome {name}</h2>
@@ -42,6 +44,9 @@ getProfile(EMAIL)
           Logout
         </button>
       </div>
+       {admin && <Admin></Admin>} 
+       {!admin && <Student></Student>} 
+      </>
     );
 }
 
