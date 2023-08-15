@@ -54,7 +54,7 @@ const Login = ({ setAuth }) => {
         <>
                 <div id='logpage'>
                   <div id='log'>
-                  <img id='logo' src={galvanizelogo}></img>
+                  <img id='logo' src={galvanizelogo} ></img>
                   <h1 id='galhead' className="mt-5 text-center">Galvanize Services</h1>
                   <div id='loginput'>
                     <h2>Username</h2>
