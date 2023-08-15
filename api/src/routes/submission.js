@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
 router.get('/student/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query("select user_id, assignment_id, name, submission_time,  status, feedback from (SELECT * FROM submission INNER JOIN assignment ON submission.assignment_id=assignment.id INNER JOIN tracking ON submission.tracking_id=tracking.id INNER JOIN student ON submission.student_id=student.id INNER JOIN users ON student.id=users.id WHERE users.id=$1) as submission_join", [id]);
+        const result = await pool.query("select user_id, assignment_id, name, submission_time, info,  status, feedback from (SELECT * FROM submission INNER JOIN assignment ON submission.assignment_id=assignment.id INNER JOIN tracking ON submission.tracking_id=tracking.id INNER JOIN student ON submission.student_id=student.id INNER JOIN users ON student.id=users.id WHERE users.id=$1) as submission_join", [id]);
         if (result.rows.length === 0) return res.status(404).json({ message: "Submission not found." });
         res.json(result.rows);
     } catch (err) {
