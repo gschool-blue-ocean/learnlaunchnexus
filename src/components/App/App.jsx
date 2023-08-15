@@ -5,17 +5,20 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard"
 import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
-// import * as dotenv from "dotenv";
-// dotenv.config();
-
 
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
   // const email = useRef('');
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   }
+
+  const setEmail = (str) => {
+    setUserEmail(str);
+  }
+
 
   useEffect(() => {
     checkAuthenticated()
@@ -41,7 +44,7 @@ const App = () => {
 
   return (   
     <Router>
-
+    
       <div className="container" >
       <Routes>
         <Route 
@@ -50,7 +53,7 @@ const App = () => {
           isAuthenticated ? (
             <Link to="/dashboard" />
           ) : (
-            <Login setAuth={setAuth}/>
+            <Login setAuth={setAuth} setEmail={setEmail} userEmail={userEmail}/>
           )
         )}
         />
@@ -60,7 +63,7 @@ const App = () => {
           isAuthenticated ? (
             <Link to="/dashboard" />
           ) : (
-            <Register setAuth={setAuth} />
+            <Register setAuth={setAuth} setEmail={setEmail} userEmail={userEmail}/>
           )
         )}
         /> 
@@ -68,7 +71,7 @@ const App = () => {
         path = "/dashboard"
         element={(
           isAuthenticated ? (
-            <Dashboard setAuth={setAuth} />
+            <Dashboard setAuth={setAuth} userEmail={userEmail}/>
           ) : (
             <Link to="/" />
           )
@@ -78,6 +81,7 @@ const App = () => {
       </Routes>
 
       </div>
+
     </Router>  
   )
   
