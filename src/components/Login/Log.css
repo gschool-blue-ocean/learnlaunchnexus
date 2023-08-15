@@ -16,12 +16,14 @@
     margin: auto;
     position: absolute;
     top: 8%;
-    left: 24%;
+    left: 19%;
     padding-top: 10%;
     padding-bottom: 10%;
     padding-left: 19%;
     padding-right: 19%;
     background-color: white;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px 5px lightgrey;
 }
 
 #loginput {
@@ -33,6 +35,7 @@
     background-color: darkgrey;
     position: relative;
     right: 23%;
+    border-radius: 15px;
 }
 
 #galhead {
@@ -50,13 +53,14 @@
 #logbtn {
     background-color: inherit;
     background-color: rgb(62, 190, 178);
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 2%;
-    padding-bottom: 2%;
+    padding-left: 17%;
+    padding-right: 17%;
+    padding-top: 1.7%;
+    padding-bottom: 1.7%;
     position: absolute;
     bottom: 3%;
-    right: 27.5%;
+    right: 31%;
+    border-radius: 15px;
 }
 
 #logbtn:hover {
@@ -65,10 +69,11 @@
 
 #reglin {
     background-color: rgb(62, 190, 178);
-    padding-left: 26%;
-    padding-right: 29%;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding-left: 23.5%;
+    padding-right: 23.5%;
+    padding-top: 2.7%;
+    padding-bottom: 2.7%;
+    border-radius: 15px;
 }
 
 #reglin:hover {
@@ -77,10 +82,12 @@
 
 #input1 {
     background-color: rgb(217, 232, 252);
+    border-radius: 7px;
 }
 
 #input2 {
     background-color: rgb(217, 232, 252);
+    border-radius: 7px;
 }
 
 
