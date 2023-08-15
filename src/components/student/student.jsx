@@ -1,25 +1,44 @@
 import React, {useEffect, useState} from 'react';
+import Submission from './Submission';
 
 
 const Student = ({USER_ID}) => {
-    useState(submissionList, setSubmissionList) = ([]);
-    useEffect( async () => {
+    const [submissionList, setSubmissionList] = useState([]);
+    useEffect( () => {
         
-        try {
-              const res = await fetch(`${import.meta.env.VITE_API}/submission/student/${USER_ID}`, {
-                method: "GET",
-              });
-      
-              const parseData = await res.json();
-              setSubmissionList(parseData)
-            } catch (err) {
-              console.error(err.message);
-            }
-    }, [submissionList]);
+        const getSubmissionData = async () => {
+            
+            
+    
+            try {
+                console.log("Student COMP", USER_ID)
+                  const res = await fetch(`${import.meta.env.VITE_API}/submission/student/${USER_ID}`, {
+                    method: "GET",
+                  });
+          
+                  const parseData = await res.json();
+                  setSubmissionList(parseData)
+                } catch (err) {
+                  console.error(err.message);
+                }
+            
+
+        }
+        getSubmissionData();
+    }, [USER_ID]);
     console.log(submissionList);
     return (
     <>
-    <div> MAP assignmentLIST run create assignment container</div>
+     {(submissionList.length > 0) && <div>
+        {
+        submissionList.map((assignment) => {
+        return(
+            <>
+            <Submission assignment={assignment}></Submission>
+            </>
+        )
+    })}
+    </div>}
     </>
     )
     
