@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard"
 import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
+import Header from "../global/global.jsx";
 // import * as dotenv from "dotenv";
 // dotenv.config();
 
@@ -39,48 +40,49 @@ const App = () => {
     }
   }
 
-  return (   
+  return (
     <Router>
-
+        <Header />
       <div className="container" >
-      <Routes>
-        <Route 
-        path = "/"
-        element={(
-          isAuthenticated ? (
-            <Link to="/dashboard" />
-          ) : (
-            <Login setAuth={setAuth}/>
-          )
-        )}
-        />
-        <Route 
-        path = "/register"
-        element={(
-          isAuthenticated ? (
-            <Link to="/dashboard" />
-          ) : (
-            <Register setAuth={setAuth} />
-          )
-        )}
-        /> 
-        <Route 
-        path = "/dashboard"
-        element={(
-          isAuthenticated ? (
-            <Dashboard setAuth={setAuth} />
-          ) : (
-            <Link to="/" />
-          )
-        )}
-        /> 
+        <Routes>
+          <Route
+            path="/"
+            element={(
+              isAuthenticated ? (
+                <Link to="/dashboard" />
+              ) : (
+                <Login setAuth={setAuth} />
+              )
+            )}
+          />
+          <Route
+            path="/register"
+            element={(
+              isAuthenticated ? (
+                
+                <Link to="/dashboard" />
+              ) : (
+                <Register setAuth={setAuth} />
+              )
+            )}
+          />
+          <Route
+            path="/dashboard"
+            element={(
+              isAuthenticated ? (
+                <Dashboard setAuth={setAuth} />
+              ) : (
+                <Link to="/" />
+              )
+            )}
+          />
 
-      </Routes>
+        </Routes>
 
       </div>
-    </Router>  
+    </Router>
   )
-  
+
 
 };
 
