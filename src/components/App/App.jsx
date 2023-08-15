@@ -71,7 +71,7 @@ const App = () => {
         path = "/dashboard"
         element={(
           isAuthenticated ? (
-            <Dashboard setAuth={setAuth} />
+            <Dashboard setAuth={setAuth} userEmail={userEmail}/>
           ) : (
             <Link to="/" />
           )

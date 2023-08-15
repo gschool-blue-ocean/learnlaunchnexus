@@ -21,25 +21,26 @@
     "pg": "^8.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0"
+    "react-router-dom": "^6.15.0",
+    "reactjs-localstorage": "^1.0.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
+    "concurrently": "^7.1.0",
     "eslint": "^8.45.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "vite": "^4.4.5",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.4.3",
-    "concurrently": "^7.1.0",
     "jsdom": "^21.1.0",
     "msw": "^1.1.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.8.4",
     "supertest": "^6.3.3",
+    "vite": "^4.4.5",
     "vitest": "^0.29.2"
   }
 }

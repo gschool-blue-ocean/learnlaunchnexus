@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import {reactlocalstorage} from 'reactjs-localstorage'
 
 // import * as dotenv from "dotenv";
 
@@ -40,9 +41,7 @@ const Login = ({ setAuth, setEmail, userEmail}) => {
             if (parseRes.token) {
                 localStorage.setItem("token", parseRes.token);
                     setAuth(true);
-                    setEmail(`${email}`)
-                    console.log(`email in the form is ${email}`);
-                    console.log(`useState userEmail is ${userEmail}`);
+                localStorage.setItem('email', JSON.stringify(email));    
                     window.location.href = "/dashboard"
 
             } else {
@@ -50,7 +49,7 @@ const Login = ({ setAuth, setEmail, userEmail}) => {
             }
         }
         catch (error) {
-            console.error("Error message")
+            console.error(error.message)
         }
     }
 
