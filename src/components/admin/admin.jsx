@@ -21,3 +21,13 @@
 //     <h1>Admin page for {name}</h1>
 //     )
 //     }
+
+const Admin = () => {
+    return (
+        <>
+        <h1>I am an admin</h1>
+        </>
+    );
+}
+
+export default Admin; 

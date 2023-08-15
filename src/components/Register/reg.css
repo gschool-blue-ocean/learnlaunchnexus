@@ -15,10 +15,10 @@
 #reg {
     margin: auto;
     position: absolute;
-    top: 18%;
-    left: 20%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    top: 8%;
+    left: 24%;
+    padding-top: 9%;
+    padding-bottom: 9%;
     padding-left: 15%;
     padding-right: 15%;
     background-color: white;
@@ -28,10 +28,39 @@
     padding-left: 4%;
     padding-right: 4%;
     padding-bottom: 2%;
-    left: 1%;
+    left: .01%;
     width: 95%;
     background-color: darkgrey;
     position: relative;
     right: 10%;
 }
 
+#regbtn {
+    background-color: inherit;
+    background-color: rgb(62, 190, 178);
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#regbtn:hover {
+    background-color: rgb(82, 158, 150);
+}
+
+#loglin {
+    background-color: rgb(62, 190, 178);
+    padding-left: 21%;
+    padding-right: 21%;
+    padding-top: 1.9%;
+    padding-bottom: 1.9%;
+}
+
+#loglin:hover {
+    background-color: rgb(82, 158, 150);
+}
+
+#reghead {
+    color: darkblue;
+    font-size: xx-large;
+}
