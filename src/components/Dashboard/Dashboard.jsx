@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {reactLocalStorage, reactlocalstorage} from 'reactjs-localstorage'
-import Admin from '../admin/Admin';
-import Student from '../student/Student';
 const Dashboard = ({setAuth, userEmail}) => {
     const [name, setName] = useState("");
     const [admin, setAdmin] = useState("");

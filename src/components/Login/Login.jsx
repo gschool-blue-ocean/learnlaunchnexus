@@ -1,12 +1,9 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import {reactlocalstorage} from 'reactjs-localstorage'
-
-// import * as dotenv from "dotenv";
-
 import './Log.css'
-// dotenv.config();
-const Login = ({ setAuth, setEmail, userEmail}) => {
+import galvanizelogo from '/assets/galvanizelogo.png'
+
+const Login = ({ setAuth }) => {
 
     const [inputs, setInputs] = useState({
         email: "",
@@ -57,7 +54,7 @@ const Login = ({ setAuth, setEmail, userEmail}) => {
         <>
                 <div id='logpage'>
                   <div id='log'>
-                  <img id='logo' src='src/public/galvanizelogo.png'></img>
+                  <img id='logo' src={galvanizelogo} ></img>
                   <h1 id='galhead' className="mt-5 text-center">Galvanize Services</h1>
                   <div id='loginput'>
                     <h2>Username</h2>
