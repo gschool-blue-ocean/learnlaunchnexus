@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-// import * as dotenv from "dotenv";
-
 import './Log.css'
-// dotenv.config();
+import galvanizelogo from '/assets/galvanizelogo.png'
+
 const Login = ({ setAuth }) => {
 
     const [inputs, setInputs] = useState({
@@ -26,6 +25,7 @@ const Login = ({ setAuth }) => {
         console.log('inside onSubmitForm')
         e.preventDefault();
         try {
+            
             const body = { email, password }
             const response = await fetch(`${import.meta.env.VITE_API}/authentication/login`, {
                 method: "POST",
@@ -37,14 +37,16 @@ const Login = ({ setAuth }) => {
             console.log(parseRes.token)
             if (parseRes.token) {
                 localStorage.setItem("token", parseRes.token);
-                setAuth(true);
-                window.location.href = "/dashboard"
+                    setAuth(true);
+                localStorage.setItem('email', JSON.stringify(email));    
+                    window.location.href = "/dashboard"
+
             } else {
                 setAuth(false);
             }
         }
         catch (error) {
-            console.error("Error message")
+            console.error(error.message)
         }
     }
 
@@ -52,7 +54,7 @@ const Login = ({ setAuth }) => {
         <>
                 <div id='logpage'>
                   <div id='log'>
-                  <img id='logo' src='public/Galvanizelogo.png'></img>
+                  <img id='logo' src={galvanizelogo} ></img>
                   <h1 id='galhead' className="mt-5 text-center">Galvanize Services</h1>
                   <div id='loginput'>
                     <h2>Username</h2>

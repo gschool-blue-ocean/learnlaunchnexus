@@ -4,22 +4,22 @@ const Dashboard = ({setAuth}) => {
     const [name, setName] = useState("");
     const [admin, setAdmin] = useState("");
 
-    // const getProfile = async () => {
-    //   try {
-    //     console.log(email.current)
-    //     let user_email = email.current
-    //     const res = await fetch(`https://production-learnlaunchnexus.onrender.com/init/${user_email}`, {
-    //       method: "GET",
-    //     });
+
+    const getProfile = async (EMAIL) => {
+        try {
+          const res = await fetch(`${import.meta.env.VITE_API}/users/init/${EMAIL}`, {
+            method: "GET",
+          });
   
-    //     const parseData = await res.json();
-    //     setName(parseData.first_name);
-    //     setAdmin(parseData.isadmin)
-    //   } catch (err) {
-    //     console.error(err.message);
-    //   }
-    // };
-  
+          const parseData = await res.json();
+          setName(parseData.first_name);
+          setAdmin(parseData.isadmin)
+          return parseData
+        } catch (err) {
+          console.error(err.message);
+        }
+      };
+
     const logout = async e => {
       e.preventDefault();
       try {
@@ -30,10 +30,26 @@ const Dashboard = ({setAuth}) => {
         console.error(err.message);
       }
     };
-  
-    // useEffect(() => {
-    //   getProfile();
-    // }, []);
+const EMAIL = JSON.parse(localStorage.getItem('email'))
+getProfile(EMAIL)
+
+    return (
+      <div>
+        <h1 className="dashboard-page">Dashboard</h1>
+        <h2>Welcome {name}</h2>
+        <h3>Your email is {EMAIL}</h3>
+        <button onClick={e => logout(e)} className="logout-button">
+          Logout
+        </button>
+      </div>
+    );
+}
+
+export default Dashboard;
+
+
+
+
   
 // const Dashboard = ({setAuth}) => {
 
@@ -60,19 +76,3 @@ const Dashboard = ({setAuth}) => {
 // }
 
 // export default Dashboard;
-
-
-
-
-    return (
-      <div>
-        <h1 className="dashboard-page">Dashboard</h1>
-        <h2>Welcome {name}</h2>
-        <button onClick={e => logout(e)} className="logout-button">
-          Logout
-        </button>
-      </div>
-    );
-}
-
-export default Dashboard;
