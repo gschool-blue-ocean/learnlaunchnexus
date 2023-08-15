@@ -55,7 +55,42 @@
 
 .id:hover{
     fill: #0e1a25;
-     transform: scale(1.1);
+    transform: scale(1.1);
     transition: background 0.5s, transform 0.5s ease-out, fill 0.3s;
+    cursor: pointer;
+}
+
+.settingDropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.settingDropdownList {
+    position: absolute;
+    background-color: #3d3d3d;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+    padding: 12px 12px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    border-radius: 15px;
+}
+
+.settingDropdownList a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.settingDropdown:hover .settingDropdownList {
+    visibility: visible;
+    right: -112px;
+}
+
+.settingDropdownList a:hover {
+    background-color: white;
+    color: #3d3d3d;
+    z-index: 4;
     cursor: pointer;
 }

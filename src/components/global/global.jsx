@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import styles from './Header.module.css';
 import settings from './settings-gear.svg'
 import galvanizelogo from '../login/assets/galvanizelogo.png'
+import SettingDropdown from './SettingDropdown';
 
-const Header = ({ getProfile }) => {
+const Header = ({ getProfile, admin }) => {
 
     const [name, setName] = useState(""); // State for user's name
     const EMAIL = JSON.parse(localStorage.getItem('email'));
@@ -41,7 +42,8 @@ const Header = ({ getProfile }) => {
                     <li><Link to="/Contact-us"><a href="mailto:email@example.com">Contact Us</a>
                     </Link></li>
 
-                    <img className={styles.id} src={settings} ></img>
+                    {/* <img className={styles.id} src={settings} ></img> */}
+                    <SettingDropdown admin={admin}/>
                     <button className={styles.logbtn}>Log Out</button>
                 </ul>
             </nav>
