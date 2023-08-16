@@ -5,6 +5,7 @@ const Admin = () => {
     //const [name, setName] = useState('')
     const [cohortList, setCohortList] = useState([]);
     const [currentCohort, setCurrentCohort] = useState(-1);
+    const [studentList, setStudentList] = useState([]);
     useEffect( () => {
         
         const getCohortData = async () => {
@@ -23,6 +24,28 @@ const Admin = () => {
         }
         getCohortData();
     }, []);
+
+    // this should execute
+    useEffect( () => {
+        
+        const getCohortStudents = async () => {
+            
+            try {
+                const res = await fetch(`${import.meta.env.VITE_API}/students/cohort/${cohortList[currentCohort].id}`, {
+                    method: "GET",
+                  });
+          
+                  const parseData = await res.json();
+                  setStudentList(parseData)
+                } catch (err) {
+                  console.error(err.message);
+                }
+
+        }
+        getCohortStudents();
+    }, [currentCohort]);
+
+
     console.log(currentCohort)
     return(
         <>
@@ -30,8 +53,8 @@ const Admin = () => {
 
             
 
-             {(currentCohort > -1) && <h1>Your in Cohort {cohortList[currentCohort].name}</h1>} 
-
+             {(currentCohort > -1) && <h1>You are in Cohort {cohortList[currentCohort].name}</h1>} 
+             {(studentList.length > 0) && <h1>Your first student's ID {studentList[0].user_id}</h1>} 
 
 
         
