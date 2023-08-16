@@ -66,17 +66,57 @@ return (
       
       <div><h1>HORIZONTAL CONTAINER</h1></div>
       <div> <h1>View container</h1>
-          <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
-          <h1 className="dashboard-page">Dashboard</h1>
-          <h2>Welcome {name}</h2>
-          <h3>Your email is {EMAIL}</h3>
-          <h3>Your id is {USER_ID}</h3>
-          <h3>Your location is {location}</h3>
-          <h3>Your desired location is {desiredLocation}</h3>
+
+        <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
+
+
+        <div className="dashboard-container">
+
+          <div className="dashboard-page">
+            <div className="profile">
+              <div className="header">
+                <h1>Welcome, {name} !
+
+                  {/*<button onClick={e => logout(e)} className="logout-button" > Logout</button>*/}
+
+                </h1>
+              </div>
+              <div className="profile-info">
+                <h2>Welcome {name}</h2>
+                <h3>Your email is {EMAIL}</h3>
+                <h3>Your id is {USER_ID}</h3>
+                <h3>Your location is {location}</h3>
+                <h3>Your desired location is {desiredLocation}</h3>
+              </div>
+
+
+
+            </div>
+            <div>
+              {admin && <Admin USER_ID={USER_ID}></Admin>}
+              {!admin && <Student USER_ID={USER_ID}></Student>}
+            </div>
+          </div>
+          <h1>VERTICAL CONTAINER
+            <div className="calendar">
+              <h1 className="calendar-header">Calendar</h1>
+              <div className="calendar-container">
+                <Calendar onChange={setDate} value={date} />
+              </div>
+              <div className="text-center">
+                Selected date: {date.toDateString()}
+              </div>
+
+
+            </div>
+            <Todo />
+          </h1>
+        </div>
+
+
       </div>
       <div>
-        {admin && <Admin USER_ID={USER_ID}></Admin>} 
-        {!admin && <Student USER_ID={USER_ID}></Student>} 
+
       </div>
       <div>
 
