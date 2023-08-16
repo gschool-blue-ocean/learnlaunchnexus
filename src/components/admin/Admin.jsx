@@ -1,13 +1,27 @@
 import { useEffect, useState } from "react";
+import chooseCohort from "./ChooseCohort"
 import './admin.css';
 
 const Admin = () => {
     // State Variables
 
     const [cohorts, setCohorts] = useState([]);
+    const [currentcohort, setCurrrentCohort] = useState('')
     const [students, setStudents] = useState([]);
     const [selectedStudentId, setSelectedStudentId] = useState(null);
     const [submissions, setSubmissions] = useState([]);
+
+    async function getCohorts() {
+        try {
+            const response = await fetch(`${import.meta.env.VITE_API}/cohort/`, {
+                method: 'GET',
+            })
+            const data = await response.json()
+            setCohorts(data)
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
 
     // Find the selected student object based on the selectedStudentId
 
@@ -16,6 +30,11 @@ const Admin = () => {
     const handleStudentChange = (event) => {
         setSelectedStudentId(Number(event.target.value));
     }
+
+    getCohorts()
+    // useEffect(() => {
+    // getName()
+    // })
 
     // Fetch user details based on selectedStudentId (assumed to be EMAIL here)
 
@@ -74,6 +93,14 @@ const Admin = () => {
 
     return (
         <>
+            {/* {!currentcohort (
+                //map through cohorts and get each name and 
+                //put it into a a dropdown menu was the idea
+                <div>
+                    <chooseCohort />
+                </div>
+            )}  */}
+
             <div className="Student-display">
                 {/* Conditional Rendering of the Selected Student Name */}
                 <h1>
@@ -96,6 +123,13 @@ const Admin = () => {
 
                 </div>
             </div>
+
+            {/* <h1>Admin page for {name}</h1>
+            <h1>Choose Cohort</h1>
+            <form>
+                <input></input>
+                <button type="submit">Cohort</button>
+            </form> */}
 
             <table>
                 <thead>

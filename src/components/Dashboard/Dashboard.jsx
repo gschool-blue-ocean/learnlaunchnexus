@@ -84,17 +84,10 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
 
             </div>
-<<<<<<< Updated upstream
             <div>
               {admin && <Admin USER_ID={USER_ID}></Admin>}
               {!admin && <Student USER_ID={USER_ID}></Student>}
             </div>
-=======
-
-            {admin && <Admin USER_ID={USER_ID}></Admin>}
-            {!admin && <Student USER_ID={USER_ID}></Student>}
-
->>>>>>> Stashed changes
           </div>
           <h1>VERTICAL CONTAINER
             <div className="calendar">
@@ -113,12 +106,9 @@ const Dashboard = ({ setAuth, userEmail }) => {
         </div>
       </div>
       <div>
-<<<<<<< Updated upstream
-=======
-        
+
       </div>
       <div>
->>>>>>> Stashed changes
 
         <div><h1>CALENDER</h1></div>
         <div><h1>TODO LIST</h1></div>
