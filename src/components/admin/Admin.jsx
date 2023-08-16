@@ -1,35 +1,76 @@
-import { useState } from "react"
-import chooseCohort from "./ChooseCohort"
-
+import { useState, useEffect } from "react"
+import ChooseCohort from "./ChooseCohort"
+import StudentTable from "./StudentTable";
+// fetch assignment list by cohort id
+// fetch all students name by user_id
+// create table left = student name , top = assignment name
+// populate table with student tracking data
+// on student selection pull up single student view
+// use submision logic for feedback data in single student view
 const Admin = () => {
     //const [name, setName] = useState('')
-    const [cohorts, setCohorts] = useState([])
-    const [currentcohort, setCurrrentCohort] = useState('')
-    async function getCohorts() {
-    try {
-    const response = await fetch(`${import.meta.env.VITE_API}/cohort/`, {
-    method: 'GET',
-    })
-    const data = await response.json()
-    setCohorts(data)
-    } catch (error) {
-    console.error(error.message)
-    }
-    }
-    getCohorts()
-    // useEffect(() => {
-    // getName()
-    // })
+    const [cohortList, setCohortList] = useState([]);
+    const [currentCohort, setCurrentCohort] = useState(-1);
+    const [studentList, setStudentList] = useState([]);
+    const [assignmentData, setAssignmentData] = useState([]);
+
+    useEffect( () => {
+        
+        const getCohortData = async () => {
+            
+            try {
+                const res = await fetch(`${import.meta.env.VITE_API}/cohort`, {
+                    method: "GET",
+                  });
+          
+                  const parseData = await res.json();
+                  setCohortList(parseData)
+                } catch (err) {
+                  console.error(err.message);
+                }
+
+        }
+        getCohortData();
+    }, []);
+
+    // this should execute
+    useEffect( () => {
+        
+        const getCohortStudents = async () => {
+            
+            try {
+                const resCohort = await fetch(`${import.meta.env.VITE_API}/cohort/${cohortList[currentCohort].id}/assignments`, {
+                    method: "GET",
+                  });
+          
+                  const parseCohortData = await resCohort.json();
+                  setStudentList(parseCohortData);
+
+
+
+                  const resAssignment = await fetch(`${import.meta.env.VITE_API}/cohort_assignment/cohort/${cohortList[currentCohort].id}`, {
+                    method: "GET"
+                  });
+                  const parseAssignmentData = await resAssignment.json();
+                  setAssignmentData(parseAssignmentData)
+                } catch (err) {
+                  console.error(err.message);
+                }
+
+        }
+        getCohortStudents();
+    }, [currentCohort]);
+                        
+
+    console.log(currentCohort)
     return(
         <>
-            {/* {!currentcohort (
-                //map through cohorts and get each name and 
-                //put it into a a dropdown menu was the idea
-                <div>
-                    <chooseCohort />
-                </div>
-            )}  */}
+            <ChooseCohort cohortList={cohortList} setCurrentCohort={setCurrentCohort}/>
+            <StudentTable assignmentData={assignmentData} studentList={studentList}/>
+            
 
+             {(currentCohort > -1) && <h1>You are in Cohort {cohortList[currentCohort].name}</h1>} 
+             {(studentList.length > 0) && <h1>Your first student's ID {studentList[0].user_id}</h1>} 
 
 
         
@@ -43,12 +84,5 @@ const Admin = () => {
     )
 }
 
-// const Admin = () => {
-//     return (
-//         <>
-//         <h1>I am an admin</h1>
-//         </>
-//     );
-// }
 
 export default Admin; 
