@@ -3,12 +3,10 @@ import Header from "../global/Header.jsx";
 import Admin from '../admin/Admin.jsx'
 import Student from '../student/Student.jsx'
 
-
 const Dashboard = ({setAuth, userEmail}) => {
     const [name, setName] = useState("");
     const [admin, setAdmin] = useState("");
     const [USER_ID, setUSER_ID] = useState(0)
-
 
     const getProfile = async (EMAIL) => {
         try {
@@ -22,33 +20,32 @@ const Dashboard = ({setAuth, userEmail}) => {
           setUSER_ID(parseData.id)
           console.log('fulldata', parseData)
           console.log('user_id', USER_ID)
+          setUSER_ID(parseData.id)
+          console.log('fulldata', parseData)
+          console.log('user_id', USER_ID)
           return parseData
         } catch (err) {
           console.error(err.message);
         }
       };
 
-    const logout = async e => {
-      e.preventDefault();
-      try {
-        localStorage.removeItem("token");
-        setAuth(false);
-        window.location.href = "../"
-      } catch (err) {
-        console.error(err.message);
-      }
-    };
 const EMAIL = JSON.parse(localStorage.getItem('email'))
 getProfile(EMAIL)
 
     return (<>
       
       <div> <h1>View container</h1>
+    return (<>
+      
+      <div><h1>HEADER</h1></div>
+      <div><h1>HORIZONTAL CONTAINER</h1>
+      <div> <h1>View container</h1>
       <div>
-        <Header admin={admin} />
+        <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
         <h1 className="dashboard-page">Dashboard</h1>
         <h2>Welcome {name}</h2>
         <h3>Your email is {EMAIL}</h3>
+        <h3>Your id is {USER_ID}</h3>
         <h3>Your id is {USER_ID}</h3>
         <button onClick={e => logout(e)} className="logout-button">
           Logout
@@ -62,6 +59,16 @@ getProfile(EMAIL)
        <div><h1>TODO LIST</h1></div>
        </div>
        
+       <div><h1>FOOTER</h1></div>
+      </>
+       {admin && <Admin USER_ID={USER_ID}></Admin>} 
+       {!admin && <Student USER_ID={USER_ID}></Student>} 
+       </div>
+       <div><h1>VERTICAL CONTAINER</h1>
+       <div><h1>CALENDER</h1></div>
+       <div><h1>TODO LIST</h1></div>
+       </div>
+       </div>
        <div><h1>FOOTER</h1></div>
       </>
     );
