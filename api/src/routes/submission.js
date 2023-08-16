@@ -71,7 +71,7 @@ router.patch('/:id', async (req, res) => {
         // format our SQL statement, this handles variable amount of incoming data in the body
         let sets = [];
         for (let key in body) {
-            set.push(format('%I = %L', key, body[key]));
+            sets.push(format('%I = %L', key, body[key]));
         }
         // array has been built, now turn into a string with commas separating each entry
         //i.e. ["info = 'hello'", 'student_id = 1' ] => "info 'hello', 'student_id = 1"
@@ -80,7 +80,7 @@ router.patch('/:id', async (req, res) => {
         const SQLString = format('UPDATE submission SET %s WHERE id = %L RETURNING *', setStrings, id);
         console.log(SQLString);
         const result = await pool.query(SQLString);
-        if(response.rows.length < 1) {
+        if(res.rows.length < 1) {
             res.status(404).send('Submission ID not found');
         } else {
             res.status(200).json(result.rows[0]);
