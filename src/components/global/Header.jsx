@@ -4,10 +4,12 @@ import styles from './Header.module.css';
 import settings from './settings-gear.svg'
 import galvanizelogo from '/public/galvanizelogo.png'
 import SettingDropdown from './SettingDropdown';
+import UpdateEmailForm from './UpdateEmailForm.jsx'
+import UpdateLocationForm from './UpdateLocationForm.jsx'
+import UpdateDesiredLocationForm from './UpdateDesiredLocationForm.jsx'
 
 
-
-const Header = ({ getProfile, admin, setAuth }) => {
+const Header = ({ USER_ID, admin, setAuth }) => {
 
     const [name, setName] = useState(""); // State for user's name
     const [isOpen, setIsModalOpen] = useState(false);
@@ -21,7 +23,7 @@ const Header = ({ getProfile, admin, setAuth }) => {
 
             const parseData = await res.json();
             console.log(parseData);
-            return `${parseData.first_name} ${parseData.last_name} ${parseData.id}`;
+            return `${parseData.first_name} ${parseData.last_name}  `;
         } catch (err) {
             console.error(err.message);
         }
@@ -37,22 +39,15 @@ const Header = ({ getProfile, admin, setAuth }) => {
 
         fetchData(); // Fetch user's name
     }, [EMAIL]);
-    
-    const logout = async e => {
-        e.preventDefault();
-        try {
-          localStorage.removeItem("token");
-          setAuth(false);
-          window.location.href = "../"
-        } catch (err) {
-          console.error(err.message);
-        }
-      };
+
+     
  
     return (
         <header className={styles.appheader}>
             <h1 className={styles.apptitle}>{name}</h1>
-             
+            <button><UpdateEmailForm/></button>
+            <button><UpdateLocationForm USER_ID={USER_ID} /></button>
+            <button><UpdateDesiredLocationForm USER_ID={USER_ID} /></button>
 
             <img className={styles.galvanize_logo} src={galvanizelogo} ></img>
             <nav className={styles.navmenu}>
