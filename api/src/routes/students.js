@@ -55,6 +55,8 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+
+
 router.put('/location/:id', async (req, res) => {
     const { id } = req.params;
     const { location } = req.body;

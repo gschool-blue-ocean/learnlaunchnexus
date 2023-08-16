@@ -28,6 +28,8 @@ const Dashboard = ({setAuth, userEmail}) => {
           console.error(err.message);
         }
       };
+      localStorage.setItem('user_id', JSON.stringify(USER_ID))
+      
       const logout = async e => {
         e.preventDefault();
         try {
@@ -38,13 +40,38 @@ const Dashboard = ({setAuth, userEmail}) => {
           console.error(err.message);
         }
       };
-
-
+      
+      
 const EMAIL = JSON.parse(localStorage.getItem('email'))
-getProfile(EMAIL)
 
-  return (
-      <>
+const [location, setLocation] = useState("")
+const [desiredLocation, setDesiredLocation] = useState("")
+
+const getLocation = async (USER_ID) => {
+  try {
+    const res = await fetch(`${import.meta.env.VITE_API}/students/${USER_ID}`, {
+      method: "GET",
+    });
+    
+    const secondParseData = await res.json();
+    setLocation(secondParseData.location);
+    setDesiredLocation(secondParseData.desired_location)
+    console.log('fulldata for location', secondParseData)
+    return secondParseData
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+getProfile(EMAIL)
+getLocation(USER_ID)
+useEffect(() => {
+  getProfile(EMAIL)
+  getLocation(USER_ID)
+}, [EMAIL, location, desiredLocation])
+
+return (
+  <>
       
       <div><h1>HORIZONTAL CONTAINER</h1></div>
       <div> <h1>View container</h1>
@@ -53,6 +80,8 @@ getProfile(EMAIL)
           <h2>Welcome {name}</h2>
           <h3>Your email is {EMAIL}</h3>
           <h3>Your id is {USER_ID}</h3>
+          <h3>Your location is {location}</h3>
+          <h3>Your desired location is {desiredLocation}</h3>
           <button onClick={e => logout(e)} className="logout-button">
             Logout
           </button>
