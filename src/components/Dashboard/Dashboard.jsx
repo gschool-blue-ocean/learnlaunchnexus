@@ -28,16 +28,6 @@ const Dashboard = ({setAuth, userEmail}) => {
         }
       };
 
-    const logout = async e => {
-      e.preventDefault();
-      try {
-        localStorage.removeItem("token");
-        setAuth(false);
-        window.location.href = "../"
-      } catch (err) {
-        console.error(err.message);
-      }
-    };
 const EMAIL = JSON.parse(localStorage.getItem('email'))
 getProfile(EMAIL)
 
@@ -47,14 +37,11 @@ getProfile(EMAIL)
       <div><h1>HORIZONTAL CONTAINER</h1>
       <div> <h1>View container</h1>
       <div>
-        <Header admin={admin} />
+        <Header admin={admin} setAuth={setAuth} />
         <h1 className="dashboard-page">Dashboard</h1>
         <h2>Welcome {name}</h2>
         <h3>Your email is {EMAIL}</h3>
         <h3>Your id is {USER_ID}</h3>
-        <button onClick={e => logout(e)} className="logout-button">
-          Logout
-        </button>
       </div>
        {admin && <Admin USER_ID={USER_ID}></Admin>} 
        {!admin && <Student USER_ID={USER_ID}></Student>} 
