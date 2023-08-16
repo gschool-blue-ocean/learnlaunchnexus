@@ -28,6 +28,9 @@ function UpdateEmailForm() {
             } else {
                 setMessage(responseData.message || 'Error updating email');
             }
+            localStorage.removeItem('email')
+            localStorage.setItem('email', JSON.stringify(newEmail))
+            window.location.href = '../dashboard'
             
         } catch (err) {
             console.error(err);

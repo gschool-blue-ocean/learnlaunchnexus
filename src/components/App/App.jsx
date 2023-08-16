@@ -8,6 +8,7 @@ import Login from "../Login/Login.jsx"
 import ChangeEmail from "../changeEmail/ChangeEmail";
 import ChangeDesiredLocation from "../changeDesiredLocation/ChangeDesiredLocation";
 import ChangeLocation from "../changeLocation/ChangeLocation";
+import AddAdmin from "../addAdmin/AddAdmin";
 
 
 
@@ -100,6 +101,13 @@ const App = () => {
         path = "change-desired-location"
         element ={(
           <ChangeDesiredLocation />
+        )}
+        />
+
+        <Route
+        path = "add-admin"
+        element ={(
+          <AddAdmin />
         )}
         />
 

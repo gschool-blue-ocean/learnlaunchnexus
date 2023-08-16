@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import { useState } from 'react';
 import "./sub.css"
+
 
 // user_id, assignment_id, name, submission_time,  status, feedback
 const Submission = ({assignment, index}) => {
@@ -14,15 +15,19 @@ const Submission = ({assignment, index}) => {
     }
 
     const onSubmitForm = async (e) => {
-        console.log('inside onSubmitForm')
+    
         e.preventDefault();
-        let currentTime = Date.now()
-        console.log(assignment.submission_id)
-        const body = {info: inputs.info, submission_time: currentTime}
-        console.log(body)
+        let currentTime = new Date(Date.now());
+        currentTime = currentTime.toISOString();
+    
+        const body = {"info": inputs.info, "submission_time": currentTime}
+
         try {
               const res = await fetch(`${import.meta.env.VITE_API}/submission/${assignment.submission_id}`, {
                 method: "PATCH",
+                headers: { 
+                  Accept: "application/json",
+                  'Content-Type': 'application/json'},
                 body: JSON.stringify(body)
 
               });
@@ -32,7 +37,6 @@ const Submission = ({assignment, index}) => {
               console.error(err.message);
             }
         }
-        console.log(assignment.submission_id)
 
   function dateSub (timestamp) {
     const date = new Date(timestamp)
@@ -73,4 +77,3 @@ return (
 
 
 export default Submission;
-

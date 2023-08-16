@@ -66,16 +66,16 @@ INSERT INTO users (first_name, last_name, auth_id, isAdmin) VALUES
 
 
 INSERT INTO assignment (name) VALUES 
-('Create Cover Letter'),
-('Create Resume'),
-('Create LinkedIn.com  Account'),
-('Create Personal Narrative'),
-('Create Huntr.com Account'),
-('Course Standing'),
-('Get a Security Clearance'),
-('Upload Education Background'),
-('Describe Degree Status'),
-('List current Service Career Manager');
+('Cover Letter'),
+('Resume'),
+('LinkedIn'),
+('Narrative'),
+('Huntr'),
+('Standing'),
+('Clearance'),
+('Education'),
+('Degree Status'),
+('Manager');
 
 INSERT INTO cohort (start_date, end_date, name) VALUES
 ('2023-01-01', '2023-05-05', 'TTFN-1'),

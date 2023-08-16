@@ -41,6 +41,18 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.patch('/add/:email', async (req, res) => {
+    const { email } = req.params;
+    try {
+        const result = await pool.query("UPDATE Users set isAdmin = true WHERE auth_id = (SELECT user_id from Authentication where user_email = $1) returning *; ", [email]);
+        if (result.rows.length === 0) return res.status(404).json({ message: "User not found." });
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+         res.status(500).json(err.message);
+    }
+});
+
 // Update an admin's details by ID
 router.put('/:id', async (req, res) => {
     const { id } = req.params;

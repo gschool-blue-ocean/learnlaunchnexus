@@ -40,7 +40,7 @@ router.get('/:id', async (req, res) => {
 router.get('/student/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query("select info, user_id, assignment_id, name, submission_time,  status, feedback, submission_id from (select * from ( select id as submission_id from submission) as reassignment inner join submission on reassignment.submission_id=submission.id INNER JOIN assignment ON submission.assignment_id=assignment.id INNER JOIN tracking ON submission.tracking_id=tracking.id INNER JOIN student ON submission.student_id=student.id INNER JOIN users ON student.id=users.id WHERE users.id=$1) as submission_join", [id]);
+        const result = await pool.query("select info, user_id, assignment_id, name, submission_time,  status, feedback, submission_id from (select * from ( select id as submission_id from submission) as reassignment inner join submission on reassignment.submission_id=submission.id INNER JOIN assignment ON submission.assignment_id=assignment.id INNER JOIN tracking ON submission.tracking_id=tracking.id INNER JOIN student ON submission.student_id=student.id INNER JOIN users ON student.id=users.id WHERE users.id=$1 ORDER BY name ASC) as submission_join", [id]);
         if (result.rows.length === 0) return res.status(404).json({ message: "Submission not found." });
         res.json(result.rows);
     } catch (err) {
@@ -70,7 +70,11 @@ router.patch('/:id', async (req, res) => {
     try {
         // format our SQL statement, this handles variable amount of incoming data in the body
         let sets = [];
+        console.log("Body is: " + JSON.stringify(body));
+                   
         for (let key in body) {
+            //edge case: if key === submission_time, convert to postgres friendly datetime
+            
             sets.push(format('%I = %L', key, body[key]));
         }
         // array has been built, now turn into a string with commas separating each entry
@@ -80,7 +84,7 @@ router.patch('/:id', async (req, res) => {
         const SQLString = format('UPDATE submission SET %s WHERE id = %L RETURNING *', setStrings, id);
         console.log(SQLString);
         const result = await pool.query(SQLString);
-        if(res.rows.length < 1) {
+        if(result.rows.length < 1) {
             res.status(404).send('Submission ID not found');
         } else {
             res.status(200).json(result.rows[0]);

@@ -1,5 +1,7 @@
+
 import { useEffect, useState } from "react";
 import chooseCohort from "./ChooseCohort"
+import StudentTable from "./StudentTable";
 import './admin.css';
 
 const Admin = () => {
@@ -11,18 +13,7 @@ const Admin = () => {
     const [selectedStudentId, setSelectedStudentId] = useState(null);
     const [submissions, setSubmissions] = useState([]);
 
-    async function getCohorts() {
-        try {
-            const response = await fetch(`${import.meta.env.VITE_API}/cohort/`, {
-                method: 'GET',
-            })
-            const data = await response.json()
-            setCohorts(data)
-        } catch (error) {
-            console.error(error.message)
-        }
-    }
-
+    
     // Find the selected student object based on the selectedStudentId
 
     const selectedStudent = students.find(student => student.id === selectedStudentId);
@@ -30,13 +21,6 @@ const Admin = () => {
     const handleStudentChange = (event) => {
         setSelectedStudentId(Number(event.target.value));
     }
-
-    getCohorts()
-    // useEffect(() => {
-    // getName()
-    // })
-
-    // Fetch user details based on selectedStudentId (assumed to be EMAIL here)
 
     useEffect(() => {
         async function getCohorts() {
@@ -53,7 +37,54 @@ const Admin = () => {
 
         getCohorts();
     }, []);
+    
+    useEffect( () => {
+        
+        const getCohortData = async () => {
+            
+            try {
+                const res = await fetch(`${import.meta.env.VITE_API}/cohort`, {
+                    method: "GET",
+                  });
+          
+                  const parseData = await res.json();
+                  setCohortList(parseData)
+                } catch (err) {
+                  console.error(err.message);
+                }
 
+        }
+        getCohortData();
+    }, []);
+
+ // this should execute
+    useEffect( () => {
+        
+        const getCohortStudents = async () => {
+            
+            try {
+                const resCohort = await fetch(`${import.meta.env.VITE_API}/cohort/${cohortList[currentCohort].id}/assignments`, {
+                    method: "GET",
+                  });
+          
+                  const parseCohortData = await resCohort.json();
+                  setStudentList(parseCohortData);
+
+
+
+                  const resAssignment = await fetch(`${import.meta.env.VITE_API}/cohort_assignment/cohort/${cohortList[currentCohort].id}`, {
+                    method: "GET"
+                  });
+                  const parseAssignmentData = await resAssignment.json();
+                  setAssignmentData(parseAssignmentData)
+                } catch (err) {
+                  console.error(err.message);
+                }
+
+        }
+        getCohortStudents();
+    }, [currentCohort]);
+    
     // Fetch all students when the component mounts
     useEffect(() => {
         async function fetchStudents() {
@@ -93,14 +124,9 @@ const Admin = () => {
 
     return (
         <>
-            {/* {!currentcohort (
-                //map through cohorts and get each name and 
-                //put it into a a dropdown menu was the idea
-                <div>
-                    <chooseCohort />
-                </div>
-            )}  */}
-
+            <ChooseCohort cohortList={cohortList} setCurrentCohort={setCurrentCohort}/>
+            <StudentTable assignmentData={assignmentData} studentList={studentList}/>
+            
             <div className="Student-display">
                 {/* Conditional Rendering of the Selected Student Name */}
                 <h1>
@@ -109,6 +135,7 @@ const Admin = () => {
                         : 'No Selected Student'
                     }
                 </h1>
+
 
                 <div className="custom-select" style={{ width: '200px' }}>
                     <select className="select" onChange={handleStudentChange} value={selectedStudentId || "0"}>
@@ -164,5 +191,5 @@ const Admin = () => {
         </>
     )
 }
+export default Admin; 
 
-export default Admin;
