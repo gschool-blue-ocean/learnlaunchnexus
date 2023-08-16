@@ -1,0 +1,47 @@
+.assign {
+    justify-content: space-between;
+    display: flex;
+}
+
+.assignName {
+    position: absolute;
+    padding-top: .1%;
+    padding-bottom: .1%;
+}
+
+.forms {
+    position: absolute;
+    padding-top: 1%;
+    left: 23%;
+    width: 29%;
+    height: 3.4%;
+}
+
+.assignform {
+    display: flex;
+}
+
+.assignInput {
+    background-color: rgb(68, 68, 68);
+    width: 210px;
+    color: white;
+    height: 25px;
+}
+
+.Submission {
+    background-color: black;
+    border: none;
+    color: whitesmoke;
+}
+
+.Submission:hover {
+    cursor: pointer;
+}
+
+.assignStatus {
+    padding-left: 63%;
+}
+
+.assignDate {
+    padding-right: 7%;
+}

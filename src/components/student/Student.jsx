@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Submission from './Submission';
-
+import './stud.css'
 
 const Student = ({USER_ID}) => {
     const [submissionList, setSubmissionList] = useState([]);
@@ -33,7 +33,13 @@ const Student = ({USER_ID}) => {
  
     return (
     <>
-     {(submissionList.length > 0) && <div>
+     {(submissionList.length > 0) && <div id='table'>
+      <div id='tabletop'>
+        <h2 id='subj'>Subject</h2>
+        <h2 id='subm'>Submission</h2>
+        <h2 id='stat'>Status</h2>
+        <h2 id='subd'>Submission Date</h2>
+      </div>
         {
         submissionList.map((assignment,index) => {
         return(
