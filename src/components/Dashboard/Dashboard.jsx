@@ -34,8 +34,6 @@ getProfile(EMAIL)
 
     return (<>
       
-      <div><h1>HEADER</h1></div>
-      <div><h1>HORIZONTAL CONTAINER</h1>
       <div> <h1>View container</h1>
     return (<>
       
@@ -60,7 +58,7 @@ getProfile(EMAIL)
        <div><h1>CALENDER</h1></div>
        <div><h1>TODO LIST</h1></div>
        </div>
-       </div>
+       
        <div><h1>FOOTER</h1></div>
       </>
        {admin && <Admin USER_ID={USER_ID}></Admin>} 
