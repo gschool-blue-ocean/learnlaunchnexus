@@ -40,7 +40,7 @@ router.get('/:id', async (req, res) => {
 router.get('/student/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query("select id, user_id, assignment_id, name, submission_time, info,  status, feedback from (SELECT * FROM submission INNER JOIN assignment ON submission.assignment_id=assignment.id INNER JOIN tracking ON submission.tracking_id=tracking.id INNER JOIN student ON submission.student_id=student.id INNER JOIN users ON student.id=users.id WHERE users.id=$1) as submission_join", [id]);
+        const result = await pool.query("select info, user_id, assignment_id, name, submission_time,  status, feedback, submission_id from (select * from ( select id as submission_id from submission) as reassignment inner join submission on reassignment.submission_id=submission.id INNER JOIN assignment ON submission.assignment_id=assignment.id INNER JOIN tracking ON submission.tracking_id=tracking.id INNER JOIN student ON submission.student_id=student.id INNER JOIN users ON student.id=users.id WHERE users.id=$1) as submission_join", [id]);
         if (result.rows.length === 0) return res.status(404).json({ message: "Submission not found." });
         res.json(result.rows);
     } catch (err) {
@@ -48,19 +48,6 @@ router.get('/student/:id', async (req, res) => {
         res.status(500).json(err.message);
     }
 });
-/*
-router.get('/student/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const result = await pool.query("SELECT * FROM submission WHERE student_id = $1", [id]);
-        if (result.rows.length === 0) return res.status(404).json({ message: "Submission not found." });
-        res.json(result.rows);
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send("Server error");
-    }
-});
-*/
 
 
 // Create a new submission
@@ -99,7 +86,7 @@ router.patch('/:id', async (req, res) => {
         }
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Internal Servor Err' + err.message);
+        res.status(500).json('Internal Servor Err' + err.message);
     }
 });
 
