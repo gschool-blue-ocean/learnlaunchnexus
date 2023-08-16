@@ -70,7 +70,11 @@ router.patch('/:id', async (req, res) => {
     try {
         // format our SQL statement, this handles variable amount of incoming data in the body
         let sets = [];
+        console.log("Body is: " + JSON.stringify(body));
+                   
         for (let key in body) {
+            //edge case: if key === submission_time, convert to postgres friendly datetime
+            
             sets.push(format('%I = %L', key, body[key]));
         }
         // array has been built, now turn into a string with commas separating each entry
@@ -80,7 +84,7 @@ router.patch('/:id', async (req, res) => {
         const SQLString = format('UPDATE submission SET %s WHERE id = %L RETURNING *', setStrings, id);
         console.log(SQLString);
         const result = await pool.query(SQLString);
-        if(res.rows.length < 1) {
+        if(result.rows.length < 1) {
             res.status(404).send('Submission ID not found');
         } else {
             res.status(200).json(result.rows[0]);

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import { useState } from 'react';
 // user_id, assignment_id, name, submission_time,  status, feedback
 const Submission = ({assignment, index}) => {
     const [inputs, setInputs] = useState({
@@ -14,13 +14,18 @@ const Submission = ({assignment, index}) => {
     const onSubmitForm = async (e) => {
         console.log('inside onSubmitForm')
         e.preventDefault();
-        let currentTime = Date.now()
+        let currentTime = new Date(Date.now());
+        currentTime = currentTime.toISOString();
+        console.log(currentTime)
         console.log(assignment.submission_id)
-        const body = {info: inputs.info, submission_time: currentTime}
+        const body = {"info": inputs.info, "submission_time": currentTime}
         console.log(body)
         try {
               const res = await fetch(`${import.meta.env.VITE_API}/submission/${assignment.submission_id}`, {
                 method: "PATCH",
+                headers: { 
+                  Accept: "application/json",
+                  'Content-Type': 'application/json'},
                 body: JSON.stringify(body)
 
               });
@@ -55,4 +60,3 @@ return (
 
 
 export default Submission;
-
