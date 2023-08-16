@@ -22,13 +22,13 @@ const Admin = () => {
     // })
     return(
         <>
-            {!currentcohort (
+            {/* {!currentcohort (
                 //map through cohorts and get each name and 
                 //put it into a a dropdown menu was the idea
                 <div>
-                    <ChooseCohort />
+                    <chooseCohort />
                 </div>
-            )} 
+            )}  */}
 
 
 
