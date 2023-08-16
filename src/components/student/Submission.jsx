@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import "./sub.css"
+
 // user_id, assignment_id, name, submission_time,  status, feedback
 const Submission = ({assignment, index}) => {
     const [inputs, setInputs] = useState({
@@ -31,22 +33,38 @@ const Submission = ({assignment, index}) => {
             }
         }
         console.log(assignment.submission_id)
+
+  function dateSub (timestamp) {
+    const date = new Date(timestamp)
+    let month = date.getMonth()
+    let day = date.getDate()
+    let year = date.getFullYear()
+    return `${month}/${day}/${year}`
+  }
 return (
-    <div key={assignment.assignment_id}>
-    <form>
-        <h1>{assignment.name}</h1>
-    <input id={assignment.name}
-                      type="text"
-                      name="info"
-                      value={inputs.info}
-                      onChange={e => onChange(e)}
-                      className="undefined"
-                    />
-    <button onClick={onSubmitForm} id='submitAssignment' className="Submission">Submit</button>
-    </form>
-    <h1>{assignment.status}</h1>
-    <h1>{assignment.submission_time}</h1>
-    <h1>{assignment.feedback}</h1>
+    <div className='assign' key={assignment.assignment_id}>
+      <div className="assignName">
+        <p>{assignment.name}</p>
+      </div>
+      <div className='forms'>
+        <form className='assignform'>
+          <input id={assignment.name} 
+            type="text"
+            name="info"
+            value={inputs.info}
+            onChange={e => onChange(e)}
+            className="assignInput"
+         />
+          <button onClick={onSubmitForm} id='submitAssignment' className="Submission">Submit</button>
+        </form>
+      </div>
+      <div className='assignStatus'>
+        <p>{assignment.status}</p>
+      </div>
+      <div className='assignDate'>
+        <p>{dateSub(assignment.submission_time)}</p>
+      </div>
+      {/* <p className='assignStatus'>{assignment.feedback}</p> */}
     </div>
 )
 

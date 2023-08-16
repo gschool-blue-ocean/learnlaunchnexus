@@ -1,0 +1,19 @@
+#tabletop {
+    display: flex;
+}
+
+#subj {
+    padding-left: 1%;
+}
+
+#subm {
+ padding-left: 12%;
+}
+
+#stat {
+ padding-left: 26%;
+}
+
+#subd {
+ padding-left: 7%;
+}
