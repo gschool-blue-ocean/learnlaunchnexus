@@ -1,33 +1,52 @@
-// const Admin = () => {
-//     const [name, setName] = useState('')
-//     async function getName() {
-//     try {
-//     const response = await fetch('http://localhost:3001/api/admin/', {
-//     method: 'GET',
-//     headers: {
-//     token: localStorage.token
-//     }
-//     })
-//     const data = await response.json()
-//     setName(data.user_name)
-//     } catch (error) {
-//     console.error(error.message)
-//     }
-//     }
-//     useEffect(() => {
-//     getName()
-//     })
-//     return(
-//     <h1>Admin page for {name}</h1>
-//     )
-//     }
+import { useState } from "react"
+import chooseCohort from "./ChooseCohort"
 
 const Admin = () => {
-    return (
+    //const [name, setName] = useState('')
+    const [cohorts, setCohorts] = useState([])
+    const [currentcohort, setCurrrentCohort] = useState('')
+    async function getCohorts() {
+    try {
+    const response = await fetch(`${import.meta.env.VITE_API}/cohort/`, {
+    method: 'GET',
+    })
+    const data = await response.json()
+    setCohorts(data)
+    } catch (error) {
+    console.error(error.message)
+    }
+    }
+    getCohorts()
+    // useEffect(() => {
+    // getName()
+    // })
+    return(
         <>
-        <h1>I am an admin</h1>
+            {!currentcohort (
+                <div>
+                    <ChooseCohort />
+                </div>
+            )} 
+
+
+
+        
+            {/* <h1>Admin page for {name}</h1>
+            <h1>Choose Cohort</h1>
+            <form>
+                <input></input>
+                <button type="submit">Cohort</button>
+            </form> */}
         </>
-    );
+    )
 }
+
+// const Admin = () => {
+//     return (
+//         <>
+//         <h1>I am an admin</h1>
+//         </>
+//     );
+// }
 
 export default Admin; 
