@@ -1,34 +1,36 @@
-import { useState } from "react"
-import chooseCohort from "./ChooseCohort"
+import { useState, useEffect } from "react"
+import ChooseCohort from "./ChooseCohort"
 
 const Admin = () => {
     //const [name, setName] = useState('')
-    const [cohorts, setCohorts] = useState([])
-    const [currentcohort, setCurrrentCohort] = useState('')
-    async function getCohorts() {
-    try {
-    const response = await fetch(`${import.meta.env.VITE_API}/cohort/`, {
-    method: 'GET',
-    })
-    const data = await response.json()
-    setCohorts(data)
-    } catch (error) {
-    console.error(error.message)
-    }
-    }
-    getCohorts()
-    // useEffect(() => {
-    // getName()
-    // })
+    const [cohortList, setCohortList] = useState([]);
+    const [currentCohort, setCurrentCohort] = useState(-1);
+    useEffect( () => {
+        
+        const getCohortData = async () => {
+            
+            try {
+                const res = await fetch(`${import.meta.env.VITE_API}/cohort`, {
+                    method: "GET",
+                  });
+          
+                  const parseData = await res.json();
+                  setCohortList(parseData)
+                } catch (err) {
+                  console.error(err.message);
+                }
+
+        }
+        getCohortData();
+    }, []);
+    console.log(currentCohort)
     return(
         <>
-            {/* {!currentcohort (
-                //map through cohorts and get each name and 
-                //put it into a a dropdown menu was the idea
-                <div>
-                    <chooseCohort />
-                </div>
-            )}  */}
+            <ChooseCohort cohortList={cohortList} setCurrentCohort={setCurrentCohort}/>
+
+            
+
+             {(currentCohort > -1) && <h1>Your in Cohort {cohortList[currentCohort].name}</h1>} 
 
 
 
@@ -43,12 +45,5 @@ const Admin = () => {
     )
 }
 
-// const Admin = () => {
-//     return (
-//         <>
-//         <h1>I am an admin</h1>
-//         </>
-//     );
-// }
 
 export default Admin; 
