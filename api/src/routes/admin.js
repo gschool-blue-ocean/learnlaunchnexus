@@ -28,6 +28,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+
 // Add a new admin
 router.post('/', async (req, res) => {
     const { user_id } = req.body;

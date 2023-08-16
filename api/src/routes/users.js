@@ -38,6 +38,39 @@ router.get('/init/:email', async (req, res) => {
     }
 });
 
+router.put('/update-email/:email', async (req, res) => {
+    const currentEmail = req.params.email;
+    const newEmail = req.body.email;
+    
+    try {
+        // Check if the new email already exists in the database
+        const emailExists = await pool.query('SELECT * FROM authentication WHERE user_email = $1', [newEmail]);
+        if (emailExists.rows.length > 0) {
+            return res.status(400).json({ message: 'Email already in use.' });
+        }
+        
+        // Update the user's email
+        const result = await pool.query(
+            "UPDATE authentication SET user_email = $1 WHERE user_id = (SELECT user_id FROM authentication WHERE user_email = $2)", 
+            [newEmail, currentEmail]
+        );
+        
+        // Check if the update was successful
+        if (result.rowCount === 0) {
+            return res.status(404).json({ message: "User not found." });
+        }
+        
+        // Send a success response
+        res.status(200).json({ message: 'Email updated successfully.' });
+        
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json(err.message);
+    }
+});
+
+
+
 // Add a new user
 router.post('/', async (req, res) => {
     const { auth_id, first_name, last_name, isAdmin } = req.body;
