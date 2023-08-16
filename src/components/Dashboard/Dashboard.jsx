@@ -74,6 +74,9 @@ const Dashboard = ({ setAuth, userEmail }) => {
                   <span>Cohort: MCSP-22 </span>
                 </div>
                 <div>
+                  <span>Desired Location: Planet Earth</span>
+                </div>
+                <div>
                   <span>Location: New York City, NY</span>
                 </div>
               </div>
@@ -81,10 +84,17 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
 
             </div>
+<<<<<<< Updated upstream
             <div>
               {admin && <Admin USER_ID={USER_ID}></Admin>}
               {!admin && <Student USER_ID={USER_ID}></Student>}
             </div>
+=======
+
+            {admin && <Admin USER_ID={USER_ID}></Admin>}
+            {!admin && <Student USER_ID={USER_ID}></Student>}
+
+>>>>>>> Stashed changes
           </div>
           <h1>VERTICAL CONTAINER
             <div className="calendar">
@@ -103,6 +113,12 @@ const Dashboard = ({ setAuth, userEmail }) => {
         </div>
       </div>
       <div>
+<<<<<<< Updated upstream
+=======
+        
+      </div>
+      <div>
+>>>>>>> Stashed changes
 
         <div><h1>CALENDER</h1></div>
         <div><h1>TODO LIST</h1></div>
