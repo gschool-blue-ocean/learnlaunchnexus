@@ -24,17 +24,20 @@ const Student = ({USER_ID}) => {
             
 
         }
+        if(USER_ID > 0)
+        {
         getSubmissionData();
+        }
     }, [USER_ID]);
     console.log(submissionList);
     return (
     <>
      {(submissionList.length > 0) && <div>
         {
-        submissionList.map((assignment) => {
+        submissionList.map((assignment,index) => {
         return(
             <>
-            <Submission assignment={assignment}></Submission>
+            <Submission assignment={assignment} index={index}></Submission>
             </>
         )
     })}
