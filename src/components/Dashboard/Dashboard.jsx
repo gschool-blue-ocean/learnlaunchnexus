@@ -3,14 +3,10 @@ import Header from "../global/Header.jsx";
 import Admin from '../admin/Admin.jsx'
 import Student from '../student/Student.jsx'
 
-
-const Dashboard = ({setAuth, userEmail}) => {
 const Dashboard = ({setAuth, userEmail}) => {
     const [name, setName] = useState("");
     const [admin, setAdmin] = useState("");
     const [USER_ID, setUSER_ID] = useState(0)
-    const [USER_ID, setUSER_ID] = useState(0)
-
 
     const getProfile = async (EMAIL) => {
         try {
