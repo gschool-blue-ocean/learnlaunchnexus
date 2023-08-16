@@ -5,8 +5,6 @@ import settings from './settings-gear.svg'
 import galvanizelogo from '/public/galvanizelogo.png'
 // import AssignmentModal from '../modal/AssignmentModal.jsx'
 import SettingDropdown from './SettingDropdown';
-import UpdateDesiredLocationForm from '../changeDesiredLocation/UpdateDesiredLocationForm.jsx'
-
 
 const Header = ({ USER_ID, admin, setAuth }) => {
 
