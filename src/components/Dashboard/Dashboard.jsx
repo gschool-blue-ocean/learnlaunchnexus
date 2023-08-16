@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from "../global/Header.jsx";
 import Admin from '../admin/Admin.jsx'
 import Student from '../student/Student.jsx'
+
 import './Dashboard.css'
 import Calendar from 'react-calendar';
 import './Calendar.css'
@@ -13,7 +14,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
   const [USER_ID, setUSER_ID] = useState(0)
   const [date, setDate] = useState(new Date())
 
-  const getProfile = async (EMAIL) => {
+const getProfile = async (EMAIL) => {
     try {
       const res = await fetch(`${import.meta.env.VITE_API}/users/init/${EMAIL}`, {
         method: "GET",
@@ -23,82 +24,59 @@ const Dashboard = ({ setAuth, userEmail }) => {
       setName(parseData.first_name);
       setAdmin(parseData.isadmin)
       setUSER_ID(parseData.id)
-      console.log('fulldata', parseData)
-      console.log('user_id', USER_ID)
-      setUSER_ID(parseData.id)
-      console.log('fulldata', parseData)
-      console.log('user_id', USER_ID)
       return parseData
     } catch (err) {
       console.error(err.message);
     }
   };
-  const logout = async e => {
-    e.preventDefault();
-    try {
-      localStorage.removeItem("token");
-      setAuth(false);
-      window.location.href = "../"
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
+localStorage.setItem('user_id', JSON.stringify(USER_ID))
+      
+  
+      
+const EMAIL = JSON.parse(localStorage.getItem('email'))
 
+const [location, setLocation] = useState("")
+const [desiredLocation, setDesiredLocation] = useState("")
 
-  const EMAIL = JSON.parse(localStorage.getItem('email'))
+const getLocation = async (USER_ID) => {
+  try {
+    const res = await fetch(`${import.meta.env.VITE_API}/students/${USER_ID}`, {
+      method: "GET",
+    });
+    
+    const secondParseData = await res.json();
+    setLocation(secondParseData.location);
+    setDesiredLocation(secondParseData.desired_location)
+    console.log('fulldata for location', secondParseData)
+    return secondParseData
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+getProfile(EMAIL)
+getLocation(USER_ID)
+useEffect(() => {
   getProfile(EMAIL)
+  getLocation(USER_ID)
+}, [EMAIL, location, desiredLocation])
 
-  return (
-    <>
-
+return (
+  <>
+      
       <div><h1>HORIZONTAL CONTAINER</h1></div>
       <div> <h1>View container</h1>
-        <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
-
-
-        <div className="dashboard-container">
-
-          <div className="dashboard-page">
-            <div className="profile">
-              <div className="header">
-                <h1>Welcome, {name} !
-
-                  {/*<button onClick={e => logout(e)} className="logout-button" > Logout</button>*/}
-
-                </h1>
-              </div>
-              <div className="profile-info">
-                <div>
-                  <span>Cohort: MCSP-22 </span>
-                </div>
-                <div>
-                  <span>Location: New York City, NY</span>
-                </div>
-              </div>
-
-
-
-            </div>
-            <div>
-              {admin && <Admin USER_ID={USER_ID}></Admin>}
-              {!admin && <Student USER_ID={USER_ID}></Student>}
-            </div>
-          </div>
-          <h1>VERTICAL CONTAINER
-            <div className="calendar">
-              <h1 className="calendar-header">Calendar</h1>
-              <div className="calendar-container">
-                <Calendar onChange={setDate} value={date} />
-              </div>
-              <div className="text-center">
-                Selected date: {date.toDateString()}
-              </div>
-
-
-            </div>
-            <Todo />
-          </h1>
-        </div>
+          <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
+          <h1 className="dashboard-page">Dashboard</h1>
+          <h2>Welcome {name}</h2>
+          <h3>Your email is {EMAIL}</h3>
+          <h3>Your id is {USER_ID}</h3>
+          <h3>Your location is {location}</h3>
+          <h3>Your desired location is {desiredLocation}</h3>
+      </div>
+      <div>
+        {admin && <Admin USER_ID={USER_ID}></Admin>} 
+        {!admin && <Student USER_ID={USER_ID}></Student>} 
       </div>
       <div>
 
@@ -113,31 +91,3 @@ const Dashboard = ({ setAuth, userEmail }) => {
 export default Dashboard;
 
 
-
-
-
-// const Dashboard = ({setAuth}) => {
-
-//     const onClick = () => {
-//         localStorage.token = ''
-//         setAuth(false)
-//         setTimeout(window.location.href = '../', 30000)
-//     }
-//  return (
-//     <>
-//         <h1>Dashboard</h1>
-//         <button onClick={onClick}>logout</button>
-
-//         {/* !isAdmin ? (
-//             <admin setAuth={setAuth} />
-//           ) : (
-//             <student to="/dashboard" />
-//           ) */}
-
-
-
-//     </>
-//  )
-// }
-
-// export default Dashboard;
