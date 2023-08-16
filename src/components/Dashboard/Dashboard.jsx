@@ -43,6 +43,7 @@ getProfile(EMAIL)
 
     return (<>
       
+      <div> <h1>View container</h1>
       <div>
         <Header admin={admin} />
         <h1 className="dashboard-page">Dashboard</h1>
@@ -60,7 +61,7 @@ getProfile(EMAIL)
        <div><h1>CALENDER</h1></div>
        <div><h1>TODO LIST</h1></div>
        </div>
-       </div>
+       
        <div><h1>FOOTER</h1></div>
       </>
     );
