@@ -23,6 +23,8 @@ const Admin = () => {
     return(
         <>
             {!currentcohort (
+                //map through cohorts and get each name and 
+                //put it into a a dropdown menu was the idea
                 <div>
                     <ChooseCohort />
                 </div>
