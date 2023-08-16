@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react"
 import ChooseCohort from "./ChooseCohort"
-
+import StudentTable from "./StudentTable";
+// fetch assignment list by cohort id
+// fetch all students name by user_id
+// create table left = student name , top = assignment name
+// populate table with student tracking data
+// on student selection pull up single student view
+// use submision logic for feedback data in single student view
 const Admin = () => {
     //const [name, setName] = useState('')
     const [cohortList, setCohortList] = useState([]);
     const [currentCohort, setCurrentCohort] = useState(-1);
     const [studentList, setStudentList] = useState([]);
+    const [assignmentData, setAssignmentData] = useState([]);
+
     useEffect( () => {
         
         const getCohortData = async () => {
@@ -31,12 +39,20 @@ const Admin = () => {
         const getCohortStudents = async () => {
             
             try {
-                const res = await fetch(`${import.meta.env.VITE_API}/students/cohort/${cohortList[currentCohort].id}`, {
+                const resCohort = await fetch(`${import.meta.env.VITE_API}/cohort/${cohortList[currentCohort].id}/assignments`, {
                     method: "GET",
                   });
           
-                  const parseData = await res.json();
-                  setStudentList(parseData)
+                  const parseCohortData = await resCohort.json();
+                  setStudentList(parseCohortData);
+
+
+
+                  const resAssignment = await fetch(`${import.meta.env.VITE_API}/cohort_assignment/cohort/${cohortList[currentCohort].id}`, {
+                    method: "GET"
+                  });
+                  const parseAssignmentData = await resAssignment.json();
+                  setAssignmentData(parseAssignmentData)
                 } catch (err) {
                   console.error(err.message);
                 }
@@ -44,13 +60,13 @@ const Admin = () => {
         }
         getCohortStudents();
     }, [currentCohort]);
-
+                        
 
     console.log(currentCohort)
     return(
         <>
             <ChooseCohort cohortList={cohortList} setCurrentCohort={setCurrentCohort}/>
-
+            <StudentTable assignmentData={assignmentData} studentList={studentList}/>
             
 
              {(currentCohort > -1) && <h1>You are in Cohort {cohortList[currentCohort].name}</h1>} 
