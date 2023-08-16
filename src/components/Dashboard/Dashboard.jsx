@@ -43,9 +43,6 @@ getProfile(EMAIL)
 
     return (<>
       
-      <div><h1>HEADER</h1></div>
-      <div><h1>HORIZONTAL CONTAINER</h1>
-      <div> <h1>View container</h1>
       <div>
         <Header admin={admin} />
         <h1 className="dashboard-page">Dashboard</h1>

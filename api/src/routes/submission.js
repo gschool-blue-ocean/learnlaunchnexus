@@ -78,6 +78,7 @@ router.patch('/:id', async (req, res) => {
         let setStrings = sets.join(',');
         //build out the rest of the SQL statement 
         const SQLString = format('UPDATE submission SET %s WHERE id = %L RETURNING *', setStrings, id);
+        console.log(SQLString);
         const result = await pool.query(SQLString);
         if(response.rows.length < 1) {
             res.status(404).send('Submission ID not found');
