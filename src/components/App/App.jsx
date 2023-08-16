@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard"
 import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
+import ChangeEmail from "../changeEmail/ChangeEmail";
+import ChangeDesiredLocation from "../changeDesiredLocation/ChangeDesiredLocation";
+import ChangeLocation from "../changeLocation/ChangeLocation";
 
 
 
@@ -78,6 +81,27 @@ const App = () => {
           )
         )}
         /> 
+
+        <Route
+        path = "change-email"
+        element ={(
+          <ChangeEmail />
+        )}
+        />
+
+        <Route
+        path = "change-location"
+        element ={(
+          <ChangeLocation />
+        )}
+        />
+
+        <Route
+        path = "change-desired-location"
+        element ={(
+          <ChangeDesiredLocation />
+        )}
+        />
 
         </Routes>
 
