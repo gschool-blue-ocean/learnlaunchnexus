@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import styles from './Header.module.css';
 import settings from './settings-gear.svg'
 import galvanizelogo from '/public/galvanizelogo.png'
+// import AssignmentModal from '../modal/AssignmentModal.jsx'
 import SettingDropdown from './SettingDropdown';
 import UpdateEmailForm from './UpdateEmailForm.jsx'
 import UpdateLocationForm from './UpdateLocationForm.jsx'
