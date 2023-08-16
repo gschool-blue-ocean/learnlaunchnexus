@@ -32,6 +32,18 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.get('/cohort/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await pool.query("SELECT assignment_id, name FROM cohort_assignment INNER JOIN assignment ON cohort_assignment.assignment_id=assignment.id WHERE cohort_id = $1 ORDER BY assignment_id ASC", [id]);
+        if (result.rows.length === 0) return res.status(404).json({ message: "Cohort-Assignment mapping not found." });
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+         res.status(500).json(err.message);
+    }
+});
+
 // Assign an assignment to a cohort
 router.post('/', async (req, res) => {
     const { assignment_id, cohort_id } = req.body;
