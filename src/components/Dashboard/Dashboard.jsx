@@ -16,14 +16,9 @@ const Dashboard = ({setAuth, userEmail}) => {
   
           const parseData = await res.json();
           setName(parseData.first_name);
-          setAdmin(parseData.isadmin)
-          setUSER_ID(parseData.id)
-          console.log('fulldata', parseData)
-          console.log('user_id', USER_ID)
-          setUSER_ID(parseData.id)
-          console.log('fulldata', parseData)
-          console.log('user_id', USER_ID)
-          return parseData
+          setAdmin(parseData.isadmin);
+          setUSER_ID(parseData.id);
+          return parseData;
         } catch (err) {
           console.error(err.message);
         }

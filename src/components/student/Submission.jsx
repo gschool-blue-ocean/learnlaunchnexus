@@ -12,14 +12,13 @@ const Submission = ({assignment, index}) => {
     }
 
     const onSubmitForm = async (e) => {
-        console.log('inside onSubmitForm')
+    
         e.preventDefault();
         let currentTime = new Date(Date.now());
         currentTime = currentTime.toISOString();
-        console.log(currentTime)
-        console.log(assignment.submission_id)
+    
         const body = {"info": inputs.info, "submission_time": currentTime}
-        console.log(body)
+
         try {
               const res = await fetch(`${import.meta.env.VITE_API}/submission/${assignment.submission_id}`, {
                 method: "PATCH",
@@ -35,7 +34,7 @@ const Submission = ({assignment, index}) => {
               console.error(err.message);
             }
         }
-        console.log(assignment.submission_id)
+
 return (
     <div key={assignment.assignment_id}>
     <form>

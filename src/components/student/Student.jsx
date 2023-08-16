@@ -6,12 +6,13 @@ const Student = ({USER_ID}) => {
     const [submissionList, setSubmissionList] = useState([]);
     useEffect( () => {
         
-        const getSubmissionData = async () => {
+      
+      const getSubmissionData = async () => {
             
             
     
             try {
-                console.log("Student COMP", USER_ID)
+            
                   const res = await fetch(`${import.meta.env.VITE_API}/submission/student/${USER_ID}`, {
                     method: "GET",
                   });
@@ -29,7 +30,7 @@ const Student = ({USER_ID}) => {
         getSubmissionData();
         }
     }, [USER_ID]);
-    console.log(submissionList);
+ 
     return (
     <>
      {(submissionList.length > 0) && <div>
