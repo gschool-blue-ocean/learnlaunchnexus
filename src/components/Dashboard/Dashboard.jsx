@@ -59,7 +59,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
 
         <div className="dashboard-container">
-          
+
           <div className="dashboard-page">
             <div className="profile">
               <div className="header">
@@ -81,30 +81,29 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
 
             </div>
-            
+            <div>
+              {admin && <Admin USER_ID={USER_ID}></Admin>}
+              {!admin && <Student USER_ID={USER_ID}></Student>}
+            </div>
           </div>
           <h1>VERTICAL CONTAINER
-        <div className="calendar">
-            <h1 className="calendar-header">Calendar</h1>
-            <div className="calendar-container">
-              <Calendar onChange={setDate} value={date} />
-            </div>
-            <div className="text-center">
-              Selected date: {date.toDateString()}
-            </div>
+            <div className="calendar">
+              <h1 className="calendar-header">Calendar</h1>
+              <div className="calendar-container">
+                <Calendar onChange={setDate} value={date} />
+              </div>
+              <div className="text-center">
+                Selected date: {date.toDateString()}
+              </div>
 
 
-          </div>
-          <Todo />
-        </h1>
+            </div>
+            <Todo />
+          </h1>
         </div>
       </div>
       <div>
-        {admin && <Admin USER_ID={USER_ID}></Admin>}
-        {!admin && <Student USER_ID={USER_ID}></Student>}
-      </div>
-      <div>
-         
+
         <div><h1>CALENDER</h1></div>
         <div><h1>TODO LIST</h1></div>
       </div>

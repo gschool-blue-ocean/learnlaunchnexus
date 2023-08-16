@@ -33,6 +33,14 @@ const Submission = ({assignment, index}) => {
             }
         }
         console.log(assignment.submission_id)
+
+  function dateSub (timestamp) {
+    const date = new Date(timestamp)
+    let month = date.getMonth()
+    let day = date.getDate()
+    let year = date.getFullYear()
+    return `${month}/${day}/${year}`
+  }
 return (
     <div className='assign' key={assignment.assignment_id}>
       <div className="assignName">
@@ -54,7 +62,7 @@ return (
         <p>{assignment.status}</p>
       </div>
       <div className='assignDate'>
-        <p>{assignment.submission_time}</p>
+        <p>{dateSub(assignment.submission_time)}</p>
       </div>
       {/* <p className='assignStatus'>{assignment.feedback}</p> */}
     </div>

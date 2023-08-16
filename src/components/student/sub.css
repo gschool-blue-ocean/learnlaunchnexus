@@ -1,22 +1,18 @@
 .assign {
     justify-content: space-between;
     display: flex;
-    background-color: darkgray;
 }
 
 .assignName {
     position: absolute;
-    left: 1%;
-    width: 22.7%;
-    height: 5.1%;
-    border-style: solid;
+    padding-top: .1%;
+    padding-bottom: .1%;
 }
 
 .forms {
     position: absolute;
     padding-top: 1%;
-    left: 24%;
-    border-style: solid;
+    left: 30%;
     width: 29%;
     height: 3.4%;
 }
@@ -26,24 +22,23 @@
 }
 
 .assignInput {
-    background-color: inherit;
+    background-color: rgb(68, 68, 68);
     width: 210px;
+    color: white;
+    height: 25px;
 }
 
 .Submission {
-    background-color: inherit;
+    background-color: black;
     border: none;
+    color: whitesmoke;
 }
 
 .Submission:hover {
-    background-color: aqua;
+    cursor: pointer;
 }
 
 .assignStatus {
-    position: absolute;
-    left: 54%;
+    padding-left: 68%;
 }
 
-.assignDate {
-    padding-left: 70%;
-}
