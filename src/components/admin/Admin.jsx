@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import chooseCohort from "./ChooseCohort"
+import ChooseCohort from "./ChooseCohort"
 import StudentTable from "./StudentTable";
 import './admin.css';
 
@@ -8,10 +8,13 @@ const Admin = () => {
     // State Variables
 
     const [cohorts, setCohorts] = useState([]);
-    const [currentcohort, setCurrrentCohort] = useState('')
+    const [cohortList, setCohortList] = useState([]);
+    const [currentCohort, setCurrentCohort] = useState('')
+    const [studentList, setStudentList] = useState([]);
     const [students, setStudents] = useState([]);
     const [selectedStudentId, setSelectedStudentId] = useState(null);
     const [submissions, setSubmissions] = useState([]);
+    const [assignmentData, setAssignmentData] = useState([]);
 
     
     // Find the selected student object based on the selectedStudentId
