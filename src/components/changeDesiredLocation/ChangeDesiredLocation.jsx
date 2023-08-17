@@ -7,8 +7,10 @@ const ChangeDesiredLocation = () => {
     console.log(USER_ID)
     return (
         <>
-            <h1>you can change the desired location yooo</h1>
             <button><UpdateDesiredLocationForm USER_ID={USER_ID} /></button>
+            <Link to="../dashboard">
+                <button>Cancel</button>
+            </Link>
         </>
     )
 }
