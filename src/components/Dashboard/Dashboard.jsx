@@ -14,7 +14,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
   const [USER_ID, setUSER_ID] = useState(0)
   const [date, setDate] = useState(new Date())
 
-const getProfile = async (EMAIL) => {
+  const getProfile = async (EMAIL) => {
     try {
       const res = await fetch(`${import.meta.env.VITE_API}/users/init/${EMAIL}`, {
         method: "GET",
@@ -29,41 +29,41 @@ const getProfile = async (EMAIL) => {
       console.error(err.message);
     }
   };
-localStorage.setItem('user_id', JSON.stringify(USER_ID))
-      
-  
-      
-const EMAIL = JSON.parse(localStorage.getItem('email'))
+  localStorage.setItem('user_id', JSON.stringify(USER_ID))
 
-const [location, setLocation] = useState("")
-const [desiredLocation, setDesiredLocation] = useState("")
 
-const getLocation = async (USER_ID) => {
-  try {
-    const res = await fetch(`${import.meta.env.VITE_API}/students/${USER_ID}`, {
-      method: "GET",
-    });
-    
-    const secondParseData = await res.json();
-    setLocation(secondParseData.location);
-    setDesiredLocation(secondParseData.desired_location)
-    console.log('fulldata for location', secondParseData)
-    return secondParseData
-  } catch (err) {
-    console.error(err.message);
-  }
-};
 
-getProfile(EMAIL)
-getLocation(USER_ID)
-useEffect(() => {
+  const EMAIL = JSON.parse(localStorage.getItem('email'))
+
+  const [location, setLocation] = useState("")
+  const [desiredLocation, setDesiredLocation] = useState("")
+
+  const getLocation = async (USER_ID) => {
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API}/students/${USER_ID}`, {
+        method: "GET",
+      });
+
+      const secondParseData = await res.json();
+      setLocation(secondParseData.location);
+      setDesiredLocation(secondParseData.desired_location)
+      console.log('fulldata for location', secondParseData)
+      return secondParseData
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   getProfile(EMAIL)
   getLocation(USER_ID)
-}, [EMAIL, location, desiredLocation])
+  useEffect(() => {
+    getProfile(EMAIL)
+    getLocation(USER_ID)
+  }, [EMAIL, location, desiredLocation])
 
-return (
-  <>
-      
+  return (
+    <>
+
       <div><h1>HORIZONTAL CONTAINER</h1></div>
       <div> <h1>View container</h1>
 
@@ -83,10 +83,9 @@ return (
               </div>
               <div className="profile-info">
                 <h2>Welcome {name}</h2>
-                <h3>Your email is {EMAIL}</h3>
-                <h3>Your id is {USER_ID}</h3>
-                <h3>Your location is {location}</h3>
-                <h3>Your desired location is {desiredLocation}</h3>
+
+                {!admin && <h3>Your location is {location}</h3>}
+                {!admin && <h3>Your desired location is {desiredLocation}</h3>}
               </div>
 
 

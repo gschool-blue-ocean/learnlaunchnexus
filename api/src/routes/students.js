@@ -12,6 +12,16 @@ router.get('/', async (req, res) => {
     res.status(500).json(err.message);    }
 });
 
+router.get('/byCohort/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const results = await pool.query("SELECT * FROM student INNER JOIN users ON student.user_id=users.id where cohort_id = $1", [id]);
+        res.json(results.rows);
+    } catch (err) {
+        console.error(err.message);
+    res.status(500).json(err.message);    }
+});
+
 
 // Get a specific student by ID
 router.get('/:id', async (req, res) => {
