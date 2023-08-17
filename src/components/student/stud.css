@@ -3,17 +3,20 @@
 }
 
 #subj {
-    padding-left: 1%;
+    position: absolute;
 }
 
 #subm {
- padding-left: 12%;
+    position: absolute;
+    left: 18%;
 }
 
 #stat {
- padding-left: 26%;
+    position: absolute;
+    left: 50%;
 }
 
 #subd {
- padding-left: 7%;
+    padding-left: 80%;
+
 }

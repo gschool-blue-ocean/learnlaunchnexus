@@ -40,10 +40,19 @@ const Submission = ({assignment, index}) => {
 
   function dateSub (timestamp) {
     const date = new Date(timestamp)
-    let month = date.getMonth()
+    let month = date.getMonth() + 1
     let day = date.getDate()
     let year = date.getFullYear()
-    return `${month}/${day}/${year}`
+    let hour = date.getHours()
+    let min = date.getMinutes()
+    if (min < 10) {
+      
+    }
+    if (hour > 12 ) {
+      let pm = hour - 12
+      return `Submitted at ${pm}:${min} pm on ${month}/${day}/${year}`
+    }
+    return `Submitted at ${hour}:${min} am on ${month}/${day}/${year}`
   }
 return (
     <div className='assign' key={assignment.assignment_id}>
