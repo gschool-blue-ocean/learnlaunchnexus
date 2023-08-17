@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./App.module.css";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard"
 import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
@@ -56,7 +56,7 @@ const App = () => {
         path = "/"
         element={(
           isAuthenticated ? (
-            <Link to="/dashboard" />
+            <Navigate to= "/dashboard" replace/>
           ) : (
             <Login setAuth={setAuth} setEmail={setEmail} userEmail={userEmail}/>
           )
@@ -66,7 +66,7 @@ const App = () => {
         path = "/register"
         element={(
           isAuthenticated ? (
-            <Link to="/dashboard" />
+            <Navigate to= "/dashboard" replace />
           ) : (
             <Register setAuth={setAuth} setEmail={setEmail} userEmail={userEmail}/>
           )
@@ -78,7 +78,7 @@ const App = () => {
           isAuthenticated ? (
             <Dashboard setAuth={setAuth} userEmail={userEmail}/>
           ) : (
-            <Link to="/" />
+            <Navigate to="/" replace/>
           )
         )}
         /> 
@@ -109,6 +109,11 @@ const App = () => {
         element ={(
           <AddAdmin />
         )}
+        />
+
+        <Route
+        path = "/*"
+        element = {<Navigate to="/" replace />}
         />
 
         </Routes>

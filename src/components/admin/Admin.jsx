@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import StudentTable from './StudentTable';
 import StudentView from './StudentView';
 import ChooseCohort from './ChooseCohort'
+import './admin.css';
+
 const Admin = () => {
 
     const [selectedStudent, setSelectedStudent] = useState(null);
@@ -91,3 +93,4 @@ const Admin = () => {
 };
 
 export default Admin    
+

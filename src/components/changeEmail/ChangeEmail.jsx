@@ -7,8 +7,10 @@ const ChangeEmail = () => {
 
     return (
         <>
-            <h1>you can change the email yooo</h1>
             <button><UpdateEmailForm/></button>
+            <Link to="../dashboard">
+                <button>Cancel</button>
+            </Link>
         </>
     )
 }

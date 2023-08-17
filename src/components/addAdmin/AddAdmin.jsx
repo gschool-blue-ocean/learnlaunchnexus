@@ -42,8 +42,8 @@ const AddAdmin = () => {
                     />
             <button onClick={onSubmitForm} id='submitAdmin' className="Submission">Submit</button>
             </form>
-            <Link to='/dashboard'>
-                <button>go back to dashboard</button>
+            <Link to="../dashboard">
+                <button>Cancel</button>
             </Link>
         </>
     )
