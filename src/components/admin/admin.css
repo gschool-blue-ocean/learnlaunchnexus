@@ -38,6 +38,10 @@ table th {
     margin-left: 15px;
     padding-top: 6px;
     font-size: 10px;
+    width: 200px;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
 }
 
 .select {
