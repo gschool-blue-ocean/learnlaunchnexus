@@ -64,9 +64,6 @@ const Dashboard = ({ setAuth, userEmail }) => {
   return (
     <>
 
-      <div><h1>HORIZONTAL CONTAINER</h1></div>
-      <div> <h1>View container</h1>
-
         <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
 
 
@@ -82,10 +79,8 @@ const Dashboard = ({ setAuth, userEmail }) => {
                 </h1>
               </div>
               <div className="profile-info">
-                <h2>Welcome {name}</h2>
-
-                {!admin && <h3>Your location is {location}</h3>}
-                {!admin && <h3>Your desired location is {desiredLocation}</h3>}
+                {!admin && <h3>Location: {location}</h3>}
+                {!admin && <h3>Desired Location: {desiredLocation}</h3>}
               </div>
 
 
@@ -113,14 +108,11 @@ const Dashboard = ({ setAuth, userEmail }) => {
         </div>
 
 
-      </div>
+
       <div>
 
       </div>
       <div>
-
-        <div><h1>CALENDER</h1></div>
-        <div><h1>TODO LIST</h1></div>
       </div>
       <div><h1>FOOTER</h1></div>
     </>
