@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Header from "../global/Header.jsx";
 import Admin from '../admin/Admin.jsx'
 import Student from '../student/Student.jsx'
-
 import './Dashboard.css'
 import Calendar from 'react-calendar';
 import './Calendar.css'
 import Todo from './TodoList/Todo.jsx'
-
+import Footer from './Footer/Footer.jsx'
 const Dashboard = ({ setAuth, userEmail }) => {
   const [name, setName] = useState("");
   const [admin, setAdmin] = useState("");
@@ -63,12 +62,16 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
   return (
     <>
-
-      <div><h1>HORIZONTAL CONTAINER</h1></div>
-      <div> <h1>View container</h1>
-
+       
+       
+ 
+        <div> {/*<h1>HORIZONTAL CONTAINER</h1>*/}
         <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
 
+        </div>
+        <div>   {/* <h1>View container</h1> */}
+
+ 
 
         <div className="dashboard-container">
 
@@ -119,10 +122,9 @@ const Dashboard = ({ setAuth, userEmail }) => {
       </div>
       <div>
 
-        <div><h1>CALENDER</h1></div>
-        <div><h1>TODO LIST</h1></div>
+        
       </div>
-      <div><h1>FOOTER</h1></div>
+      <Footer/>
     </>
   );
 }

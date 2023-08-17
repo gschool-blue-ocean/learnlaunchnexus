@@ -49,6 +49,7 @@ const Header = ({ USER_ID, admin, setAuth }) => {
       };
  
     return (
+        <div>  
         <header className={styles.appheader}>
             <h1 className={styles.apptitle}>{name}</h1> 
 
@@ -56,8 +57,7 @@ const Header = ({ USER_ID, admin, setAuth }) => {
             <nav className={styles.navmenu}>
                 <ul>
                     <li><Link to="/dashboard">Home</Link></li>
-                    <li><Link to="/Contact-us"><a href="mailto:email@example.com">Contact Us</a>
-                    </Link></li>
+                      
 
                     <SettingDropdown admin={admin}/>
                     <button onClick={e => logout(e)} className={styles.logbtn}>Logout</button>
@@ -65,7 +65,7 @@ const Header = ({ USER_ID, admin, setAuth }) => {
                 
             </nav>
          </header>
-        
+         </div>
     );
 };
 
