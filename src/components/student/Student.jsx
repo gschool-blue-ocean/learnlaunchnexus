@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import Submission from './Submission';
-
+import './stud.css'
 
 const Student = ({USER_ID}) => {
     const [submissionList, setSubmissionList] = useState([]);
     useEffect( () => {
         
-        const getSubmissionData = async () => {
+      
+      const getSubmissionData = async () => {
             
             
     
             try {
-                console.log("Student COMP", USER_ID)
+            
                   const res = await fetch(`${import.meta.env.VITE_API}/submission/student/${USER_ID}`, {
                     method: "GET",
                   });
@@ -29,10 +30,16 @@ const Student = ({USER_ID}) => {
         getSubmissionData();
         }
     }, [USER_ID]);
-    console.log(submissionList);
+ 
     return (
     <>
-     {(submissionList.length > 0) && <div>
+     {(submissionList.length > 0) && <div id='table'>
+      <div id='tabletop'>
+        <h2 id='subj'>Subject</h2>
+        <h2 id='subm'>Submission</h2>
+        <h2 id='stat'>Status</h2>
+        <h2 id='subd'>Submission Date</h2>
+      </div>
         {
         submissionList.map((assignment,index) => {
         return(

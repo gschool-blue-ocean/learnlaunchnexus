@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 
-function UpdateLocationForm({USER_ID}) {
-    // State to store the current ID input by user
-     // State to store the new location input by user
-    const [newLocation, setNewLocation] = useState('');
+function UpdateDesiredLocationForm({USER_ID}) {
+      // State to store the new location input by user
+    const [newDesiredLocation, setNewDesiredLocation] = useState('');
     // State to store any server response message
     const [message, setMessage] = useState('');
+
 
     // Function to handle the form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             // Send a PUT request to update the user's location
-            const response = await fetch(`${import.meta.env.VITE_API}/students/location/${USER_ID}`, {
+            const response = await fetch(`${import.meta.env.VITE_API}/students/desired-location/${USER_ID}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ location: newLocation }),
+                body: JSON.stringify({ desired_location : newDesiredLocation }),
             });
 
             const responseData = await response.json();
@@ -27,6 +27,7 @@ function UpdateLocationForm({USER_ID}) {
             } else {
                 setMessage(responseData.message || 'Error updating Location');
             }
+            window.location.href = "../dashboard"
 
         } catch (err) {
             console.error(err);
@@ -41,14 +42,14 @@ function UpdateLocationForm({USER_ID}) {
                 <label>
                 </label>
                 <label>
-                    New Location:
+                    New  Desired Location:
                     <input
                         type="text"
-                        value={newLocation}
-                        onChange={(e) => setNewLocation(e.target.value)}
+                        value={newDesiredLocation}
+                        onChange={(e) => setNewDesiredLocation(e.target.value)}
                     />
                 </label>
-                <button type="submit">Update Location</button>
+                <button type="submit">Update Desired Location</button>
             </form>
 
             {message && <div>{message}</div>}
@@ -56,4 +57,4 @@ function UpdateLocationForm({USER_ID}) {
     );
 }
 
-export default UpdateLocationForm;
+export default UpdateDesiredLocationForm;
