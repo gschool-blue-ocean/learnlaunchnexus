@@ -11,7 +11,6 @@ const Submission = ({assignment, index}) => {
 
     const onChange = (e) => {
         setInputs({ [e.target.name]: e.target.value })
-        console.log(inputs)
     }
 
     const onSubmitForm = async (e) => {
@@ -32,7 +31,7 @@ const Submission = ({assignment, index}) => {
 
               });
               const parseData = await res.json();
-              //assignment = parseData
+              //assignment = parseData why is this commented out
             } catch (err) {
               console.error(err.message);
             }
@@ -77,7 +76,7 @@ return (
       <div className='assignDate'>
         <p>{dateSub(assignment.submission_time)}</p>
       </div>
-      {/* <p className='assignStatus'>{assignment.feedback}</p> */}
+      {/* <p className='assignStatus'>{assignment.feedback}</p> why is this commented out*/}
     </div>
 )
 

@@ -19,7 +19,6 @@ const Header = ({ USER_ID, admin, setAuth }) => {
             });
 
             const parseData = await res.json();
-            console.log(parseData);
             return `${parseData.first_name} ${parseData.last_name}  `;
         } catch (err) {
             console.error(err.message);

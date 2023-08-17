@@ -29,7 +29,7 @@ res.status(500).json(err.message);
 router.get('/user/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query("SELECT * FROM todo WHERE user_id = $1", [id]);
+        const result = await pool.query("SELECT * FROM todo WHERE user_id = $1 ORDER BY id DESC", [id]);
         if (result.rows.length === 0) return res.status(404).json({ message: "user not found." });
         res.json(result.rows);
     } catch (err) {
