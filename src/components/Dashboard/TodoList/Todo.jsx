@@ -54,7 +54,7 @@ function TodoList({USER_ID}) {
     }
   };
 
-  const toggleTaskCompletion = async id => {
+  const toggleTaskCompletion = index => {
     const newTasks = [...tasks];
     newTasks[index].isCompleted = !newTasks[index].isCompleted;
     setTasks(newTasks);
@@ -95,7 +95,7 @@ function TodoList({USER_ID}) {
               style={{
                 textDecoration: task.isCompleted ? 'line-through' : '',
               }}
-              onClick={() => toggleTaskCompletion(index, task.id)}
+              onClick={() => toggleTaskCompletion(index)}
             >
               {task.text}
             </span>
