@@ -52,7 +52,9 @@ const Login = ({ setAuth }) => {
 
     return (
         <>
+                <div> 
                 <div id='logpage'>
+                    
                   <div id='log'>
                   <img id='logo' src={'/images/galvanizelogo.png'} ></img>
                   <h1 id='galhead' className="mt-5 text-center">Galvanize Services</h1>
@@ -88,8 +90,7 @@ const Login = ({ setAuth }) => {
                   </div>
                   
                   </div>
-                  <h1>footer</h1>
-
+                  </div>
                   </>
     )
 }
