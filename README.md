@@ -72,14 +72,15 @@ Before you begin, ensure you have the following tools installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/galvanize-services.git
-   cd galvanize-services
+   git clone https://github.com/yourusername/learnlaunchnexus.git
+   cd learnlaunchnexus
    ```
 
 2. Install dependencies:
 
    ```bash
    npm install
+    
    ```
 
 ### Running the App
@@ -87,14 +88,15 @@ Before you begin, ensure you have the following tools installed:
 1. Start the application:
 
    ```bash
-   npm start
+   npm run build
+   npm run dev_deploy
    ```
 
-2. Access the application in your browser at http://localhost:3000.
+2. Access the application in your browser at your localhost.
 
 ### Configuration
 
-The application uses environment variables for configuration. Create a `.env` file in the project root and configure variables such as database URLs, API endpoints, and secrets.
+The application uses environment variables for configuration. Create a `.env` file in the project root and configure variables such as database URLs, API endpoints, and secrets that come in the .env example file.
 
 ## Features
 
@@ -112,15 +114,15 @@ The personalized dashboard provides users with an overview of their tasks, assig
 
 ### Profile Information
 
-The dashboard displays user-specific information such as name, location, and desired location.
+The dashboard displays user-specific information such as name, location, and desired location in the case of a student.
 
 ### Assignment Submissions
 
-Students can submit assignments through a dedicated submission component, including comments.
+Students can submit assignments through a dedicated submission component,  where admin can submit feedback for those submissions.
 
 ### Setting Dropdown
 
-Administrators have access to a setting dropdown that offers specific administrative functionalities.
+Administrators have access to a setting dropdown that offers specific administrative functionalities like chaging email and making an user an admin.
 
 ### Calendar
 
@@ -134,9 +136,6 @@ Users can manage their tasks using the Todo List feature, promoting organization
 
 The application is designed responsively, ensuring optimal user experiences across various devices.
 
-## Components
-
-The application leverages a modular architecture with various React components, including App, Header, SettingDropdown, Admin, Student, and Submission.
 
 ## Styling
 
@@ -174,5 +173,3 @@ Feel free to explore the project's components, features, and functionalities. Fo
 
 Happy coding!
 ```
-
-Please make sure to replace placeholders with actual information, URLs, and paths relevant to your project. This README provides detailed instructions, prerequisites, and clear sections inspired by the READMEs you shared earlier.
