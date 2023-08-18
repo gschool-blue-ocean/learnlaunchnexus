@@ -1,8 +1,12 @@
 import { useState } from "react"
 
-const StudentTable = ({assignmentData, studentList}) => { 
+const StudentTable = ({assignmentData, studentList,  setSelectedStudent, onStudentClick}) => { 
 let Row = [];
 let Table = [];
+let RowID = [];
+
+
+ 
 
 
 studentList.map((student, index) => {
@@ -10,6 +14,7 @@ studentList.map((student, index) => {
     if((index % assignmentData.length) === 0)
     {
         Row.push(student.last_name + "," + student.first_name);
+        RowID.push(student.user_id)
         Row.push(student.status);       
  
     }
@@ -26,7 +31,6 @@ studentList.map((student, index) => {
 
     }
 })
-
     return (    
     <>
     <table>
@@ -42,16 +46,16 @@ studentList.map((student, index) => {
         </tr>
     </thead>
     <tbody>
-        {Table.map((row) => {
+        {Table.map((row, index) => {
 
 
             return (
-            <tr>
+            <tr id={RowID[index]} onClick={() => onStudentClick(RowID[index])}>
                 {row.map((item) => {
 
                     return(
 
-                        <td>{item}</td>
+                        <td>{item}  </td>
 
 
                      ) })   

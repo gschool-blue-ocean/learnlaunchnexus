@@ -1,19 +1,32 @@
-#tabletop {
+ #tabletop {
     display: flex;
 }
 
 #subj {
-    padding-left: 1%;
+    max-width: 90px;
+    min-width: 90px;
 }
 
 #subm {
- padding-left: 12%;
+    max-width: 200px;
+    min-width: 200px;
+    padding-left: 3%;
 }
 
 #stat {
- padding-left: 26%;
+    padding-left: 3%;
+    max-width: 80px;
+    min-width: 80px;
 }
 
 #subd {
- padding-left: 7%;
+    padding-left: 3%;
+    max-width: 180px;
+    min-width: 180px;
+}
+
+#subfeed {
+    padding-left: 3%;
+    max-width: 150px;
+    min-width: 150px;
 }

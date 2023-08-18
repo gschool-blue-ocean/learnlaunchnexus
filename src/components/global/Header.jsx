@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import styles from './Header.module.css';
 import settings from './settings-gear.svg'
-import galvanizelogo from '/public/galvanizelogo.png'
+//import galvanizelogo from '/public/galvanizelogo.png'
 // import AssignmentModal from '../modal/AssignmentModal.jsx'
 import SettingDropdown from './SettingDropdown';
 
@@ -19,7 +19,6 @@ const Header = ({ USER_ID, admin, setAuth }) => {
             });
 
             const parseData = await res.json();
-            console.log(parseData);
             return `${parseData.first_name} ${parseData.last_name}  `;
         } catch (err) {
             console.error(err.message);
@@ -49,15 +48,15 @@ const Header = ({ USER_ID, admin, setAuth }) => {
       };
  
     return (
+        <div>  
         <header className={styles.appheader}>
             <h1 className={styles.apptitle}>{name}</h1> 
 
-            <img className={styles.galvanize_logo} src={galvanizelogo} ></img>
+            <img className={styles.galvanize_logo} src={'/images/galvanizelogo.png'} ></img>
             <nav className={styles.navmenu}>
                 <ul>
                     <li><Link to="/dashboard">Home</Link></li>
-                    <li><Link to="/Contact-us"><a href="mailto:email@example.com">Contact Us</a>
-                    </Link></li>
+                      
 
                     <SettingDropdown admin={admin}/>
                     <button onClick={e => logout(e)} className={styles.logbtn}>Logout</button>
@@ -65,7 +64,7 @@ const Header = ({ USER_ID, admin, setAuth }) => {
                 
             </nav>
          </header>
-        
+         </div>
     );
 };
 

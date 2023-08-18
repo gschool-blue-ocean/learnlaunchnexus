@@ -11,7 +11,6 @@ const Submission = ({assignment, index}) => {
 
     const onChange = (e) => {
         setInputs({ [e.target.name]: e.target.value })
-        console.log(inputs)
     }
 
     const onSubmitForm = async (e) => {
@@ -32,7 +31,7 @@ const Submission = ({assignment, index}) => {
 
               });
               const parseData = await res.json();
-              //assignment = parseData
+              //assignment = parseData why is this commented out
             } catch (err) {
               console.error(err.message);
             }
@@ -40,10 +39,22 @@ const Submission = ({assignment, index}) => {
 
   function dateSub (timestamp) {
     const date = new Date(timestamp)
-    let month = date.getMonth()
+    let month = date.getMonth() + 1
     let day = date.getDate()
     let year = date.getFullYear()
-    return `${month}/${day}/${year}`
+    let hour = date.getHours()
+    let min = date.getMinutes()
+    if (hour === 0) {
+      hour = 12
+    }
+    if (min < 10) {
+      min = '0' + min
+    }
+    if (hour > 12) {
+      let pm = hour - 12
+      return `Submitted at ${pm}:${min} pm on ${month}/${day}/${year}`
+    }
+    return `Submitted at ${hour}:${min} am on ${month}/${day}/${year}`
   }
 return (
     <div className='assign' key={assignment.assignment_id}>
@@ -68,7 +79,11 @@ return (
       <div className='assignDate'>
         <p>{dateSub(assignment.submission_time)}</p>
       </div>
-      {/* <p className='assignStatus'>{assignment.feedback}</p> */}
+
+      <div className='assignfeed'>
+        <p>{assignment.feedback}</p>
+      </div>
+
     </div>
 )
 

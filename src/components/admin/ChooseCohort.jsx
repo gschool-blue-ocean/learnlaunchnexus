@@ -7,7 +7,6 @@ const ChooseCohort = ({cohortList, setCurrentCohort}) => {
     const handleChange = (e) =>
     {
         e.preventDefault();
-        console.log("Inside on change, setting currentCohort to: " + e.currentTarget.value);
         setCurrentCohort(e.currentTarget.value);
     }
     
@@ -17,11 +16,10 @@ const ChooseCohort = ({cohortList, setCurrentCohort}) => {
         <label htmlFor="cohort-select">Select Cohort</label>
         <select name="cohort-dropdown" id="cohort-select" onChange={e => handleChange(e)}>
         <option value="">Select a Cohort</option>
+ 
 
-        {/* <option value='0'>TTFN-1</option> 
-        <option value='1'>TTFN-2</option> */}
-       {cohortList.map((cohort, index) => {
-         {console.log(JSON.stringify(cohort));}   
+       
+       {cohortList.map((cohort, index) => { 
         return (
             
             <option key={index} value={index}>{cohort.name}</option>

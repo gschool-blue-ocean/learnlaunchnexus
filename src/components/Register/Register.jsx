@@ -1,10 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
-import galvanizelogo from '/assets/galvanizelogo.png'
  import "./reg.css"
-//  import * as dotenv from "dotenv";
-//  dotenv.config()
-const Register = ({setAuth,setEmail,userEmail}) => {
+const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used can it be removed
     const [inputs, setInputs] = useState({
         email: "",
         password: "",
@@ -42,8 +39,6 @@ const Register = ({setAuth,setEmail,userEmail}) => {
             localStorage.setItem("token", parseRes.token);
             setAuth(true);
             setEmail(email)
-            console.log(`email in the form is ${email}`);
-            console.log(`useContext userEmail is ${userEmail}`);
             window.location.href = "/dashboard"
           } else {
             setAuth(false);
@@ -58,7 +53,7 @@ const Register = ({setAuth,setEmail,userEmail}) => {
           <diV id='regpage'>
           <div id='reg'>
 
-          <img id='logo' src={galvanizelogo}></img>
+          <img id='logo' src={'/images/galvanizelogo.png'}></img>
           <h1 id='reghead' className="mt-5 text-center">Galvanize Services Register</h1>
 
 

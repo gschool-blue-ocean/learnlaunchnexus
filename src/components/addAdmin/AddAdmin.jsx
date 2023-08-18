@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import React, {useState} from 'react'
 
-
 const AddAdmin = () => {
 
     const [inputs, setInputs] = useState({
@@ -19,6 +18,7 @@ const AddAdmin = () => {
     
                   });
                   const parseData = await res.json();
+                  window.location.href = "../dashboard"
                 } catch (err) {
                   console.error(err.message);
                 }
@@ -26,7 +26,6 @@ const AddAdmin = () => {
     
     const onChange = (e) => {
         setInputs({ [e.target.name]: e.target.value })
-        console.log(inputs)
     }
     return (
         <>

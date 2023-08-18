@@ -38,6 +38,12 @@ CREATE TABLE users (
     isAdmin BOOLEAN
 );
 
+CREATE TABLE todo (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    todo_item TEXT
+);
+
 CREATE TABLE admin (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id) ON DELETE CASCADE

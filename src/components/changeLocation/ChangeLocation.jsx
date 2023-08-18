@@ -4,7 +4,6 @@ import UpdateLocationForm from './UpdateLocationForm.jsx'
 
 const ChangeLocation = () => {
     const USER_ID = JSON.parse(localStorage.getItem('user_id'))
-    console.log(USER_ID)
     return (
         <>
             <button><UpdateLocationForm USER_ID={USER_ID} /></button>
