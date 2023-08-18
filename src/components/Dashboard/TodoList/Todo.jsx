@@ -19,7 +19,6 @@ function TodoList({USER_ID}) {
                   let arr = []
                   parseData.map((todos) => { return (arr.push({id: todos.id, text: todos.todo_item, isCompleted: false}) )})
                   setTasks(arr);
-                  console.log("tasks", tasks)
                 }
                 
               } catch (err) {
@@ -31,7 +30,6 @@ function TodoList({USER_ID}) {
   
   const addTask = async () => {
     if (newTask.trim() !== '') {
-      console.log("newTasks",newTask,"tasks", tasks)
       try {
           const body = {user_id: USER_ID, "todo_item": newTask }
           const res = await fetch(`${import.meta.env.VITE_API}/todos`, {
