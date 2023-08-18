@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Log.css'
-//import galvanizelogo from 'public/images/galvanizelogo.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = ({ setAuth }) => {
 
@@ -41,15 +43,19 @@ const Login = ({ setAuth }) => {
 
             } else {
                 setAuth(false);
+                toast.error('Missing or Incorrect Credentials')
             }
         }
         catch (error) {
             console.error(error.message)
+            toast.error("Incorrect Credentials")
+            
         }
     }
 
     return (
         <>
+        <ToastContainer />
                 <div> 
                 <div id='logpage'>
                     
@@ -57,7 +63,7 @@ const Login = ({ setAuth }) => {
                   <img id='logo' src={'/images/galvanizelogo.png'} ></img>
                   <h1 id='galhead' className="mt-5 text-center">Galvanize Services</h1>
                   <div id='loginput'>
-                    <h2>Username</h2>
+                    <h2>Email</h2>
                   <form onSubmit={onSubmitForm}>
                     <input id='input1'
                       type="text"

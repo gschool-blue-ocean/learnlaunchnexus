@@ -55,7 +55,7 @@ const Header = ({ USER_ID, admin, setAuth }) => {
             <img className={styles.galvanize_logo} src={'/images/galvanizelogo.png'} ></img>
             <nav className={styles.navmenu}>
                 <ul>
-                    <li><Link to="/dashboard">Home</Link></li>
+                    {/* <li><Link to="/dashboard">Home</Link></li> */}
                       
 
                     <SettingDropdown admin={admin}/>

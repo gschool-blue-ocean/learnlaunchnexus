@@ -21,11 +21,9 @@ const AddAdmin = () => {
                   });
                   const parseData = await res.json();
                   toast.success(`${email} is now an admin`)
-                  setTimeout(() => {
-                    window.location.href = "../dashboard"
-                  }, 10000);
                 } catch (err) {
                   console.error(err.message);
+                  toast.error(`Failed to add ${email} as an admin`)
                 }
             }
     

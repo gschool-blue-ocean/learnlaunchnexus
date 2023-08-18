@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function UpdateDesiredLocationForm({USER_ID}) {
       // State to store the new location input by user
@@ -24,10 +26,11 @@ function UpdateDesiredLocationForm({USER_ID}) {
             if (response.ok) {
                 // Update the message state with the server's response
                 setMessage('Location successfully updated');
+                toast.success("Successfully changed desired location")
             } else {
                 setMessage(responseData.message || 'Error updating Location');
+                toast.error("Failed to change desired location")
             }
-            window.location.href = "../dashboard"
 
         } catch (err) {
             console.error(err);
@@ -37,6 +40,8 @@ function UpdateDesiredLocationForm({USER_ID}) {
     };
 
     return (
+        <>
+        <ToastContainer />
         <div>
             <form onSubmit={handleSubmit}>
                 <label>
@@ -54,6 +59,7 @@ function UpdateDesiredLocationForm({USER_ID}) {
 
             {message && <div>{message}</div>}
         </div>
+        </>
     );
 }
 

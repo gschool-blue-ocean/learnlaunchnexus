@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
- import "./reg.css"
+import "./reg.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used can it be removed
     const [inputs, setInputs] = useState({
         email: "",
@@ -16,7 +19,6 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
       const onClick = e => {
         onSubmitForm(e)
 
-        window.location.href = '/dashboard'
       }
     
       const onSubmitForm = async e => {
@@ -42,14 +44,17 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
             window.location.href = "/dashboard"
           } else {
             setAuth(false);
+            toast.error('Missing Credentials or Incorrect Format')
           }
         } catch (err) {
           console.error(err.message);
+          toast.error('Missing Credentials')
         }
       };
     
       return (
         <>
+          <ToastContainer />
           <diV id='regpage'>
           <div id='reg'>
 
@@ -64,7 +69,7 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
               type="text"
               name="email"
               value={email}
-              placeholder="email"
+              placeholder="example@email.com"
               onChange={e => onChange(e)}
               className="form-control my-3"
             />
@@ -84,7 +89,7 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
               type="text"
               name="name"
               value={name}
-              placeholder="name"
+              placeholder="username"
               onChange={e => onChange(e)}
               className="form-control my-3"
             />

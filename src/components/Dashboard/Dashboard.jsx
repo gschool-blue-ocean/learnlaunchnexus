@@ -54,10 +54,24 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
   getProfile(EMAIL)
   getLocation(USER_ID)
+  
   useEffect(() => {
-    getProfile(EMAIL)
-    getLocation(USER_ID)
-  }, [EMAIL, location, desiredLocation])
+    const fetchData = async () => {
+
+      const profileData = await getProfile(EMAIL)
+        setName(profileData.first_name);
+        setAdmin(profileData.isadmin);
+        setUSER_ID(profileData.id)
+
+      const locationData = await getLocation(USER_ID)
+        setLocation(locationData.location);
+        setDesiredLocation(locationData.desired_location);
+    };
+    fetchData()
+    console.log(location)
+    console.log(desiredLocation)
+  }, [location, desiredLocation, EMAIL, USER_ID])
+
   if(USER_ID > 0)
   {
   return (
