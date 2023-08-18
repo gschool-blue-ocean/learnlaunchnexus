@@ -9,8 +9,6 @@ const StudentView = ({ students, studentID, onBack }) => {
     const [selectedStudentId, setSelectedStudentId] = useState(studentID);
     const [submissions, setSubmissions] = useState([]);
 
-    console.log(studentID)
-
     const [feedbackInputs, setFeedbackInputs] = useState({})
 
 
@@ -22,8 +20,6 @@ const StudentView = ({ students, studentID, onBack }) => {
         const feedbackName = e.target.name;
         const feedbackInput = feedbackInputs[feedbackName];
         const body = { "feedback": feedbackInput }
-        // console.log(`${import.meta.env.VITE_API}/submission/${feedbackName}`);
-        // console.log(body);
         try {
             const res = await fetch(`${import.meta.env.VITE_API}/submission/${feedbackName}`, {
                 method: "PATCH",
@@ -34,8 +30,7 @@ const StudentView = ({ students, studentID, onBack }) => {
                 body: JSON.stringify(body)
 
             });
-            const parseData = await res.json();
-            //   console.log(parseData); // prints out what API returned after PATCH request
+            const parseData = await res.json(); // prints out what API returned after PATCH request
         } catch (err) {
             //   console.error(err.message);
         }
@@ -46,10 +41,8 @@ const StudentView = ({ students, studentID, onBack }) => {
     // Find the selected student object based on the selectedStudentId // this stays prop drill students
 
     const selectedStudent = students.find(student => student.id === selectedStudentId);
-    console.log(selectedStudentId)
     // Handle changes in student selection from the dropdown // this stays
     const handleStudentChange = (event) => {
-        console.log(handleStudentChange)
         setSelectedStudentId(Number(event.target.value));
     }
 

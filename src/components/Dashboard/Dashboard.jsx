@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Header from "../global/Header.jsx";
 import Admin from '../admin/Admin.jsx'
 import Student from '../student/Student.jsx'
-
 import './Dashboard.css'
 import Calendar from 'react-calendar';
 import './Calendar.css'
 import Todo from './TodoList/Todo.jsx'
-
+import Footer from './Footer/Footer.jsx'
 const Dashboard = ({ setAuth, userEmail }) => {
   const [name, setName] = useState("");
   const [admin, setAdmin] = useState("");
@@ -47,7 +46,6 @@ const Dashboard = ({ setAuth, userEmail }) => {
       const secondParseData = await res.json();
       setLocation(secondParseData.location);
       setDesiredLocation(secondParseData.desired_location)
-      console.log('fulldata for location', secondParseData)
       return secondParseData
     } catch (err) {
       console.error(err.message);
@@ -60,15 +58,17 @@ const Dashboard = ({ setAuth, userEmail }) => {
     getProfile(EMAIL)
     getLocation(USER_ID)
   }, [EMAIL, location, desiredLocation])
-
+  if(USER_ID > 0)
+  {
   return (
     <>
-
-      <div><h1>HORIZONTAL CONTAINER</h1></div>
-      <div> <h1>View container</h1>
-
+        <div>
         <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
+        </div>
+       
+        <div>   {/* <h1>View container</h1> */}
 
+ 
 
         <div className="dashboard-container">
 
@@ -82,10 +82,8 @@ const Dashboard = ({ setAuth, userEmail }) => {
                 </h1>
               </div>
               <div className="profile-info">
-                <h2>Welcome {name}</h2>
-
-                {!admin && <h3>Your location is {location}</h3>}
-                {!admin && <h3>Your desired location is {desiredLocation}</h3>}
+                {!admin && <h3>Location: {location}</h3>}
+                {!admin && <h3>Desired Location: {desiredLocation}</h3>}
               </div>
 
 
@@ -108,25 +106,16 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
 
             </div>
-            <Todo />
+            <Todo USER_ID={USER_ID}/>
           </h1>
         </div>
-
-
       </div>
-      <div>
+      <Footer/>
 
-      </div>
-      <div>
-
-        <div><h1>CALENDER</h1></div>
-        <div><h1>TODO LIST</h1></div>
-      </div>
-      <div><h1>FOOTER</h1></div>
     </>
-  );
+    );
+  }
 }
-
 export default Dashboard;
 
 
