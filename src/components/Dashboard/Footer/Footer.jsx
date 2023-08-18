@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from './FooterModal/FooterModal.jsx';
-import './footer.css'
+import './Footer.css'
 
 const Footer = () => {
   const [openModal, setOpenModal] = useState(null);
