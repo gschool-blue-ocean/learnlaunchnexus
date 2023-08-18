@@ -58,8 +58,7 @@ body {
 }
 
 #logbtn {
-    background-color: inherit;
-    background-color: rgb(62, 190, 178);
+    background-color: darkblue;
     padding-left: 17%;
     padding-right: 17%;
     padding-top: 1.7%;
@@ -68,23 +67,29 @@ body {
     bottom: 3%;
     right: 31%;
     border-radius: 15px;
+    color: lightcoral;
 }
 
 #logbtn:hover {
-    background-color: rgb(82, 158, 150);
+    background-color: darkorange;
+    color: darkblue;
+    cursor: pointer;
 }
 
 #reglin {
-    background-color: rgb(62, 190, 178);
+    background-color: darkblue;
     padding-left: 23.5%;
     padding-right: 23.5%;
     padding-top: 2.7%;
     padding-bottom: 2.7%;
     border-radius: 15px;
+    color: lightcoral;
 }
 
 #reglin:hover {
-    background-color: rgb(82, 158, 150);
+    background-color: darkorange;
+    color: darkblue;
+    cursor: pointer;
 }
 
 #input1 {

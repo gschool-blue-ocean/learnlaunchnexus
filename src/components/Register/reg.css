@@ -37,30 +37,35 @@
 }
 
 #regbtn {
-    background-color: inherit;
-    background-color: rgb(62, 190, 178);
+    background-color: darkblue;
     padding-left: 16%;
     padding-right: 16%;
     padding-top: 1.6%;
     padding-bottom: 1.6%;
     border-radius: 15px;
+    color: lightcoral;
 }
 
 #regbtn:hover {
-    background-color: rgb(82, 158, 150);
+    background-color: darkorange;
+    color: darkblue;
+    cursor: pointer;
 }
 
 #loglin {
-    background-color: rgb(62, 190, 178);
+    background-color: darkblue;
     padding-left: 18%;
     padding-right: 18%;
     padding-top: 1.6%;
     padding-bottom: 1.6%;
     border-radius: 15px;
+    color: lightcoral;
 }
 
 #loglin:hover {
-    background-color: rgb(82, 158, 150);
+    background-color: darkorange;
+    color: darkblue;
+    cursor: pointer;
 }
 
 #reghead {
