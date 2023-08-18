@@ -73,10 +73,10 @@ router.put('/update-email/:email', async (req, res) => {
 
 // Add a new user
 router.post('/', async (req, res) => {
-    const { auth_id, first_name, last_name, isAdmin } = req.body;
+    const { email, first_name, last_name, } = req.body;
     try {
-        const result = await pool.query("INSERT INTO users (auth_id, first_name, last_name, isAdmin) VALUES ($1, $2, $3, $4) RETURNING *",
-            [auth_id, first_name, last_name, isAdmin]);
+        const result = await pool.query("INSERT INTO users (first_name, last_name,auth_id, isAdmin) VALUES ($1, $2,(SELECT user_id FROM authentication WHERE user_email = $3) , false) RETURNING *",
+            [first_name, last_name, email]);
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);

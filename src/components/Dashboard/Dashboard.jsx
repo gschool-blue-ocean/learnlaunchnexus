@@ -7,6 +7,7 @@ import Calendar from 'react-calendar';
 import './Calendar.css'
 import Todo from './TodoList/Todo.jsx'
 import Footer from './Footer/Footer.jsx'
+import FinishRegistration from '../FinishRegistration/FinishRegistration.jsx'
 const Dashboard = ({ setAuth, userEmail }) => {
   const [name, setName] = useState("");
   const [admin, setAdmin] = useState("");
@@ -114,6 +115,16 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
     </>
     );
+  }
+  else 
+  {
+    return
+    (
+      <>
+      <FinishRegistration></FinishRegistration>
+      </>
+    )
+   
   }
 }
 export default Dashboard;

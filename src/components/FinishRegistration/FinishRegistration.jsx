@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
  import "./reg.css"
-const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used can it be removed
+const FinishRegistration = () => { // user email is never used can it be removed
     const [inputs, setInputs] = useState({
-        email: "",
-        password: "",
-        name: ""
+        first_name: "",
+        last_name: ""
       });
     
-      const { email, password, name } = inputs;
+      const { first_name, last_name } = inputs;
     
       const onChange = e =>
         setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -22,9 +21,9 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
       const onSubmitForm = async e => {
         e.preventDefault();
         try {
-          const body = { email, password, name };
+          const body = { first_name, last_name, email: localStorage.getItem("email") };
           const response = await fetch(
-            `${import.meta.env.VITE_API}/authentication/register`,
+            `${import.meta.env.VITE_API}/users`,
             {
               method: "POST",
               headers: {
@@ -34,17 +33,6 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
             }
           );
           const parseRes = await response.json();
-    
-          if (parseRes.token) {
-            localStorage.setItem("token", parseRes.token);
-            setAuth(true);
-            setEmail(email)
-            localStorage.setItem('email', JSON.stringify(email));  
-            window.location.href = "/dashboard"
-          } else {
-            setAuth(false);
-            window.location.href = "/register"
-          }
         } catch (err) {
           console.error(err.message);
         }
@@ -61,48 +49,32 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
 
           <div id='reginput'>
           <form onSubmit={onSubmitForm}>
-          <h2>Email</h2> 
+          <h2>First Name</h2> 
             <input id='input1'
               type="text"
-              name="email"
-              value={email}
-              placeholder="email"
+              name="first_name"
+              value={first_name}
+              placeholder="first_name"
               onChange={e => onChange(e)}
               className="form-control my-3"
             />
                         <br></br>
-            <h2>Password</h2>
+            <h2>Last Name</h2>
             <input id='input1'
               type="password"
-              name="password"
-              value={password}
-              placeholder="password"
+              name="last_name"
+              value={last_name}
+              placeholder="last_name"
               onChange={e => onChange(e)}
               className="form-control my-3"
             />
-                        <br></br>
-            <h2>Username</h2>
-            <input id='input1'
-              type="text"
-              name="name"
-              value={name}
-              placeholder="name"
-              onChange={e => onChange(e)}
-              className="form-control my-3"
-            />
-                        <br></br>
-            <h2></h2>
-            <button id='regbtn' onClick={onClick} className="btn btn-success btn-block">Register</button>
+            <button id='regbtn' onClick={onClick} className="btn btn-success btn-block">Complete</button>
             </form>
           </div>
-          <h2></h2>
-          <Link to="/">
-          <button id='login' >Login</button>
-          </Link>
           </div>
         </diV>
         </>
       );
 }
 
-export default Register;
+export default FinishRegistration;
