@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Modal from './FooterModal/FooterModal.jsx';
 import './Footer.css'
 
