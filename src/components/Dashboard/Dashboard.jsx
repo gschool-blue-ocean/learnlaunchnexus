@@ -58,7 +58,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
     getProfile(EMAIL)
     getLocation(USER_ID)
   }, [EMAIL, location, desiredLocation])
-if(USER_ID > 0)
+  if(USER_ID > 0)
   {
   return (
     <>
@@ -109,12 +109,12 @@ if(USER_ID > 0)
             <Todo USER_ID={USER_ID}/>
           </h1>
         </div>
-
+      </div>
       <Footer/>
 
     </>
-  );
-}
+    );
+  }
 }
 export default Dashboard;
 
