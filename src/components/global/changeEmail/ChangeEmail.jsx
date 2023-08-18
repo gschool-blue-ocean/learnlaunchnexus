@@ -8,9 +8,6 @@ const ChangeEmail = () => {
     return (
         <>
             <button><UpdateEmailForm/></button>
-            <Link to="../dashboard">
-                <button>Cancel</button>
-            </Link>
         </>
     )
 }

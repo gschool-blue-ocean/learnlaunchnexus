@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import React, {useState} from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddAdmin = () => {
 
@@ -18,7 +20,10 @@ const AddAdmin = () => {
     
                   });
                   const parseData = await res.json();
-                  window.location.href = "../dashboard"
+                  toast.success(`${email} is now an admin`)
+                  setTimeout(() => {
+                    window.location.href = "../dashboard"
+                  }, 10000);
                 } catch (err) {
                   console.error(err.message);
                 }
@@ -29,9 +34,9 @@ const AddAdmin = () => {
     }
     return (
         <>
-            <h1>you can add an admin yooo</h1>
+            <ToastContainer />
             <form>
-            <h1>Admin Email</h1>
+            <h1> Add an Admin Email</h1>
             <input id="email"
                       type="text"
                       name="Email"
@@ -41,9 +46,6 @@ const AddAdmin = () => {
                     />
             <button onClick={onSubmitForm} id='submitAdmin' className="Submission">Submit</button>
             </form>
-            <Link to="../dashboard">
-                <button>Cancel</button>
-            </Link>
         </>
     )
 }
