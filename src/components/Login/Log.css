@@ -2,7 +2,7 @@
 
 
 body {
-    background-image: url('../../../images/GalvanizeBackground.png');
+    background-image: url('/images/GalvanizeBackground.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
