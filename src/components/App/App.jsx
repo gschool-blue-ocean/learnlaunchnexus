@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Dashboard from "../Dashboard/Dashboard"
 import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
-import ChangeEmail from "../changeEmail/ChangeEmail";
-import ChangeDesiredLocation from "../changeDesiredLocation/ChangeDesiredLocation";
-import ChangeLocation from "../changeLocation/ChangeLocation";
-import AddAdmin from "../addAdmin/AddAdmin";
+// import ChangeEmail from "../changeEmail/ChangeEmail";
+import ChangeDesiredLocation from "../global/changeDesiredLocation/ChangeDesiredLocation";
+import ChangeLocation from "../global/changeLocation/ChangeLocation";
+import AddAdmin from "../global/addAdmin/AddAdmin";
 
 
 
@@ -82,12 +82,12 @@ const App = () => {
         )}
         /> 
 
-        <Route
+        {/* <Route
         path = "change-email"
         element ={(
           <ChangeEmail />
         )}
-        />
+        /> */}
 
         <Route
         path = "change-location"
