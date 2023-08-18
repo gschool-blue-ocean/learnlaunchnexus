@@ -86,6 +86,7 @@ const Login = ({ setAuth }) => {
                   <button id='reglin' >Register</button>
                   </Link>
                   </div>
+                  
                   </div>
                   </>
     )
