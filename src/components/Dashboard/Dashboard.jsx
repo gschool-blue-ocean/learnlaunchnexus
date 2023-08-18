@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Header from "../global/Header.jsx";
 import Admin from '../admin/Admin.jsx'
 import Student from '../student/Student.jsx'
-
 import './Dashboard.css'
 import Calendar from 'react-calendar';
 import './Calendar.css'
 import Todo from './TodoList/Todo.jsx'
-
+import Footer from './Footer/Footer.jsx'
 const Dashboard = ({ setAuth, userEmail }) => {
   const [name, setName] = useState("");
   const [admin, setAdmin] = useState("");
@@ -47,7 +46,6 @@ const Dashboard = ({ setAuth, userEmail }) => {
       const secondParseData = await res.json();
       setLocation(secondParseData.location);
       setDesiredLocation(secondParseData.desired_location)
-      console.log('fulldata for location', secondParseData)
       return secondParseData
     } catch (err) {
       console.error(err.message);
@@ -60,12 +58,17 @@ const Dashboard = ({ setAuth, userEmail }) => {
     getProfile(EMAIL)
     getLocation(USER_ID)
   }, [EMAIL, location, desiredLocation])
-
+if(USER_ID > 0)
+  {
   return (
     <>
-
+        <div>
         <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
+        </div>
+       
+        <div>   {/* <h1>View container</h1> */}
 
+ 
 
         <div className="dashboard-container">
 
@@ -103,22 +106,16 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
 
             </div>
-            <Todo />
+            <Todo USER_ID={USER_ID}/>
           </h1>
         </div>
 
+      <Footer/>
 
-
-      <div>
-
-      </div>
-      <div>
-      </div>
-      <div><h1>FOOTER</h1></div>
     </>
   );
 }
-
+}
 export default Dashboard;
 
 

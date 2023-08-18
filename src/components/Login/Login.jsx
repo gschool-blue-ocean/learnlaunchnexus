@@ -16,13 +16,11 @@ const Login = ({ setAuth }) => {
     }
 
     const onClick = (e) => {
-        console.log('inside onClick')
         onSubmitForm(e)
         
     }
 
     const onSubmitForm = async (e) => {
-        console.log('inside onSubmitForm')
         e.preventDefault();
         try {
             
@@ -86,6 +84,7 @@ const Login = ({ setAuth }) => {
                   <button id='reglin' >Register</button>
                   </Link>
                   </div>
+                  
                   </div>
                   </>
     )

@@ -25,6 +25,7 @@ import studentRoutes from './routes/students.js'
 import submissionRoutes from './routes/submission.js'
 import trackingRoutes from './routes/tracking.js'
 import userRoutes from './routes/users.js'
+import toDoRoutes from './routes/todos.js'
 
 import authRoutes from '../auth/auth.js'
 
@@ -36,7 +37,7 @@ app.use('/students', studentRoutes);
 app.use('/submission', submissionRoutes)
 app.use('/tracking', trackingRoutes)
 app.use('/users', userRoutes);
-
+app.use('/todos', toDoRoutes);
 app.use('/authentication', authRoutes);
 
 // Error Handling Middleware
