@@ -46,7 +46,6 @@ const Dashboard = ({ setAuth, userEmail }) => {
       const secondParseData = await res.json();
       setLocation(secondParseData.location);
       setDesiredLocation(secondParseData.desired_location)
-      console.log('fulldata for location', secondParseData)
       return secondParseData
     } catch (err) {
       console.error(err.message);
@@ -59,7 +58,8 @@ const Dashboard = ({ setAuth, userEmail }) => {
     getProfile(EMAIL)
     getLocation(USER_ID)
   }, [EMAIL, location, desiredLocation])
-
+if(USER_ID > 0)
+  {
   return (
     <>
        
@@ -111,24 +111,18 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
 
             </div>
-            <Todo />
+            <Todo USER_ID={USER_ID}/>
           </h1>
         </div>
 
 
       </div>
-      <div>
-
-      </div>
-      <div>
-
-        
-      </div>
       <Footer/>
+
     </>
   );
 }
-
+}
 export default Dashboard;
 
 

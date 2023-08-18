@@ -4,7 +4,6 @@ import UpdateDesiredLocationForm from './UpdateDesiredLocationForm'
 
 const ChangeDesiredLocation = () => {
     const USER_ID = JSON.parse(localStorage.getItem('user_id'))
-    console.log(USER_ID)
     return (
         <>
             <button><UpdateDesiredLocationForm USER_ID={USER_ID} /></button>

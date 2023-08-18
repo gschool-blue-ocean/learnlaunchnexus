@@ -15,7 +15,6 @@ import AddAdmin from "../addAdmin/AddAdmin";
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userEmail, setUserEmail] = useState('');
-  // const email = useRef('');
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   }

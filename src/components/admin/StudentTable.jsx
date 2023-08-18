@@ -7,10 +7,7 @@ let RowID = [];
 
 
  
-// const HandleStudentClick = (student) => {
-    
-//     setSelectedStudent(student);
-// }
+
 
 studentList.map((student, index) => {
 
