@@ -94,7 +94,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
               {!admin && <Student USER_ID={USER_ID}></Student>}
             </div>
           </div>
-          <h1>VERTICAL CONTAINER
+          <h1>
             <div className="calendar">
               <h1 className="calendar-header">Calendar</h1>
               <div className="calendar-container">
