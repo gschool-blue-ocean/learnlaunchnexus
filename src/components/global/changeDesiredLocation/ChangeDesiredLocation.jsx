@@ -7,9 +7,6 @@ const ChangeDesiredLocation = () => {
     return (
         <>
             <button><UpdateDesiredLocationForm USER_ID={USER_ID} /></button>
-            <Link to="../dashboard">
-                <button>Cancel</button>
-            </Link>
         </>
     )
 }

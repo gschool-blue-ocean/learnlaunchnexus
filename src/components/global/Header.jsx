@@ -9,7 +9,7 @@ import SettingDropdown from './SettingDropdown';
 const Header = ({ USER_ID, admin, setAuth }) => {
 
     const [name, setName] = useState(""); // State for user's name
-    const [isOpen, setIsModalOpen] = useState(false);
+    // const [isOpen, setIsModalOpen] = useState(false);
     const EMAIL = JSON.parse(localStorage.getItem('email'));
 
     const getUsername = async (EMAIL) => {
