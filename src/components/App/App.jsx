@@ -85,7 +85,7 @@ const App = () => {
         <Route
         path = "change-email"
         element ={(
-          <ChangeEmail />
+          <ChangeEmail/>
         )}
         />
 
