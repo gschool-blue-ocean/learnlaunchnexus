@@ -12,6 +12,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
   const [admin, setAdmin] = useState("");
   const [USER_ID, setUSER_ID] = useState(0)
   const [date, setDate] = useState(new Date())
+  const [close, setClose] = useState(true)
 
   const getProfile = async (EMAIL) => {
     try {
@@ -77,7 +78,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
   return (
     <>
         <div>
-        <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
+        <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} setClose={setClose} />
         </div>
        
         <div>   {/* <h1>View container</h1> */}
@@ -104,8 +105,8 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
             </div>
             <div>
-              {admin && <Admin USER_ID={USER_ID}></Admin>}
-              {!admin && <Student USER_ID={USER_ID}></Student>}
+              {admin && <Admin USER_ID={USER_ID} ></Admin>}
+              {!admin && <Student USER_ID={USER_ID} close={close}></Student>}
             </div>
           </div>
           <h1>

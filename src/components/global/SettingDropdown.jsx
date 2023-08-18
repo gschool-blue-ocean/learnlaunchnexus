@@ -8,7 +8,7 @@ import AddAdmin from './addAdmin/AddAdmin';
 import DeleteAdmin from './deleteAdmin/DeleteAdmin';
 import SettingModal from './SettingModal';
 
-const SettingDropdown = ({admin}) => {
+const SettingDropdown = ({admin, setClose}) => {
 
     const [openModal, setOpenModal] = useState(null);
 
@@ -36,6 +36,7 @@ const SettingDropdown = ({admin}) => {
 
       const handleCloseModal = () => {
         setOpenModal(null);
+        setClose(false)
       };
 
     if(admin === true) {
