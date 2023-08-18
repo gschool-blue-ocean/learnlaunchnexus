@@ -39,6 +39,7 @@ const Student = ({USER_ID}) => {
         <h2 id='subm'>Submission</h2>
         <h2 id='stat'>Status</h2>
         <h2 id='subd'>Submission Date</h2>
+        <h2 id='subfeed'>FeedBack</h2>
       </div>
         {
         submissionList.map((assignment,index) => {

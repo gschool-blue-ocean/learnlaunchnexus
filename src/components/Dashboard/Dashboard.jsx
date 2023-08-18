@@ -62,13 +62,10 @@ if(USER_ID > 0)
   {
   return (
     <>
-       
-       
- 
-        <div> {/*<h1>HORIZONTAL CONTAINER</h1>*/}
+        <div>
         <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
-
         </div>
+       
         <div>   {/* <h1>View container</h1> */}
 
  
@@ -85,10 +82,8 @@ if(USER_ID > 0)
                 </h1>
               </div>
               <div className="profile-info">
-                <h2>Welcome {name}</h2>
-
-                {!admin && <h3>Your location is {location}</h3>}
-                {!admin && <h3>Your desired location is {desiredLocation}</h3>}
+                {!admin && <h3>Location: {location}</h3>}
+                {!admin && <h3>Desired Location: {desiredLocation}</h3>}
               </div>
 
 
@@ -115,8 +110,6 @@ if(USER_ID > 0)
           </h1>
         </div>
 
-
-      </div>
       <Footer/>
 
     </>
