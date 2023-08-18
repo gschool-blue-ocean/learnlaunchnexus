@@ -5,12 +5,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Dashboard from "../Dashboard/Dashboard"
 import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
-// import ChangeEmail from "../changeEmail/ChangeEmail";
-import ChangeDesiredLocation from "../global/changeDesiredLocation/ChangeDesiredLocation";
-import ChangeLocation from "../global/changeLocation/ChangeLocation";
-import AddAdmin from "../global/addAdmin/AddAdmin";
-
-
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -81,34 +75,6 @@ const App = () => {
           )
         )}
         /> 
-
-        {/* <Route
-        path = "change-email"
-        element ={(
-          <ChangeEmail />
-        )}
-        /> */}
-
-        <Route
-        path = "change-location"
-        element ={(
-          <ChangeLocation />
-        )}
-        />
-
-        <Route
-        path = "change-desired-location"
-        element ={(
-          <ChangeDesiredLocation />
-        )}
-        />
-
-        <Route
-        path = "add-admin"
-        element ={(
-          <AddAdmin />
-        )}
-        />
 
         <Route
         path = "/*"
