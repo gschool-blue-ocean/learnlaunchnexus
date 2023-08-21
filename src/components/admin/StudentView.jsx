@@ -84,11 +84,16 @@ const StudentView = ({ students, studentID, onBack }) => {
                     <select className="select" onChange={handleStudentChange} value={selectedStudentId || "0"}>
                         <option value="0" disabled>Select Student:</option>
                         {/* Map through students to display them as options in the dropdown */}
-                        {students.map((student) => (
-                            <option key={student.id} value={student.id}>
-                                {`${student.first_name} ${student.last_name}`}
-                            </option>
-                        ))}
+                        {students
+                            .slice() // Create a copy of the array before sorting to avoid mutating the original
+                            .sort((a, b) => {
+                                return a.last_name.localeCompare(b.last_name); // Compare last names alphabetically
+                            })
+                            .map((student) => (
+                                <option key={student.id} value={student.id}>
+                                    {`${student.first_name} ${student.last_name}`}
+                                </option>
+                            ))}
  
                     </select>
                     <button onClick={onBack}>Back</button>
