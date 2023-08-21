@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-import {Link} from "react-router-dom"
- import "./reg.css"
-const FinishRegistration = () => { // user email is never used can it be removed
+const FinishRegistration = ({setUSER_ID}) => { // user email is never used can it be removed
     const [inputs, setInputs] = useState({
         first_name: "",
         last_name: ""
@@ -19,9 +17,22 @@ const FinishRegistration = () => { // user email is never used can it be removed
       }
     
       const onSubmitForm = async e => {
+        const localEmail = localStorage.getItem("email").split('"')
+        console.log(localEmail)
+        let email
+        for(let i = 0; i < localEmail.length; i++)
+        {
+            if(localEmail[i].length > 3)
+            {
+                email = localEmail[i]
+                console.log(email)
+
+            }
+        }
         e.preventDefault();
         try {
-          const body = { first_name, last_name, email: localStorage.getItem("email") };
+          const body = { first_name, last_name, email };
+          console.log(body)
           const response = await fetch(
             `${import.meta.env.VITE_API}/users`,
             {
@@ -33,6 +44,7 @@ const FinishRegistration = () => { // user email is never used can it be removed
             }
           );
           const parseRes = await response.json();
+          setUSER_ID(parseRes.id)
         } catch (err) {
           console.error(err.message);
         }
@@ -61,13 +73,15 @@ const FinishRegistration = () => { // user email is never used can it be removed
                         <br></br>
             <h2>Last Name</h2>
             <input id='input1'
-              type="password"
+              type="text"
               name="last_name"
               value={last_name}
               placeholder="last_name"
               onChange={e => onChange(e)}
               className="form-control my-3"
             />
+            <br></br>
+            <h2></h2>
             <button id='regbtn' onClick={onClick} className="btn btn-success btn-block">Complete</button>
             </form>
           </div>

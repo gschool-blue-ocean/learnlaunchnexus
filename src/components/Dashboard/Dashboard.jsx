@@ -7,7 +7,7 @@ import Calendar from 'react-calendar';
 import './Calendar.css'
 import Todo from './TodoList/Todo.jsx'
 import Footer from './Footer/Footer.jsx'
-import FinishRegistration from '../FinishRegistration/FinishRegistration.jsx'
+import FinishRegistration from '../FinishRegistration/FinishRegistration.jsx';
 const Dashboard = ({ setAuth, userEmail }) => {
   const [name, setName] = useState("");
   const [admin, setAdmin] = useState("");
@@ -23,7 +23,16 @@ const Dashboard = ({ setAuth, userEmail }) => {
       const parseData = await res.json();
       setName(parseData.first_name);
       setAdmin(parseData.isadmin)
-      setUSER_ID(parseData.id)
+      console.log('DATA', parseData.id)
+      if((parseData.id === null) || (parseData.id === undefined))
+      {
+        console.log('do nothing')
+      }
+      else
+      {
+        setUSER_ID(parseData.id)
+      }
+      
       return parseData
     } catch (err) {
       console.error(err.message);
@@ -116,16 +125,11 @@ const Dashboard = ({ setAuth, userEmail }) => {
     </>
     );
   }
-  else 
-  {
-    return
-    (
+    return (
       <>
-      <FinishRegistration></FinishRegistration>
+      <FinishRegistration setUSER_ID={setUSER_ID}></FinishRegistration>
       </>
     )
-   
-  }
 }
 export default Dashboard;
 
