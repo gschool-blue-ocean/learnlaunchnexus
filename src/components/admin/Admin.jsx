@@ -60,12 +60,13 @@ const Admin = () => {
                   const parseAssignmentData = await resAssignment.json();
                   setAssignmentData(parseAssignmentData)
 
-
-                  const response = await fetch(`${import.meta.env.VITE_API}/students/byCohort/${cohortList[currentCohort].id}`, {
+                  console.log("Getting the student list from: " + `${import.meta.env.VITE_API}/students/byCohort/${cohortList[currentCohort].id}` )
+                  const resStudentsInCohort = await fetch(`${import.meta.env.VITE_API}/students/byCohort/${cohortList[currentCohort].id}`, {
                     method: 'GET',
                 });
-                const data = await response.json();
-                setStudents(data);
+                const studentsInCohortData = await resStudentsInCohort.json();
+                setStudents(studentsInCohortData);
+                
                 } catch (err) {
                   console.error(err.message);
                 }
@@ -73,8 +74,6 @@ const Admin = () => {
         }
         getCohortStudents();
     }, [currentCohort]);
-
-
 
     return (
         <div>
