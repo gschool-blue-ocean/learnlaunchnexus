@@ -6,7 +6,7 @@ import settings from './settings-gear.svg'
 // import AssignmentModal from '../modal/AssignmentModal.jsx'
 import SettingDropdown from './SettingDropdown';
 
-const Header = ({ USER_ID, admin, setAuth }) => {
+const Header = ({ USER_ID, admin, setAuth, setClose }) => {
 
     const [name, setName] = useState(""); // State for user's name
     // const [isOpen, setIsModalOpen] = useState(false);
@@ -55,10 +55,10 @@ const Header = ({ USER_ID, admin, setAuth }) => {
             <img className={styles.galvanize_logo} src={'/images/galvanizelogo.png'} ></img>
             <nav className={styles.navmenu}>
                 <ul>
-                    <li><Link to="/dashboard">Home</Link></li>
+                    {/* <li><Link to="/dashboard">Home</Link></li> */}
                       
 
-                    <SettingDropdown admin={admin}/>
+                    <SettingDropdown admin={admin} setClose={setClose}/>
                     <button onClick={e => logout(e)} className={styles.logbtn}>Logout</button>
                 </ul>
                 

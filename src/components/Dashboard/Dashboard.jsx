@@ -12,6 +12,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
   const [admin, setAdmin] = useState("");
   const [USER_ID, setUSER_ID] = useState(0)
   const [date, setDate] = useState(new Date())
+  const [close, setClose] = useState(true)
 
   const getProfile = async (EMAIL) => {
     try {
@@ -54,16 +55,30 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
   getProfile(EMAIL)
   getLocation(USER_ID)
+  
   useEffect(() => {
-    getProfile(EMAIL)
-    getLocation(USER_ID)
-  }, [EMAIL, location, desiredLocation])
+    const fetchData = async () => {
+
+      const profileData = await getProfile(EMAIL)
+        setName(profileData.first_name);
+        setAdmin(profileData.isadmin);
+        setUSER_ID(profileData.id)
+
+      const locationData = await getLocation(USER_ID)
+        setLocation(locationData.location);
+        setDesiredLocation(locationData.desired_location);
+    };
+    fetchData()
+    console.log(location)
+    console.log(desiredLocation)
+  }, [location, desiredLocation, EMAIL, USER_ID])
+
   if(USER_ID > 0)
   {
   return (
     <>
         <div>
-        <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
+        <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} setClose={setClose} />
         </div>
        
         <div>   {/* <h1>View container</h1> */}
@@ -90,8 +105,8 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
             </div>
             <div>
-              {admin && <Admin USER_ID={USER_ID}></Admin>}
-              {!admin && <Student USER_ID={USER_ID}></Student>}
+              {admin && <Admin USER_ID={USER_ID} ></Admin>}
+              {!admin && <Student USER_ID={USER_ID} close={close}></Student>}
             </div>
           </div>
           <h1>
