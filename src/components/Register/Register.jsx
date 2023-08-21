@@ -13,8 +13,14 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
     
       const { email, password, name } = inputs;
     
-      const onChange = e =>
-        setInputs({ ...inputs, [e.target.name]: e.target.value });
+      const onChange = e => {
+        const { name, value } = e.target;
+        if (name === "email" || name === "name") {
+          setInputs({ ...inputs, [name]: value.toLowerCase() }); // Convert email and name to lowercase
+        } else {
+          setInputs({ ...inputs, [name]: value });
+        }
+      };
 
       const onClick = e => {
         onSubmitForm(e)
