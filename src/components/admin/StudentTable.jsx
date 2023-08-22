@@ -6,11 +6,7 @@ let Table = [];
 let RowID = [];
 
 
- 
-
-
 studentList.map((student, index) => {
-
     if((index % assignmentData.length) === 0)
     {
         Row.push(student.last_name + "," + student.first_name);
