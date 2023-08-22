@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
- import "./reg.css"
+import "./reg.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used can it be removed
     const [inputs, setInputs] = useState({
         email: "",
@@ -10,19 +13,30 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
     
       const { email, password, name } = inputs;
     
-      const onChange = e =>
-        setInputs({ ...inputs, [e.target.name]: e.target.value });
+      const onChange = e => {
+        const { name, value } = e.target;
+        if (name === "email" || name === "name") {
+          setInputs({ ...inputs, [name]: value.toLowerCase() }); // Convert email and name to lowercase
+        } else {
+          setInputs({ ...inputs, [name]: value });
+        }
+      };
 
       const onClick = e => {
         onSubmitForm(e)
 
-        window.location.href = '/dashboard'
       }
     
       const onSubmitForm = async e => {
         e.preventDefault();
         try {
           const body = { email, password, name };
+          if(email.includes('(') || email.includes(')') || email.includes('sql') || email.includes('SQL'))
+          {
+              console.log("STOP HACKING")
+          }
+          else
+          {
           const response = await fetch(
             `${import.meta.env.VITE_API}/authentication/register`,
             {
@@ -38,18 +52,24 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
           if (parseRes.token) {
             localStorage.setItem("token", parseRes.token);
             setAuth(true);
-            setEmail(email)
+            localStorage.setItem('email', JSON.stringify(email)); 
             window.location.href = "/dashboard"
           } else {
             setAuth(false);
+            window.location.href = "/register"
+            toast.error('Missing Credentials or Incorrect Format')
+
           }
+        }
         } catch (err) {
           console.error(err.message);
+          toast.error('Missing Credentials')
         }
       };
     
       return (
         <>
+          <ToastContainer />
           <diV id='regpage'>
           <div id='reg'>
 
@@ -64,7 +84,7 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
               type="text"
               name="email"
               value={email}
-              placeholder="email"
+              placeholder="example@email.com"
               onChange={e => onChange(e)}
               className="form-control my-3"
             />
@@ -84,7 +104,7 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
               type="text"
               name="name"
               value={name}
-              placeholder="name"
+              placeholder="username"
               onChange={e => onChange(e)}
               className="form-control my-3"
             />

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function UpdateEmailForm() {
     // State to store the new email input by user
@@ -30,18 +32,21 @@ function UpdateEmailForm() {
                 }
                 localStorage.removeItem('email')
                 localStorage.setItem('email', JSON.stringify(newEmail))
-                window.location.href = '../dashboard'
+                toast.success("Successfully changed email")
                 
             }
             catch (err) {
                 console.error(err);
                 // Handle the error (e.g., by setting an error message state)
                 setMessage('Error updating email');
+                toast.error("Failed to change email")
             }
         }
     };
 
     return (
+        <>
+        <ToastContainer />
         <div>
             <form onSubmit={handleSubmit}>
                 <label>
@@ -65,6 +70,7 @@ function UpdateEmailForm() {
 
             {message && <div>{message}</div>}
         </div>
+        </>
     );
 }
 

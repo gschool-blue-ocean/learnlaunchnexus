@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "./sub.css"
 
 
@@ -7,7 +7,7 @@ const Submission = ({assignment, index}) => {
     const [inputs, setInputs] = useState({
         info : assignment.info
     })
-    
+    const [statusColor, setColorStatus] = useState('')
 
     const onChange = (e) => {
         setInputs({ [e.target.name]: e.target.value })
@@ -56,6 +56,15 @@ const Submission = ({assignment, index}) => {
     }
     return `Submitted at ${hour}:${min} am on ${month}/${day}/${year}`
   }
+
+  useEffect(() => {
+    if (assignment.status === 'Complete') {
+      setColorStatus('assignStatus');
+    } else if (assignment.status === '') {
+      
+    }
+  }, [assignment.status]);
+  
 return (
     <div className='assign' key={assignment.assignment_id}>
       <div className="assignName">
@@ -73,7 +82,7 @@ return (
           <button onClick={onSubmitForm} id='submitAssignment' className="Submission">Submit</button>
         </form>
       </div>
-      <div className='assignStatus'>
+      <div className={statusColor}>
         <p>{assignment.status}</p>
       </div>
       <div className='assignDate'>

@@ -7,11 +7,13 @@ import Calendar from 'react-calendar';
 import './Calendar.css'
 import Todo from './TodoList/Todo.jsx'
 import Footer from './Footer/Footer.jsx'
+import FinishRegistration from '../FinishRegistration/FinishRegistration.jsx';
 const Dashboard = ({ setAuth, userEmail }) => {
   const [name, setName] = useState("");
   const [admin, setAdmin] = useState("");
   const [USER_ID, setUSER_ID] = useState(0)
   const [date, setDate] = useState(new Date())
+  const [close, setClose] = useState(true)
 
   const getProfile = async (EMAIL) => {
     try {
@@ -22,7 +24,16 @@ const Dashboard = ({ setAuth, userEmail }) => {
       const parseData = await res.json();
       setName(parseData.first_name);
       setAdmin(parseData.isadmin)
-      setUSER_ID(parseData.id)
+      console.log('DATA', parseData.id)
+      if((parseData.id === null) || (parseData.id === undefined))
+      {
+        console.log('do nothing')
+      }
+      else
+      {
+        setUSER_ID(parseData.id)
+      }
+      
       return parseData
     } catch (err) {
       console.error(err.message);
@@ -54,16 +65,30 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
   getProfile(EMAIL)
   getLocation(USER_ID)
+  
   useEffect(() => {
-    getProfile(EMAIL)
-    getLocation(USER_ID)
-  }, [EMAIL, location, desiredLocation])
+    const fetchData = async () => {
+
+      const profileData = await getProfile(EMAIL)
+        setName(profileData.first_name);
+        setAdmin(profileData.isadmin);
+        setUSER_ID(profileData.id)
+
+      const locationData = await getLocation(USER_ID)
+        setLocation(locationData.location);
+        setDesiredLocation(locationData.desired_location);
+    };
+    fetchData()
+    console.log(location)
+    console.log(desiredLocation)
+  }, [location, desiredLocation, EMAIL, USER_ID])
+
   if(USER_ID > 0)
   {
   return (
     <>
         <div>
-        <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} />
+        <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} setClose={setClose} />
         </div>
        
         <div>   {/* <h1>View container</h1> */}
@@ -90,8 +115,8 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
             </div>
             <div>
-              {admin && <Admin USER_ID={USER_ID}></Admin>}
-              {!admin && <Student USER_ID={USER_ID}></Student>}
+              {admin && <Admin USER_ID={USER_ID} ></Admin>}
+              {!admin && <Student USER_ID={USER_ID} close={close}></Student>}
             </div>
           </div>
           <h1>
@@ -115,6 +140,11 @@ const Dashboard = ({ setAuth, userEmail }) => {
     </>
     );
   }
+    return (
+      <>
+      <FinishRegistration setUSER_ID={setUSER_ID}></FinishRegistration>
+      </>
+    )
 }
 export default Dashboard;
 

@@ -83,13 +83,14 @@ function TodoList({USER_ID}) {
           type="text"
           value={newTask}
           onChange={e => setNewTask(e.target.value)}
+          onKeyDown={(e) => {if(e.key === 'Enter') {addTask()} }}
         />
         <button onClick={addTask}>Add</button>
       </div>
       <ul>
         {(tasks.length > 0) && tasks.map((task, index) => (
           <li key={index} id={task.id}>
-            <span
+            <span className="Todo-text"
               style={{
                 textDecoration: task.isCompleted ? 'line-through' : '',
               }}

@@ -1,13 +1,10 @@
 import {useState, useEffect} from 'react';
 
-const ChooseCohort = ({cohortList, setCurrentCohort}) => {
-
- 
-    // on selection setCurrentCohort  for Admin to use.
-    const handleChange = (e) =>
-    {
+const ChooseCohort = ({cohortList, setCurrentCohort, resetSelectedStudent}) => {
+    const handleChange = (e) => {
         e.preventDefault();
         setCurrentCohort(e.currentTarget.value);
+        resetSelectedStudent(null); // Reset the selected student
     }
     
 
@@ -15,7 +12,7 @@ const ChooseCohort = ({cohortList, setCurrentCohort}) => {
         <>
         <label htmlFor="cohort-select">Select Cohort</label>
         <select name="cohort-dropdown" id="cohort-select" onChange={e => handleChange(e)}>
-        <option value="">Select a Cohort</option>
+        <option value="" disabled>Select a Cohort</option>
  
 
        
