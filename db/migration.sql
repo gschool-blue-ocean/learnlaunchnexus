@@ -36,7 +36,8 @@ CREATE TABLE users (
     auth_id uuid REFERENCES authentication(user_id) ON DELETE CASCADE,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    isAdmin BOOLEAN
+    isAdmin BOOLEAN,
+    github_acct VARCHAR(50)
 );
 
 CREATE TABLE todo (
