@@ -90,7 +90,7 @@ function TodoList({USER_ID}) {
       <ul>
         {(tasks.length > 0) && tasks.map((task, index) => (
           <li key={index} id={task.id}>
-            <span
+            <span className="Todo-text"
               style={{
                 textDecoration: task.isCompleted ? 'line-through' : '',
               }}
