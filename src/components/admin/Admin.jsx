@@ -12,6 +12,7 @@ const Admin = () => {
   const [assignmentData, setAssignmentData] = useState([]);
   const [studentList, setStudentList] = useState([]);
   const [students, setStudents] = useState([]);
+  const [statusList, setStatusList] = useState([]);
 
   const handleStudentClick = (student) => {
     console.log("in on click", student)
@@ -25,12 +26,21 @@ const Admin = () => {
     const getCohortData = async () => {
 
       try {
-        const res = await fetch(`${import.meta.env.VITE_API}/cohort`, {
+        const Cohortres = await fetch(`${import.meta.env.VITE_API}/cohort`, {
           method: "GET",
         });
 
-        const parseData = await res.json();
-        setCohortList(parseData)
+        const parseCohortData = await Cohortres.json();
+        setCohortList(parseCohortData)
+
+        const Statusres = await fetch(`${import.meta.env.VITE_API}/tracking`, {
+          method: "GET",
+        });
+
+        const parseStatusData = await Statusres.json();
+        setStatusList(parseStatusData)
+
+
       } catch (err) {
         console.error(err.message);
       }
@@ -80,7 +90,7 @@ const Admin = () => {
     <div>
       <ChooseCohort cohortList={cohortList} setCurrentCohort={setCurrentCohort} resetSelectedStudent={setSelectedStudent} />
       {selectedStudent ? (
-        <StudentView students={students} studentID={selectedStudent} onBack={() => setSelectedStudent(null)} onStudentClick={handleStudentClick} />
+        <StudentView statusList={statusList} students={students} studentID={selectedStudent} onBack={() => setSelectedStudent(null)} onStudentClick={handleStudentClick} />
       ) : (
         <StudentTable assignmentData={assignmentData} studentList={studentList} onStudentClick={handleStudentClick} />
       )}

@@ -63,6 +63,6 @@
     margin-bottom: 15px;
     padding-bottom: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }

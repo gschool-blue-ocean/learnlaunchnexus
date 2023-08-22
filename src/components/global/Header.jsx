@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import styles from './Header.module.css';
 import settings from './settings-gear.svg'
@@ -57,7 +57,6 @@ const Header = ({ USER_ID, admin, setAuth, setClose }) => {
                 <ul>
                     {/* <li><Link to="/dashboard">Home</Link></li> */}
                       
-
                     <SettingDropdown admin={admin} setClose={setClose}/>
                     <button onClick={e => logout(e)} className={styles.logbtn}>Logout</button>
                 </ul>
