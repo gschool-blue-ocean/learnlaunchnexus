@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import Header from "../global/Header.jsx";
 import Admin from '../admin/Admin.jsx'
 import Student from '../student/Student.jsx'
 import './Dashboard.css'
-import Calendar from 'react-calendar';
+const Calendar = lazy(() => import('react-calendar'))
 import './Calendar.css'
-import Todo from './TodoList/Todo.jsx'
+const Todo = lazy(() => import('./TodoList/Todo.jsx'))
 import Footer from './Footer/Footer.jsx'
 import FinishRegistration from '../FinishRegistration/FinishRegistration.jsx';
 const Dashboard = ({ setAuth, userEmail }) => {
@@ -14,6 +14,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
   const [USER_ID, setUSER_ID] = useState(0)
   const [date, setDate] = useState(new Date())
   const [close, setClose] = useState(true)
+  const [gitPic, setGitPic] = useState('/images/Default.png')
 
   const getProfile = async (EMAIL) => {
     try {
@@ -32,6 +33,15 @@ const Dashboard = ({ setAuth, userEmail }) => {
       else
       {
         setUSER_ID(parseData.id)
+      }
+      console.log("fullData", parseData)
+      if((parseData.github_acct === null) || (parseData.github_acct === undefined))
+      {
+        console.log('do nothing')
+      }
+      else
+      {
+        setGitPic(parseData.github_acct)
       }
       
       return parseData
@@ -73,6 +83,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
         setName(profileData.first_name);
         setAdmin(profileData.isadmin);
         setUSER_ID(profileData.id)
+        setGitPic(profileData.github_acct)
 
       const locationData = await getLocation(USER_ID)
         setLocation(locationData.location);
@@ -100,11 +111,9 @@ const Dashboard = ({ setAuth, userEmail }) => {
           <div className="dashboard-page">
             <div className="profile">
               <div className="header">
-                <h1>Welcome, {name} !
-
-                  {/*<button onClick={e => logout(e)} className="logout-button" > Logout</button>*/}
-
-                </h1>
+                <img style={{ width: '125px', height:'125px', border:'1px solid white', borderRadius:'50%'}} src={`https://avatars.githubusercontent.com/${gitPic}`}></img>
+                <h1>Welcome, {name} !</h1>
+                <div style={{width: '125px', height: '125px'}}></div>
               </div>
               <div className="profile-info">
                 {!admin && <h3>Location: {location}</h3>}
@@ -123,7 +132,10 @@ const Dashboard = ({ setAuth, userEmail }) => {
             <div className="calendar">
               <h1 className="calendar-header">Calendar</h1>
               <div className="calendar-container">
+              <Suspense fallback=
+                {<div>Loading...</div>}>
                 <Calendar onChange={setDate} value={date} />
+              </Suspense>
               </div>
               <div className="text-center">
                 Selected date: {date.toDateString()}
@@ -131,7 +143,10 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
 
             </div>
-            <Todo USER_ID={USER_ID}/>
+            <Suspense fallback=
+              {<div>Loading...</div>}>
+              <Todo USER_ID={USER_ID}/>
+            </Suspense>
           </h1>
         </div>
       </div>
