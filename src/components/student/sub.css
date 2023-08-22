@@ -37,11 +37,31 @@
     cursor: pointer;
 }
 
-.assignStatus {
+.assignStatusG {
     padding-left: 1%;
     max-width: 80px;
     min-width: 80px;
     background-color: lightgreen;
+}
+
+.assignStatusY {
+    padding-left: 1%;
+    max-width: 80px;
+    min-width: 80px;
+    background-color: yellow;
+}
+
+.assignStatusR {
+    padding-left: 1%;
+    max-width: 80px;
+    min-width: 80px;
+    background-color: red;
+}
+
+.assignStatus {
+    padding-left: 1%;
+    max-width: 80px;
+    min-width: 80px;
 }
 
 .assignDate {

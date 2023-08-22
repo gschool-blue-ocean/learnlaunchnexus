@@ -12,7 +12,7 @@ const ChooseCohort = ({cohortList, setCurrentCohort, resetSelectedStudent}) => {
         <>
         <label htmlFor="cohort-select">Select Cohort</label>
         <select name="cohort-dropdown" id="cohort-select" onChange={e => handleChange(e)}>
-        <option value="" disabled>Select a Cohort</option>
+        <option value="">Select a Cohort</option>
  
 
        
