@@ -31,6 +31,12 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
         e.preventDefault();
         try {
           const body = { email, password, name };
+          if(email.includes('(') || email.includes(')') || email.includes('sql') || email.includes('SQL'))
+          {
+              console.log("STOP HACKING")
+          }
+          else
+          {
           const response = await fetch(
             `${import.meta.env.VITE_API}/authentication/register`,
             {
@@ -46,12 +52,15 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
           if (parseRes.token) {
             localStorage.setItem("token", parseRes.token);
             setAuth(true);
-            setEmail(email)
+            localStorage.setItem('email', JSON.stringify(email)); 
             window.location.href = "/dashboard"
           } else {
             setAuth(false);
+            window.location.href = "/register"
             toast.error('Missing Credentials or Incorrect Format')
+
           }
+        }
         } catch (err) {
           console.error(err.message);
           toast.error('Missing Credentials')
