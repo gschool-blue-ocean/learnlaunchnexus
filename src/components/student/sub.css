@@ -15,8 +15,8 @@
     padding-top: 1%;
     width: 29%;
     height: 3.4%;
-    max-width: 200px;
-    min-width: 200px;
+    max-width: 220px;
+    min-width: 220px;
 }
 
 .assignform {
@@ -38,9 +38,10 @@
 }
 
 .assignStatus {
-    padding-left: 3%;
+    padding-left: 1%;
     max-width: 80px;
     min-width: 80px;
+    background-color: lightgreen;
 }
 
 .assignDate {

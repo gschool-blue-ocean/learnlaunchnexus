@@ -21,11 +21,9 @@ const DeleteAdmin = () => {
                   });
                   const parseData = await res.json();
                   toast.success(`${email} is no longer an admin`)
-                  setTimeout(() => {
-                    window.location.href = "../dashboard"
-                  }, 10000);
                 } catch (err) {
                   console.error(err.message);
+                  toast.error(`Failed to remove admin access from ${email}`)
                 }
             }
     

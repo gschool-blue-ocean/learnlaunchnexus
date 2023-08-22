@@ -87,7 +87,7 @@
 
 .settingDropdown:hover .settingDropdownList {
     visibility: visible;
-    right: -112px;
+    right: -100px;
 }
 
 .settingDropdownList a:hover {
