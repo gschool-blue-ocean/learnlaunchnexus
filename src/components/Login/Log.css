@@ -24,7 +24,7 @@ body {
     margin: auto;
     position: absolute;
     top: 8%;
-    left: 19%;
+    left: 25%;
     padding-top: 6%;
     padding-bottom: 3%;
     padding-left: 19%;
@@ -39,7 +39,6 @@ body {
     padding-top: 12%;
     padding-bottom: 12%;
     width: 90%;
-    background-color: darkgrey;
     position: relative;
     right: 23%;
     border-radius: 15px;
@@ -100,6 +99,14 @@ body {
 #input2 {
     background-color: rgb(217, 232, 252);
     border-radius: 7px;
+}
+
+#eh {
+    color: darkorange;
+}
+
+#ph {
+    color: darkorange;
 }
 
 

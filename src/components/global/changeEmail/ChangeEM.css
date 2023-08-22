@@ -1,0 +1,9 @@
+#emailToast {
+    background-color: lightblue;
+    height: 400px;
+    width: 430px;
+}
+
+#current {
+    top: 10%;
+}

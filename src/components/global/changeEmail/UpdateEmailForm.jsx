@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './ChangeEM.css';
 
 function UpdateEmailForm() {
     // State to store the new email input by user
@@ -47,23 +48,31 @@ function UpdateEmailForm() {
     return (
         <>
         <ToastContainer />
-        <div>
+        <div id='emailToast'>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label id='current'>
                     Current Email:
+                    <br></br>
+                    <h2></h2>
                     <input
                         type="email"
                         value={`${localStorage.getItem('email')}`}
                         disabled
                     />
+                    <br></br>
+                    <h2></h2>
                 </label>
                 <label>
                     New Email:
+                    <br></br>
+                    <h2></h2>
                     <input
                         type="email"
                         value={newEmail}
                         onChange={(e) => setNewEmail(e.target.value)}
                     />
+                    <br></br>
+                    <h2></h2>
                 </label>
                 <button type="submit">Update Email</button>
             </form>

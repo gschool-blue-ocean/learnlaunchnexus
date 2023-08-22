@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const StudentTable = ({assignmentData, studentList,  setSelectedStudent, onStudentClick}) => { 
 let Row = [];
@@ -27,6 +27,19 @@ studentList.map((student, index) => {
 
     }
 })
+
+
+    const bgColors = (item) => {
+        if (item === 'Complete') {
+          return 'lightgreen';
+        } else if (item === 'Not Started') {
+          return 'yellow';
+        } else if (item === 'OverDue') {
+          return 'red';
+        }
+    }
+
+
     return (    
     <>
     <table>
@@ -51,7 +64,7 @@ studentList.map((student, index) => {
 
                     return(
 
-                        <td>{item}  </td>
+                        <td style={{ backgroundColor: `${bgColors(item)}` }}>{item} </td>
 
 
                      ) })   
