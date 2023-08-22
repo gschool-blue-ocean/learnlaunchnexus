@@ -61,8 +61,8 @@ INSERT INTO users (first_name, last_name, auth_id, isAdmin, github_acct) VALUES
 ('Isabella', 'Baker', (SELECT user_id FROM authentication WHERE user_email = 'isabella.baker@example.com'), false, 'jacobrphilips'),
 ('Elijah', 'Mitchell', (SELECT user_id FROM authentication WHERE user_email = 'elijah.mitchell@example.com'), false, 'Javaney-Thomas'),
 ('Sophie', 'Anderson', (SELECT user_id FROM authentication WHERE user_email = 'sophie.anderson@example.com'), false, 'Jespinola777'),
-('Liam', 'Roberts', (SELECT user_id FROM authentication WHERE user_email = 'liam.roberts@example.com'), true, 'JesthenB'),
-('Isabella', 'Brown', (SELECT user_id FROM authentication WHERE user_email = 'isabella.brown@example.com'), true, 'jkluse');
+('Liam', 'Roberts', (SELECT user_id FROM authentication WHERE user_email = 'liam.roberts@example.com'), true, 'Sussman-P'),
+('Isabella', 'Brown', (SELECT user_id FROM authentication WHERE user_email = 'isabella.brown@example.com'), true, 'Spirit1269');
 
 
 INSERT INTO assignment (name) VALUES 
