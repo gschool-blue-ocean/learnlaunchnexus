@@ -2,6 +2,10 @@
     display: flex;
 }
 
+#table{
+    max-height: 731px;
+}
+
 #subj {
     max-width: 90px;
     min-width: 90px;
