@@ -31,7 +31,7 @@ studentList.map((student, index) => {
         Row.push(student.status);
 
     }
-    if((studentList.length = 1))
+    if((assignmentData.length == 1))
     {
         Table.push(Row);
         Row = [];
