@@ -35,8 +35,8 @@ const AssignCohort = () => {
       }, []);
 
     const [inputs, setInputs] = useState({
-        cohort_id: 0,
-         user_id: 0
+        cohort_id: '0',
+         user_id: '0'
     })
     
     /*
@@ -57,13 +57,14 @@ const onSubmitForm = async (e) => {
     const { cohort_id, user_id } = inputs
     const body = {cohort_id, user_id}
     try {
-          const res = await fetch(`${import.meta.env.VITE_API}/cohort`, {
+          const res = await fetch(`${import.meta.env.VITE_API}/students`, {
             headers: { 'Content-Type': 'application/json' },
             method: "POST",
             body: JSON.stringify(body)
 
           });
           const parseData = await res.json();
+          console.log
           toast.success(`assigned a student`)
         } catch (err) {
           console.error(err.message);

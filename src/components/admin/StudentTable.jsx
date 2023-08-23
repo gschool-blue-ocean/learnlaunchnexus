@@ -5,7 +5,8 @@ let Row = [];
 let Table = [];
 let RowID = [];
 
-
+if(studentList.length > 0)
+{
 studentList.map((student, index) => {
     if((index % assignmentData.length) === 0)
     {
@@ -26,7 +27,7 @@ studentList.map((student, index) => {
         Row.push(student.status);
 
     }
-})
+})}
 
 
     const bgColors = (item) => {
@@ -47,7 +48,7 @@ studentList.map((student, index) => {
         <tr>
         <th>Student Name</th>
         {
-        assignmentData.map((assignment) => {
+        (assignmentData.length > 0) && assignmentData.map((assignment) => {
             return (
                 <th>{assignment.name}</th>
             )
@@ -55,12 +56,12 @@ studentList.map((student, index) => {
         </tr>
     </thead>
     <tbody>
-        {Table.map((row, index) => {
+        {(Table.length > 0) && Table.map((row, index) => {
 
 
             return (
             <tr id={RowID[index]} onClick={() => onStudentClick(RowID[index])}>
-                {row.map((item) => {
+                {(row.length > 0 ) && row.map((item) => {
 
                     return(
 

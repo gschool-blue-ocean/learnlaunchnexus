@@ -67,7 +67,7 @@ return (
               onChange={e => onChange(e)}
               className="undefined"
             />   
-     <h1> Add a End Date</h1>
+     <h1> Cohorts Name</h1>
     <input id="name"
               type="text"
               name="name"

@@ -32,7 +32,7 @@ const SettingDropdown = ({admin, setClose}) => {
         else if(content === 'assignCohort') {
           setOpenModal(<AssignCohort />);
         }
-        else if(content === 'addAssignment') {
+        else if(content === 'addAssingment') {
           setOpenModal(<AddAssingment />);
         }
         else if(content === 'assignAssignment') {
