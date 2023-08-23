@@ -13,6 +13,18 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+router.get('/unassigned', async (req, res) => {
+    try {
+        const results = await pool.query("SELECT * FROM users WHERE isadmin = false AND NOT EXISTS (SELECT 1 FROM student WHERE users.id = student.user_id)");
+        res.json(results.rows);
+    } catch (err) {
+        console.error(err.message);
+         res.status(500).json(err.message);
+    }
+});
+
+
 // Get a specific user by ID
 router.get('/:id', async (req, res) => {
     const { id } = req.params;

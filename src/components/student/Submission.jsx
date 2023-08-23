@@ -59,9 +59,13 @@ const Submission = ({assignment, index}) => {
 
   useEffect(() => {
     if (assignment.status === 'Complete') {
-      setColorStatus('assignStatus');
-    } else if (assignment.status === '') {
-      
+      setColorStatus('assignStatusG');
+    } else if (assignment.status === 'Not Started') {
+      setColorStatus('assignStatusY')
+    } else if (assignment.status === 'OverDue') {
+      setColorStatus('assignStatusR')
+    } else {
+      setColorStatus('assignStatus')
     }
   }, [assignment.status]);
   

@@ -1,14 +1,17 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const StudentTable = ({assignmentData, studentList,  setSelectedStudent, onStudentClick}) => { 
 let Row = [];
 let Table = [];
 let RowID = [];
-
-
+console.log("inTABLE", studentList, studentList.length)
+if(studentList.length > 0)
+{
 studentList.map((student, index) => {
+    console.log("inside Map", student)
     if((index % assignmentData.length) === 0)
     {
+        console.log(index)
         Row.push(student.last_name + "," + student.first_name);
         RowID.push(student.user_id)
         Row.push(student.status);       
@@ -16,6 +19,7 @@ studentList.map((student, index) => {
     }
     else if((index % assignmentData.length) === (assignmentData.length-1 ))
     {
+        console.log(index)
         Row.push(student.status);
         Table.push(Row);
         Row = [];
@@ -23,10 +27,29 @@ studentList.map((student, index) => {
     }
     else
     {
+        console.log(index)
         Row.push(student.status);
 
     }
-})
+    if((assignmentData.length == 1))
+    {
+        Table.push(Row);
+        Row = [];
+    }
+})}
+
+
+    const bgColors = (item) => {
+        if (item === 'Complete') {
+          return 'lightgreen';
+        } else if (item === 'Not Started') {
+          return 'yellow';
+        } else if (item === 'OverDue') {
+          return 'red';
+        }
+    }
+
+console.log("row", Row, "Table", Table)
     return (    
     <>
     <table>
@@ -34,7 +57,7 @@ studentList.map((student, index) => {
         <tr>
         <th>Student Name</th>
         {
-        assignmentData.map((assignment) => {
+        (assignmentData.length > 0) && assignmentData.map((assignment) => {
             return (
                 <th>{assignment.name}</th>
             )
@@ -42,16 +65,16 @@ studentList.map((student, index) => {
         </tr>
     </thead>
     <tbody>
-        {Table.map((row, index) => {
+        {(Table.length > 0) && Table.map((row, index) => {
 
 
             return (
             <tr id={RowID[index]} onClick={() => onStudentClick(RowID[index])}>
-                {row.map((item) => {
+                {(row.length > 0 ) && row.map((item) => {
 
                     return(
 
-                        <td>{item}  </td>
+                        <td style={{ backgroundColor: `${bgColors(item)}` }}>{item} </td>
 
 
                      ) })   

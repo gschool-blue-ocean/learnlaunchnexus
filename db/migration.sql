@@ -36,7 +36,8 @@ CREATE TABLE users (
     auth_id uuid REFERENCES authentication(user_id) ON DELETE CASCADE,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    isAdmin BOOLEAN
+    isAdmin BOOLEAN,
+    github_acct VARCHAR(50)
 );
 
 CREATE TABLE todo (
@@ -90,6 +91,56 @@ CREATE TABLE cohort_assignment (
     assignment_id INT REFERENCES assignment(id) ON DELETE CASCADE,
     cohort_id INT REFERENCES cohort(id) ON DELETE CASCADE
 );
+CREATE OR REPLACE FUNCTION create_submissions_for_cohort()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO submission (info, feedback, submission_time, student_id, assignment_id)
+    SELECT
+        '' as info, -- or default value
+        '' as feedback, -- or default value
+        NOW() as submission_time,
+        student.id as student_id,
+        NEW.assignment_id
+    FROM 
+        student
+    WHERE 
+        student.cohort_id = NEW.cohort_id;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER after_cohort_assignment_insert
+AFTER INSERT ON cohort_assignment
+FOR EACH ROW
+EXECUTE FUNCTION create_submissions_for_cohort();
+
+
+CREATE OR REPLACE FUNCTION create_submissions_for_new_student()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO submission (info, feedback, tracking_id, submission_time, student_id, assignment_id)
+    SELECT
+        '' as info, -- using empty strings as default values for clarity
+        '' as feedback, -- using empty strings as default values for clarity
+        1 as tracking_id,
+        NOW() as submission_time,
+        NEW.id as student_id,
+        cohort_assignment.assignment_id
+    FROM 
+        cohort_assignment
+    WHERE 
+        cohort_assignment.cohort_id = NEW.cohort_id;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER after_student_insert_into_cohort
+AFTER INSERT ON student
+FOR EACH ROW
+EXECUTE FUNCTION create_submissions_for_new_student();
+
 
 CREATE USER career_services_api PASSWORD 'career_services_api_password';
 GRANT SELECT, INSERT, UPDATE, DELETE on users, admin, authentication, student, tracking, submission, cohort, assignment TO career_services_api;
