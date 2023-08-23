@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-const FinishRegistration = ({setUSER_ID}) => { // user email is never used can it be removed
+const FinishRegistration = () => { // user email is never used can it be removed
     const [inputs, setInputs] = useState({
         first_name: "",
         last_name: ""
@@ -44,7 +44,7 @@ const FinishRegistration = ({setUSER_ID}) => { // user email is never used can i
             }
           );
           const parseRes = await response.json();
-          setUSER_ID(parseRes.id)
+          window.location.href = '../dashboard'
         } catch (err) {
           console.error(err.message);
         }
@@ -61,7 +61,7 @@ const FinishRegistration = ({setUSER_ID}) => { // user email is never used can i
 
           <div id='reginput'>
           <form onSubmit={onSubmitForm}>
-          <h2 id='eh'>First Name</h2> 
+          <h2 id='emailH'>First Name</h2> 
             <input id='input1'
               type="text"
               name="first_name"
@@ -71,7 +71,7 @@ const FinishRegistration = ({setUSER_ID}) => { // user email is never used can i
               className="form-control my-3"
             />
                         <br></br>
-            <h2 id='eh'>Last Name</h2>
+            <h2 id='passwordH'>Last Name</h2>
             <input id='input1'
               type="text"
               name="last_name"

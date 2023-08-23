@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Dashboard from "../Dashboard/Dashboard"
 import Register from "../Register/Register.jsx"
 import Login from "../Login/Login.jsx"
+import FinishRegistration from "../FinishRegistration/FinishRegistration";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -59,12 +60,21 @@ const App = () => {
         path = "/register"
         element={(
           isAuthenticated ? (
-            <Navigate to= "/dashboard" replace />
+            <Navigate to= "/register-contd" replace />
           ) : (
             <Register setAuth={setAuth} setEmail={setEmail} userEmail={userEmail}/>
           )
         )}
         /> 
+        <Route 
+        path = "/register-contd"
+        element={(
+          (
+            <FinishRegistration/> 
+          )
+          )
+        } 
+        />
         <Route 
         path = "/dashboard"
         element={(

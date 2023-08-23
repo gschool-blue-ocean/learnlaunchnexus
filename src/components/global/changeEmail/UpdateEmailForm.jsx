@@ -50,11 +50,11 @@ function UpdateEmailForm() {
         <ToastContainer />
         <div id='emailToast'>
             <form onSubmit={handleSubmit}>
-                <label id='current'>
+                <label id='currentE'>
                     Current Email:
                     <br></br>
                     <h2></h2>
-                    <input
+                    <input id='InputCurrentE'
                         type="email"
                         value={`${localStorage.getItem('email')}`}
                         disabled
@@ -62,11 +62,11 @@ function UpdateEmailForm() {
                     <br></br>
                     <h2></h2>
                 </label>
-                <label>
+                <label id='oldE'>
                     New Email:
                     <br></br>
                     <h2></h2>
-                    <input
+                    <input id='inputOldE'
                         type="email"
                         value={newEmail}
                         onChange={(e) => setNewEmail(e.target.value)}
@@ -74,7 +74,7 @@ function UpdateEmailForm() {
                     <br></br>
                     <h2></h2>
                 </label>
-                <button type="submit">Update Email</button>
+                <button id='updateEM' type="submit">Update Email</button>
             </form>
 
             {message && <div>{message}</div>}
