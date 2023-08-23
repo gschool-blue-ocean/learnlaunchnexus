@@ -41,21 +41,21 @@
     padding-left: 1%;
     max-width: 80px;
     min-width: 80px;
-    background-color: lightgreen;
+    background-color: rgb(111, 230, 111);
 }
 
 .assignStatusY {
     padding-left: 1%;
     max-width: 80px;
     min-width: 80px;
-    background-color: yellow;
+    background-color: rgb(243, 243, 90);
 }
 
 .assignStatusR {
     padding-left: 1%;
     max-width: 80px;
     min-width: 80px;
-    background-color: red;
+    background-color: rgb(235, 97, 97);
 }
 
 .assignStatus {

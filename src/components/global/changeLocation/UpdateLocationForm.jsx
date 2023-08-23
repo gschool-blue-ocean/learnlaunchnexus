@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './ChangeLocation.css'
 
 function UpdateLocationForm({USER_ID}) {
     // State to store the current ID input by user
@@ -42,19 +43,23 @@ function UpdateLocationForm({USER_ID}) {
     return (
         <>
         <ToastContainer />
-        <div>
+        <div id='locationCon'>
             <form onSubmit={handleSubmit}>
                 <label>
                 </label>
-                <label>
+                <label id='locationH'>
                     New Location:
-                    <input
+                    <br></br>
+                    <h2></h2>
+                    <input id='InputLocation'
                         type="text"
                         value={newLocation}
                         onChange={(e) => setNewLocation(e.target.value)}
                     />
                 </label>
-                <button type="submit">Update Location</button>
+                    <br></br>
+                    <h2></h2>
+                <button id='updateLocation' type="submit">Update Location</button>
             </form>
 
             {message && <div>{message}</div>}

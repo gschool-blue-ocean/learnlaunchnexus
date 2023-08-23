@@ -79,7 +79,7 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
 
           <div id='reginput'>
           <form onSubmit={onSubmitForm}>
-          <h2 id='eh'>Email</h2> 
+          <h2 id='emailH2'>Email</h2> 
             <input id='input1'
               type="text"
               name="email"
@@ -89,7 +89,7 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
               className="form-control my-3"
             />
                         <br></br>
-            <h2 id='eh'>Password</h2>
+            <h2 id='passwordH2'>Password</h2>
             <input id='input1'
               type="password"
               name="password"
@@ -99,7 +99,7 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
               className="form-control my-3"
             />
                         <br></br>
-            <h2 id='eh'>Username</h2>
+            <h2 id='userH'>Username</h2>
             <input id='input1'
               type="text"
               name="name"
