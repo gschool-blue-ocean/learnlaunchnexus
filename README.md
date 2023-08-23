@@ -194,7 +194,7 @@ Ensures the project's reliability by offering comprehensive tests for:
 - **Productivity Features**: Focus on the Todo List and Calendar functionalities, emphasizing task management and date selection.
 
 
-  # Workflow and Key Lessons from the OpenAI Team
+  # Workflow and Key Lessons from the Learn Launch Nexus Team
 
 In this section, we'll detail our team's experiences, processes, and key takeaways from the project development. We'll touch upon our use of Agile methodologies, our Continuous Integration/Continuous Deployment (CI/CD) strategies, testing practices, and more.
 
