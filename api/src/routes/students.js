@@ -78,30 +78,11 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-
-
-router.put('/location/:id', async (req, res) => {
-    const { id } = req.params;
-    const { location } = req.body;
-    try {
-        const result = await pool.query("UPDATE student SET location = $1 WHERE id = $2 RETURNING *", 
-            [location, id]);
-
-        if (result.rows.length === 0) {
-            return res.status(404).json({ message: "Student not found." });
-        }
-        
-        res.json(result.rows[0]);
-    } catch (err) {
-        console.error(err.message);
-res.status(500).json(err.message);    }
-});
-
 router.put('/desired-location/:id', async (req, res) => {
     const { id } = req.params;
     const { desired_location } = req.body;
     try {
-        const result = await pool.query("UPDATE student SET desired_location = $1 WHERE id = $2 RETURNING *", 
+        const result = await pool.query("UPDATE student SET desired_location = $1 WHERE user_id = $2 RETURNING *", 
             [desired_location, id]);
 
         if (result.rows.length === 0) {
@@ -119,7 +100,7 @@ router.put('/location/:id', async (req, res) => {
     const { id } = req.params;
     const { location } = req.body;
     try {
-        const result = await pool.query("UPDATE student SET location = $1 WHERE id = $2 RETURNING *", 
+        const result = await pool.query("UPDATE student SET location = $1 WHERE user_id = $2 RETURNING *", 
             [location, id]);
 
         if (result.rows.length === 0) {
