@@ -6,7 +6,7 @@ const ChangeLocation = () => {
     const USER_ID = JSON.parse(localStorage.getItem('user_id'))
     return (
         <>
-            <button><UpdateLocationForm USER_ID={USER_ID} /></button>
+            <UpdateLocationForm USER_ID={USER_ID} />
         </>
     )
 }
