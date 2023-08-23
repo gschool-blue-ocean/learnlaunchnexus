@@ -65,10 +65,10 @@ const onSubmitForm = async (e) => {
 
           });
           const parseData = await res.json();
-          toast.success(`assigned a student`)
+          toast.success(`assigned an Assignment`)
         } catch (err) {
           console.error(err.message);
-          toast.error(`Failed to assign a student`)
+          toast.error(`Failed to assign an Assignment`)
         }
     }
 
