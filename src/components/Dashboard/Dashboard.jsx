@@ -52,7 +52,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
   localStorage.setItem('user_id', JSON.stringify(USER_ID))
 
 
-
+  console.log(USER_ID)
   const EMAIL = JSON.parse(localStorage.getItem('email'))
 
   const [location, setLocation] = useState("")
@@ -143,10 +143,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
 
 
             </div>
-            <Suspense fallback=
-              {<div>Loading...</div>}>
               <Todo USER_ID={USER_ID}/>
-            </Suspense>
           </h1>
         </div>
       </div>
@@ -155,11 +152,8 @@ const Dashboard = ({ setAuth, userEmail }) => {
     </>
     );
   }
-    return (
-      <>
-      <FinishRegistration setUSER_ID={setUSER_ID}></FinishRegistration>
-      </>
-    )
+  
+  return <h1>Loading Learn Launch Nexus.....</h1>
 }
 export default Dashboard;
 

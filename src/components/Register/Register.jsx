@@ -53,7 +53,7 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
             localStorage.setItem("token", parseRes.token);
             setAuth(true);
             localStorage.setItem('email', JSON.stringify(email)); 
-            window.location.href = "/dashboard"
+            window.location.href = "../register-contd"
           } else {
             setAuth(false);
             window.location.href = "/register"

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import "./Todo.css"
 
 function TodoList({USER_ID}) {
@@ -96,7 +96,10 @@ function TodoList({USER_ID}) {
               }}
               onClick={() => toggleTaskCompletion(index)}
             >
-              {task.text}
+              <Suspense fallback=
+               {<div>Loading...</div>}>
+                {task.text}
+               </Suspense>
             </span>
             <button onClick={() => removeTask(index, task.id)}>Remove</button>
           </li>
