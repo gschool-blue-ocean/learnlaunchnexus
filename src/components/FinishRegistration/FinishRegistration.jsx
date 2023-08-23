@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-const FinishRegistration = ({setUSER_ID}) => { // user email is never used can it be removed
+const FinishRegistration = () => { // user email is never used can it be removed
     const [inputs, setInputs] = useState({
         first_name: "",
         last_name: ""
@@ -44,7 +44,7 @@ const FinishRegistration = ({setUSER_ID}) => { // user email is never used can i
             }
           );
           const parseRes = await response.json();
-          setUSER_ID(parseRes.id)
+          window.location.href = '../dashboard'
         } catch (err) {
           console.error(err.message);
         }
