@@ -15,7 +15,11 @@ Welcome to the Learn Launch Nexus README! This document provides an in-depth ove
 
 ## Video Demo
 
-<iframe width="907" height="510" src="https://www.youtube.com/embed/S7t_R8UrzU0" title="Project" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ 
+
+https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/8565d71d-8636-4521-9d40-8c75d2ab0332
+
+
 
 
 ## Table of Contents
