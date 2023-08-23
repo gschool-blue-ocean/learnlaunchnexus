@@ -7,6 +7,25 @@
 
 Welcome to the Learn Launch Nexus README! This document provides an in-depth overview of the project's structure, files, components, and intricacies.
 
+ 
+
+## Table of Contents
+
+- [Tech Stack](#tech-stack)
+- [Video Demo](#video-demo)
+- [Introduction](#introduction)
+- [What does the app do?](#what-does-the-app-do)
+- [Challenges & Learnings](#challenges--learnings)
+- [Research Undertaken](#research-undertaken)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Features](#features)
+- [Styling](#styling)
+- [API Integration](#api-integration)
+- [Testing Suites](#testing-suites)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contributors](#contributors)
 
 ## Tech Stack
 ![icons8-node-js](https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/d8f09f81-d249-4f73-9bec-5018f9dee77a)![icons8-javascript](https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/94b414c5-02b9-4f5b-83ac-b78c38bb9c99) 
@@ -19,37 +38,6 @@ Welcome to the Learn Launch Nexus README! This document provides an in-depth ove
 
 https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/8565d71d-8636-4521-9d40-8c75d2ab0332
 
-
-
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Project Structure](#project-structure)
-  - [Public Directory](#public-directory)
-  - [Source Directory](#source-directory)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-- [Features](#features)
-  - [User Authentication](#user-authentication)
-  - [User Roles](#user-roles)
-  - [Dashboard](#dashboard)
-  - [Profile Information](#profile-information)
-  - [Assignment Submissions](#assignment-submissions)
-  - [Setting Dropdown](#setting-dropdown)
-  - [Calendar](#calendar)
-  - [Todo List](#todo-list)
-  - [Responsive Design](#responsive-design)
- - [Styling](#styling)
-- [API Integration](#api-integration)
-- [Testing Suites](#testing-suites)
-  - [Login](#login)
-  - [Student and Admin Roles](#student-and-admin-roles)
-  - [Todo List and Calendar Features](#todo-list-and-calendar-features)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
