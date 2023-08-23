@@ -1,4 +1,4 @@
- 
+![icons8-javascript](https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/94b414c5-02b9-4f5b-83ac-b78c38bb9c99) 
 <p align="center">
 <img src="logo_200x200.png"/>
 </p>
@@ -6,6 +6,10 @@
 # Learn Launch Nexus
 
 Welcome to the Learn Launch Nexus README! This document provides an in-depth overview of the project's structure, files, components, and intricacies.
+
+
+## Tech Stack
+
 
 ## Table of Contents
 
@@ -170,6 +174,14 @@ To contribute, fork the repository, create a new branch, commit your changes, an
 This project is licensed under the MIT License.
 
 Feel free to explore the project's components, features, and functionalities. For more detailed instructions or customization guidelines, refer to specific sections and files in the project.
+
+## Contributors
+
+| [**Sean Guerrero**](https://github.com/seang549) | [**Benjamin Schenk**](https://github.com/BenjaminSchenk) |
+|--------------------------------------------------|---------------------------------------------------------|
+| [**Joey Laspe**](https://github.com/joelaspe)    | [**Patrick McGinnis**](https://github.com/PatDMcG)     | 
+| [**Pedro Modesto**](https://github.com/pedrovily1) 
+
 
 Happy coding!
 ```
