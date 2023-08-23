@@ -1,14 +1,17 @@
-![icons8-javascript](https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/94b414c5-02b9-4f5b-83ac-b78c38bb9c99) 
 <p align="center">
 <img src="logo_200x200.png"/>
-</p>
+
 
 # Learn Launch Nexus
+
 
 Welcome to the Learn Launch Nexus README! This document provides an in-depth overview of the project's structure, files, components, and intricacies.
 
 
 ## Tech Stack
+![icons8-node-js](https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/d8f09f81-d249-4f73-9bec-5018f9dee77a)![icons8-javascript](https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/94b414c5-02b9-4f5b-83ac-b78c38bb9c99) 
+![icons8-react](https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/534a27ea-845f-4289-8ec1-ff6ab02c8054)
+![icons8-postgres (1)](https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/50c6e407-5a79-4b21-8559-42bb5e49ea90)
 
 
 ## Table of Contents
@@ -31,8 +34,7 @@ Welcome to the Learn Launch Nexus README! This document provides an in-depth ove
   - [Calendar](#calendar)
   - [Todo List](#todo-list)
   - [Responsive Design](#responsive-design)
-- [Components](#components)
-- [Styling](#styling)
+ - [Styling](#styling)
 - [API Integration](#api-integration)
 - [Testing Suites](#testing-suites)
   - [Login](#login)
@@ -45,9 +47,37 @@ Welcome to the Learn Launch Nexus README! This document provides an in-depth ove
 
 The Learn Launch Nexus Application is a web-based platform designed to assist students and administrators within a learning institution. This README provides comprehensive insights into the project's structure, features, components, and testing suites.
 
+## What does the app do?
+
+**Problem & Solution**: Many institutions struggle with remote learning due to a lack of efficient tools. Our application provides a unified platform for students to access assignments, get feedback, and manage their schedules.
+
+**Users**: The primary users are students and administrators/teachers of a learning institution.
+
+**Purpose**: Built to bring convenience and efficiency to the e-learning experience.
+
+**User Input & Output**: Students can submit assignments, check schedules, and manage tasks. Administrators can grade assignments, update schedules, and manage  all student submissions.
+
+
+## Challenges & Learnings 
+
+**Technical Challenges**
+**Anticipated:** Integrating third-party authentication without compromising security.
+
+**Plan:** We decided to use OAuth with JWT tokens.
+
+**Learnings:** Gained a deeper understanding of secure authentication processes.
+
+**Unexpected Challenges**
+
+**Todo List Creation and Syncing:** Establishing a unique and functional Todo list for each user.
+
+**Challenge:** Ensuring that every Todo list created was effectively linked and synced to its respective user ID, making sure that users only have access to their personalized lists and not those of others.
+
+**Learnings:** Recognizing the significance of secure data handling and management. We also understood the nuances of creating features that cater to individual user preferences and privacy.
+
 ## Project Structure
 
-The project adheres to a structured organization that promotes maintainability and modularity:
+The project adheres to a structured organization that promotes maintainability and modularity as follows:
 
 ### Public Directory
 
@@ -183,5 +213,4 @@ Feel free to explore the project's components, features, and functionalities. Fo
 | [**Pedro Modesto**](https://github.com/pedrovily1) 
 
 
-Happy coding!
-```
+  
