@@ -74,6 +74,7 @@ const onSubmitForm = async (e) => {
 
 const onChange = (e) => {
 setInputs({ ...inputs ,[e.target.name]: e.target.value })
+console.log(inputs)
 }
 return (
 <>
@@ -81,6 +82,7 @@ return (
     <form>
     <h1> Select a cohort</h1>
     <select onChange={onChange} name="cohort_id">
+    <option value="">Select a Cohort</option>
         {(cohorts.length > 0) && cohorts.map((cohort) => {
                                
             return (
@@ -91,6 +93,7 @@ return (
     </select>
     <h1> Select an unassigned user</h1>
     <select onChange={onChange} name="user_id">
+    <option value="">Select a User</option>
         {(unassigned.length > 0) && unassigned.map((potential) => {
                                
             return (

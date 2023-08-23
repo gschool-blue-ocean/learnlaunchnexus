@@ -1,4 +1,6 @@
 \c career_services_db;
+ALTER TABLE cohort_assignment DISABLE TRIGGER after_cohort_assignment_insert;
+ALTER TABLE student DISABLE TRIGGER after_student_insert_into_cohort;
 
 INSERT INTO authentication (user_name, user_email, user_password) VALUES 
 ('SJSarah', 'sarah.johnson@example.com','$2b$10$K027T33UOeqQUoVOpX4CPe7572sQwJWu8Zcf4zWJ7iaNQcqNN4G4C'),
@@ -420,4 +422,5 @@ INSERT INTO submission (submission_time, info, student_id, assignment_id, tracki
 ((SELECT TIMESTAMP '2023-03-01' + random() * (TIMESTAMP '2023-06-01' - TIMESTAMP '2023-03-01')),'Stephen Netzley', 27, 10, 2),
 ((SELECT TIMESTAMP '2023-03-01' + random() * (TIMESTAMP '2023-06-01' - TIMESTAMP '2023-03-01')),'Stephen Netzley', 28, 10, 2);
 
-
+ALTER TABLE student ENABLE TRIGGER after_student_insert_into_cohort;
+ALTER TABLE cohort_assignment ENABLE TRIGGER after_cohort_assignment_insert;

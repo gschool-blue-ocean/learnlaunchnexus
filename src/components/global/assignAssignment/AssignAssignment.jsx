@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const AssignAssignment = () => {
     const [cohorts, setCohorts] = useState([]);
     const [assignments, setAssignments] = useState([]);
+    
 
     useEffect(() => {
 
@@ -80,6 +81,7 @@ return (
     <form>
     <h1> Select a cohort</h1>
     <select onChange={onChange} name="cohort_id">
+    <option value="">Select a Cohort</option>
         {(cohorts.length > 0) && cohorts.map((cohort) => {
                                
             return (
@@ -90,6 +92,7 @@ return (
     </select>
     <h1> Select an Assignment</h1>
     <select onChange={onChange} name="assignment_id">
+    <option value="">Select an Assignment</option>
         {(assignments.length > 0) && assignments.map((assignment) => {
                                
             return (
