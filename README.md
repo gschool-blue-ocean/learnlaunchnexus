@@ -75,6 +75,23 @@ The Learn Launch Nexus Application is a web-based platform designed to assist st
 
 **Learnings:** Recognizing the significance of secure data handling and management. We also understood the nuances of creating features that cater to individual user preferences and privacy.
 
+## Research Undertaken
+
+When developing a software application, especially one with a variety of complex features, extensive research is often required to ensure effective implementation and integration of these features. Here's a summary of the research we undertook:
+
+- **User Data Security**: As we aimed to link Todo lists to individual user IDs, we needed to ensure that this data linkage was secure. We researched modern security practices, focusing on user data protection.
+
+- **Database Design**: To accommodate the unique Todo lists for each user and the respective linking with user IDs, we explored various database design patterns. Our aim was to ensure efficient data retrieval and minimal redundancy.
+
+- **UI/UX Research**: To provide an intuitive user experience, we researched contemporary UI/UX designs, focusing on ease of use and accessibility.
+
+- **Performance Optimization**: We researched best practices to optimize our application's performance, ensuring swift load times and responsive interactions.
+
+- **Testing and Quality Assurance**: We wanted to ensure our application was robust and free from critical bugs. We looked into automated testing frameworks and methodologies suited for our tech stack.
+
+This research was vital in guiding our development process, ensuring that we were implementing features using industry best practices and that the final product would be of high quality.
+
+
 ## Project Structure
 
 The project adheres to a structured organization that promotes maintainability and modularity as follows:
@@ -134,66 +151,52 @@ The application uses environment variables for configuration. Create a `.env` fi
 
 ## Features
 
-### User Authentication
+- **User Authentication**: Securely authenticate users using their email and password.
 
-The application provides a secure login system where users can authenticate with their email and password.
+- **User Roles**: Distinguishes between student and administrator roles, with role-specific functionalities.
 
-### User Roles
+- **Dashboard**: Offers users an overview of:
+  - Tasks
+  - Assignments
+  - Personal settings
+  - User-specific details such as name and location. For students, it includes the desired location.
 
-The application distinguishes between student and administrator roles, offering role-specific functionalities.
+- **Assignment Submissions**: A platform where:
+  - Students can submit assignments.
+  - Administrators can provide feedback.
 
-### Dashboard
+- **Setting Dropdown**: Exclusive to administrators, features include:
+  - Changing user emails
+  - Assigning administrative privileges to users
 
-The personalized dashboard provides users with an overview of their tasks, assignments, and settings.
+- **Calendar**: Allows users to:
+  - View dates
+  - Plan and manage tasks
 
-### Profile Information
+- **Todo List**: Enhances user productivity by allowing task management.
 
-The dashboard displays user-specific information such as name, location, and desired location in the case of a student.
-
-### Assignment Submissions
-
-Students can submit assignments through a dedicated submission component,  where admin can submit feedback for those submissions.
-
-### Setting Dropdown
-
-Administrators have access to a setting dropdown that offers specific administrative functionalities like chaging email and making an user an admin.
-
-### Calendar
-
-The calendar feature allows users to view and select dates, enhancing planning and task management.
-
-### Todo List
-
-Users can manage their tasks using the Todo List feature, promoting organization and productivity.
-
-### Responsive Design
-
-The application is designed responsively, ensuring optimal user experiences across various devices.
-
+- **Responsive Design**: Optimized for various devices, ensuring a seamless user experience.
 
 ## Styling
 
-Styling is achieved using CSS modules, where styles are scoped to specific components. The css directory holds module files that are imported into components.
+- Uses CSS modules to ensure styles are component-specific.
+- All styles are found in the `css` directory and are imported into components as needed.
 
 ## API Integration
 
-The application interacts with an API for data retrieval and submission, with the API base URL configured using environment variables.
+- Seamless interaction with an API for data processes.
+- Configuration of the API base URL via environment variables.
 
 ## Testing Suites
 
-The project features comprehensive testing suites that cover various functionalities, ensuring stability and reliability.
+Ensures the project's reliability by offering comprehensive tests for:
 
-### Login
+- **Login**: Secure authentication process.
+  
+- **User Roles**: Role-specific functionalities and access.
 
-The login process is secured, allowing users to access their respective dashboards upon successful authentication.
+- **Productivity Features**: Focus on the Todo List and Calendar functionalities, emphasizing task management and date selection.
 
-### Student and Admin Roles
-
-The application differentiates between student and administrator roles, granting access to functionalities based on user roles.
-
-### Todo List and Calendar Features
-
-The Todo List and Calendar features enhance user productivity and organization by facilitating task management and date selection.
 
 ## Contributing
 
