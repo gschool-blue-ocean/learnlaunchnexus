@@ -12,7 +12,7 @@ import AddCohort from './addCohort/AddCohort';
 import AssignAssignment from './assignAssignment/AssignAssignment';
 import AddAssingment from './addAssignment/AddAssignment';
 
-const SettingDropdown = ({admin, setClose}) => {
+const SettingDropdown = ({admin, setClose, close}) => {
 
     const [openModal, setOpenModal] = useState(null);
 
@@ -52,7 +52,7 @@ const SettingDropdown = ({admin, setClose}) => {
 
       const handleCloseModal = () => {
         setOpenModal(null);
-        setClose(false)
+        setClose(!close)
       };
 
     if(admin === true) {

@@ -99,7 +99,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
   return (
     <>
         <div>
-        <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} setClose={setClose} />
+        <Header admin={admin} setAuth={setAuth} USER_ID={USER_ID} setClose={setClose} close={close} />
         </div>
        
         <div>   {/* <h1>View container</h1> */}

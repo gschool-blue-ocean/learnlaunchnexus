@@ -6,7 +6,7 @@ import settings from './settings-gear.svg'
 // import AssignmentModal from '../modal/AssignmentModal.jsx'
 import SettingDropdown from './SettingDropdown';
 
-const Header = ({ USER_ID, admin, setAuth, setClose }) => {
+const Header = ({ USER_ID, admin, setAuth, setClose, close }) => {
 
     const [name, setName] = useState(""); // State for user's name
     // const [isOpen, setIsModalOpen] = useState(false);
@@ -57,7 +57,7 @@ const Header = ({ USER_ID, admin, setAuth, setClose }) => {
                 <ul>
                     {/* <li><Link to="/dashboard">Home</Link></li> */}
                       
-                    <SettingDropdown admin={admin} setClose={setClose}/>
+                    <SettingDropdown admin={admin} setClose={setClose} close={close}/>
                     <button onClick={e => logout(e)} className={styles.logbtn}>Logout</button>
                 </ul>
                 
