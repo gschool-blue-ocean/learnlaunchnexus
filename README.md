@@ -13,6 +13,10 @@ Welcome to the Learn Launch Nexus README! This document provides an in-depth ove
 ![icons8-react](https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/534a27ea-845f-4289-8ec1-ff6ab02c8054)
 ![icons8-postgres (1)](https://github.com/gschool-blue-ocean/learnlaunchnexus/assets/127983785/50c6e407-5a79-4b21-8559-42bb5e49ea90)
 
+## Video Demo
+
+<iframe width="907" height="510" src="https://www.youtube.com/embed/S7t_R8UrzU0" title="Project" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 ## Table of Contents
 
