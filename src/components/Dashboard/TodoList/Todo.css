@@ -1,5 +1,6 @@
 .todo-container {
   min-width: 400px;
+  max-height: 284px;
   margin: 50px auto;
   background-color: #ffffff;
   border-radius: 51px;

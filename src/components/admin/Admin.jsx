@@ -32,6 +32,7 @@ const Admin = () => {
 
         const parseCohortData = await Cohortres.json();
         setCohortList(parseCohortData)
+        console.log("cohortData", parseCohortData)
 
         const Statusres = await fetch(`${import.meta.env.VITE_API}/tracking`, {
           method: "GET",
@@ -39,6 +40,7 @@ const Admin = () => {
 
         const parseStatusData = await Statusres.json();
         setStatusList(parseStatusData)
+        console.log("parseStatusData", parseStatusData)
 
 
       } catch (err) {
@@ -61,7 +63,7 @@ const Admin = () => {
 
         const parseCohortData = await resCohort.json();
         setStudentList(parseCohortData);
-
+        console.log("cohortData", parseCohortData)
 
 
         const resAssignment = await fetch(`${import.meta.env.VITE_API}/cohort_assignment/cohort/${cohortList[currentCohort].id}`, {
@@ -69,13 +71,14 @@ const Admin = () => {
         });
         const parseAssignmentData = await resAssignment.json();
         setAssignmentData(parseAssignmentData)
-
+        console.log("parseAssignmentData", parseAssignmentData)
 
         const response = await fetch(`${import.meta.env.VITE_API}/students/byCohort/${cohortList[currentCohort].id}`, {
           method: 'GET',
         });
         const data = await response.json();
         setStudents(data);
+        console.log("data", data)
       } catch (err) {
         console.error(err.message);
       }

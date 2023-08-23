@@ -1,6 +1,6 @@
  
 <p align="center">
-<img src="LLN_logo.png"/>
+<img src="logo_200x200.png"/>
 </p>
 
 # Learn Launch Nexus
