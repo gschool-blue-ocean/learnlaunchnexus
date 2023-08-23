@@ -23,7 +23,7 @@ const SettingModal = ({ isOpen, content, onClose}) => {
 
     }}>
       <div style={{
-        backgroundColor: '#fff',
+        backgroundColor: 'darkblue',
         padding: '30px',
         borderRadius: '8px',
         width: '400px',
@@ -31,7 +31,6 @@ const SettingModal = ({ isOpen, content, onClose}) => {
         flexDirection: 'column',  
         alignItems: 'center',  
         lineHeight: '20px',  
-        
       }}>
         {content}
         <button onClick={onClose}>Close</button>

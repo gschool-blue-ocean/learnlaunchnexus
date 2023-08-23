@@ -61,7 +61,7 @@ const FinishRegistration = () => { // user email is never used can it be removed
 
           <div id='reginput'>
           <form onSubmit={onSubmitForm}>
-          <h2 id='eh'>First Name</h2> 
+          <h2 id='emailH'>First Name</h2> 
             <input id='input1'
               type="text"
               name="first_name"
@@ -71,7 +71,7 @@ const FinishRegistration = () => { // user email is never used can it be removed
               className="form-control my-3"
             />
                         <br></br>
-            <h2 id='eh'>Last Name</h2>
+            <h2 id='passwordH'>Last Name</h2>
             <input id='input1'
               type="text"
               name="last_name"

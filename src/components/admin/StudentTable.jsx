@@ -41,11 +41,11 @@ studentList.map((student, index) => {
 
     const bgColors = (item) => {
         if (item === 'Complete') {
-          return 'lightgreen';
+          return 'rgb(111, 230, 111)';
         } else if (item === 'Not Started') {
-          return 'yellow';
+          return 'rgb(243, 243, 90)';
         } else if (item === 'OverDue') {
-          return 'red';
+          return 'rgb(235, 97, 97)';
         }
     }
 

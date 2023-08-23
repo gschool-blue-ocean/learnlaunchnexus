@@ -68,7 +68,7 @@ const Login = ({ setAuth }) => {
                         <img id='logo' src={'/images/galvanizelogo.png'} ></img>
                         <h1 id='galhead' className="mt-5 text-center">Galvanize Services</h1>
                         <div id='loginput'>
-                            <h2 id='eh'>Email</h2>
+                            <h2 id='emailH'>Email</h2>
                             <form onSubmit={onSubmitForm}>
                                 <input
                                     id="input1"
@@ -79,7 +79,7 @@ const Login = ({ setAuth }) => {
                                     className="form-control my-3"
                                 />
                                 <br></br>
-                                <h2 id='ph'>Password</h2>
+                                <h2 id='passwordH'>Password</h2>
                                 <input id='input2'
                                     type="password"
                                     name="password"

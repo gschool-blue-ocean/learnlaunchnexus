@@ -7,7 +7,7 @@ const ChangeEmail = () => {
 
     return (
         <>
-            <button><UpdateEmailForm/></button>
+            <UpdateEmailForm/>
         </>
     )
 }
