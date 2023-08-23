@@ -259,7 +259,7 @@ Testing was a major component of our development process.
 
 ## Jira Board
 
-Our Jira board was pivotal in tracking our progress. You can view our board [here](https://www.jira.com).
+Our Jira board was pivotal in tracking our progress. You can view our board [here](https://operationhirehunters.atlassian.net/jira/software/projects/OHH/boards/1).
 
 On the board, you'll find:
 
