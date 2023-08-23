@@ -94,10 +94,11 @@ CREATE TABLE cohort_assignment (
 CREATE OR REPLACE FUNCTION create_submissions_for_cohort()
 RETURNS TRIGGER AS $$
 BEGIN
-    INSERT INTO submission (info, feedback, submission_time, student_id, assignment_id)
+    INSERT INTO submission (info, feedback, tracking_id, submission_time, student_id, assignment_id)
     SELECT
         '' as info, -- or default value
         '' as feedback, -- or default value
+        1 as tracking_id,
         NOW() as submission_time,
         student.id as student_id,
         NEW.assignment_id
