@@ -8,10 +8,22 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const StudentView = ({ statusList,students, studentID, onBack }) => {
     // State Variables
+
+    const bgColors = (item) => {
+        if (item === 'Complete') {
+          return 'rgb(111, 230, 111)';
+        } else if (item === 'Not Started') {
+          return 'rgb(243, 243, 90)';
+        } else if (item === 'OverDue') {
+          return 'rgb(235, 97, 97)';
+        }
+    }
+
     const [selectedStudentId, setSelectedStudentId] = useState(studentID);
     const [submissions, setSubmissions] = useState([]);
     const [statusUpdate, setStatusUpdate] = useState({})
     const [feedbackInputs, setFeedbackInputs] = useState({})
+    const [selectedStatuses, setSelectedStatuses] = useState({});
 
 
     const onChange = (e) => {
@@ -60,10 +72,16 @@ const StudentView = ({ statusList,students, studentID, onBack }) => {
         }
     }
 
-    const onStatusChange = (e) => {
-        setStatusUpdate({ [e.target.name]: e.target.value })
-        console.log(statusUpdate)
-    }
+    
+    const onStatusChange = (e, submissionId) => {
+            const newStatus = e.target.value;
+            setSelectedStatuses(prevStatuses => ({
+                ...prevStatuses,
+                [submissionId]: newStatus
+            }));
+            setStatusUpdate({ [e.target.name]: e.target.value })
+        };
+            
 
     // Find the selected student object based on the selectedStudentId // this stays prop drill students
 
@@ -158,23 +176,21 @@ const StudentView = ({ statusList,students, studentID, onBack }) => {
 
                                 <button name={submission.submission_id} className="Submit-assignment" onClick={handleSubmitFeedback}>submit</button>
                             </td>
-                            <td className="assignment-text">
-                            <select onChange={onStatusChange} name="id">
-                            <option value={submission.submission_id}>{submission.status}</option>
-                            {(statusList.length > 1) && statusList.map((stat) => {
-                               
-                                if(stat.status === submission.status)
-                                {
-                                    
-                                }
-                                else{
-                                    return (
-                                        <option value={stat.id}>{stat.status}</option>
-                                    )
-                                }
-                            })}
-                            </select>
-                            </td>
+                            <td className="assignment-text" 
+    style={{backgroundColor: `${bgColors(selectedStatuses[submission.submission_id] || submission.status)}`}}
+>
+    <select 
+        name="status" 
+        onChange={(e) => onStatusChange(e, submission.submission_id)}
+        value={selectedStatuses[submission.submission_id] || submission.status}
+    >
+        {statusList.map(stat => (
+            <option key={stat.id} value={stat.status}>
+                {stat.status}
+            </option>
+        ))}
+    </select>
+</td>
                             <td><button name={submission.submission_id} onClick={handleStatus}>Confirm</button></td>
                             <td className="assignment-text-submission">
                                 {submission.info.startsWith('http') ?
