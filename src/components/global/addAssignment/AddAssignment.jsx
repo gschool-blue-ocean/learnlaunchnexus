@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const addAssingment = () => {
+const AddAssingment = () => {
     
 
     const [inputs, setInputs] = useState({
@@ -62,4 +62,4 @@ return (
 </>
 )
 }
-export default addAssingment;
+export default AddAssingment;

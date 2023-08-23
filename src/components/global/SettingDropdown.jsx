@@ -9,6 +9,8 @@ import DeleteAdmin from './deleteAdmin/DeleteAdmin';
 import SettingModal from './SettingModal';
 import AssignCohort from './assignCohort/AssignCohort';
 import AddCohort from './addCohort/AddCohort';
+import AssignAssignment from './assignAssignment/AssignAssignment';
+import AddAssingment from './addAssignment/AddAssignment';
 
 const SettingDropdown = ({admin, setClose}) => {
 
@@ -29,6 +31,12 @@ const SettingDropdown = ({admin, setClose}) => {
         }
         else if(content === 'assignCohort') {
           setOpenModal(<AssignCohort />);
+        }
+        else if(content === 'addAssignment') {
+          setOpenModal(<AddAssingment />);
+        }
+        else if(content === 'assignAssignment') {
+          setOpenModal(<AssignAssignment />);
         }
         else if(content === 'changeLocation') {
           setOpenModal(<ChangeLocation />);
@@ -57,6 +65,9 @@ const SettingDropdown = ({admin, setClose}) => {
                     <a onClick={(e) => handleLinkClick(e, 'deleteAdmin')} className ={styles.settingDropdownItem} >Remove Admin</a>
                     <a onClick={(e) => handleLinkClick(e, 'addCohort')} className ={styles.settingDropdownItem} >Add Cohort</a>
                     <a onClick={(e) => handleLinkClick(e, 'assignCohort')} className ={styles.settingDropdownItem} >assign a student</a>
+                    <a onClick={(e) => handleLinkClick(e, 'addAssingment')} className ={styles.settingDropdownItem} >Add an Assignment</a>
+                    <a onClick={(e) => handleLinkClick(e, 'assignAssignment')} className ={styles.settingDropdownItem} >assign an Assignment</a>
+                
                 </div>
                 <SettingModal
                     isOpen={openModal !== null}

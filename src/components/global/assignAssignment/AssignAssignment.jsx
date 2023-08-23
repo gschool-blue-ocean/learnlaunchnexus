@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const AssignCohort = () => {
+const AssignAssignment = () => {
     const [cohorts, setCohorts] = useState([]);
-    const [unassigned, setUnassigned] = useState([]);
+    const [assignments, setAssignments] = useState([]);
 
     useEffect(() => {
 
@@ -18,12 +18,12 @@ const AssignCohort = () => {
             const parseCohortData = await Cohortres.json();
             setCohorts(parseCohortData)
     
-            const Unassignedres = await fetch(`${import.meta.env.VITE_API}/users/unassigned`, {
+            const Assignmentres = await fetch(`${import.meta.env.VITE_API}/assignment`, {
               method: "GET",
             });
     
-            const parseUnassignedData = await Unassignedres.json();
-            setUnassigned(parseUnassignedData)
+            const parseAssignmentData = await Assignmentres.json();
+            setAssignments(parseAssignmentData)
     
     
           } catch (err) {
@@ -36,7 +36,7 @@ const AssignCohort = () => {
 
     const [inputs, setInputs] = useState({
         cohort_id: 0,
-         user_id: 0
+        assignment_id: 0
     })
     
     /*
@@ -54,10 +54,10 @@ res.status(500).json(err.message);    }
 const onSubmitForm = async (e) => {
     console.log('inside onSubmitForm')
     e.preventDefault();
-    const { cohort_id, user_id } = inputs
-    const body = {cohort_id, user_id}
+    const { cohort_id, assignment_id } = inputs
+    const body = {assignment_id, cohort_id}
     try {
-          const res = await fetch(`${import.meta.env.VITE_API}/cohort`, {
+          const res = await fetch(`${import.meta.env.VITE_API}/cohort_assignment`, {
             headers: { 'Content-Type': 'application/json' },
             method: "POST",
             body: JSON.stringify(body)
@@ -88,12 +88,12 @@ return (
                                 
         })}
     </select>
-    <h1> Select an unassigned user</h1>
-    <select onChange={onChange} name="user_id">
-        {(unassigned.length > 0) && unassigned.map((potential) => {
+    <h1> Select an Assignment</h1>
+    <select onChange={onChange} name="assignment_id">
+        {(assignments.length > 0) && assignments.map((assignment) => {
                                
             return (
-                                        <option value={potential.id}>{potential.first_name} {potential.last_name}</option>
+                                        <option value={assignment.id}>{assignment.name}</option>
                                     )
                                 
         })}
@@ -104,4 +104,4 @@ return (
 </>
 )
 }
-export default AssignCohort;
+export default AssignAssignment;
