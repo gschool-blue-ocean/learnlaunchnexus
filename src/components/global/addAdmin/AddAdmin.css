@@ -1,4 +1,4 @@
-#locationCon {
+#newAdminCon {
     background-color: transparent;
     height: 300px;
     width: 430px;
@@ -7,32 +7,32 @@
     box-shadow: none;
     box-sizing: border-box;
     text-align: center;
-    padding-top: 65px;
+    padding-top: 40px;
 }
 
-#locationH {
+#newAdminH {
     color: darkorange;
     font-size: 25px;
 }
 
-#InputLocation {
-    width: 46%;
+#inputNewAdmin {
+    width: 48%;
     height: 20px;
     background-color: rgb(217, 232, 252);
     border-radius: 7px;
-    margin-top: 2%;
+    margin-top: 5%;
 }
 
-#updateLocation {
+#submitAdmin {
     color: darkblue;
     background-color: darkorange;
     border-radius: 15px;
-    padding: 7px 55px;
-    margin-top: 4%;
+    padding: 7px 85px;
+    margin-top: 6%;
 }
 
-#updateLocation:hover {
+#submitAdmin:hover {
     cursor: pointer;
     color: lightcoral;
     background-color: blue;
-}
+} 

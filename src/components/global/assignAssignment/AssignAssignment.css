@@ -1,4 +1,4 @@
-#locationCon {
+#AssignAssignCon {
     background-color: transparent;
     height: 300px;
     width: 430px;
@@ -7,32 +7,18 @@
     box-shadow: none;
     box-sizing: border-box;
     text-align: center;
-    padding-top: 65px;
 }
 
-#locationH {
+.AssignAssignH {
     color: darkorange;
     font-size: 25px;
 }
 
-#InputLocation {
-    width: 46%;
+.inputAssign {
+    width: 48%;
     height: 20px;
     background-color: rgb(217, 232, 252);
     border-radius: 7px;
-    margin-top: 2%;
-}
-
-#updateLocation {
-    color: darkblue;
-    background-color: darkorange;
-    border-radius: 15px;
-    padding: 7px 55px;
     margin-top: 4%;
-}
-
-#updateLocation:hover {
-    cursor: pointer;
-    color: lightcoral;
-    background-color: blue;
+    margin-bottom: 2%;
 }

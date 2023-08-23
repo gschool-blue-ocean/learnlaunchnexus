@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './AssignAssignment.css'
 
 const AssignAssignment = () => {
     const [cohorts, setCohorts] = useState([]);
@@ -78,9 +79,9 @@ setInputs({ ...inputs ,[e.target.name]: e.target.value })
 return (
 <>
     <ToastContainer />
-    <form>
-    <h1> Select a cohort</h1>
-    <select onChange={onChange} name="cohort_id">
+    <form id='AssignAssignCon'>
+    <h1 className='AssignAssignH'> Select a cohort</h1>
+    <select className='inputAssign' onChange={onChange} name="cohort_id">
     <option value="">Select a Cohort</option>
         {(cohorts.length > 0) && cohorts.map((cohort) => {
                                
@@ -90,8 +91,8 @@ return (
                                 
         })}
     </select>
-    <h1> Select an Assignment</h1>
-    <select onChange={onChange} name="assignment_id">
+    <h1 className='AssignAssignH'> Select an Assignment</h1>
+    <select className='inputAssign' onChange={onChange} name="assignment_id">
     <option value="">Select an Assignment</option>
         {(assignments.length > 0) && assignments.map((assignment) => {
                                
@@ -101,7 +102,7 @@ return (
                                 
         })}
     </select>
-    
+    <br></br>
     <button onClick={onSubmitForm} id='submitAdmin' className="Submission">Submit</button>
     </form>
 </>

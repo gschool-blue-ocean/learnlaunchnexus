@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './AddCohort.css'
 
 const AddCohort = () => {
     
@@ -50,32 +51,32 @@ setInputs({ ...inputs ,[e.target.name]: e.target.value })
 return (
 <>
     <ToastContainer />
-    <form>
-    <h1> Add a Start Date</h1>
+    <form id='addCohortCon'>
+    <h1 className='AddCohortsH'> Add a Start Date</h1>
     <input id="start_date"
               type="date"
               name="start_date"
               value={inputs.start_date}
               onChange={e => onChange(e)}
-              className="undefined"
+              className="Dates"
             />
-    <h1> Add a End Date</h1>
+    <h1 className='AddCohortsH'> Add a End Date</h1>
     <input id="end_date"
               type="date"
               name="end_date"
               value={inputs.end_date}
               onChange={e => onChange(e)}
-              className="undefined"
+              className="Dates"
             />   
-     <h1> Cohorts Name</h1>
+     <h1 className='AddCohortsH'> Cohorts Name</h1>
     <input id="name"
               type="text"
               name="name"
               value={inputs.name}
               onChange={e => onChange(e)}
-              className="undefined"
+              className="Dates"
             />
-    
+      <br></br>
     <button onClick={onSubmitForm} id='submitAdmin' className="Submission">Submit</button>
     </form>
 </>
