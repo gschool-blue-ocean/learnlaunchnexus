@@ -5,7 +5,7 @@ import StudentTable from "./StudentTable";
 import './admin.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+// individual student view based off the student selected in either the dropdown or the student table
 const StudentView = ({ statusList,students, studentID, onBack }) => {
     // State Variables
     const [selectedStudentId, setSelectedStudentId] = useState(studentID);

@@ -46,7 +46,7 @@ const FinishRegistration = () => { // user email is never used can it be removed
           console.error(err.message);
         }
       };
-    
+    // creates a user in the database
       return (
         <>
           <diV id='regpage'>

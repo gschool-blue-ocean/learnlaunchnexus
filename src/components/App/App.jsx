@@ -40,7 +40,8 @@ const App = () => {
       console.error("Error message")
     }
   }
-
+// authentication is set to local storage 
+//client side routes to different pages of our application
   return (
     <Router>
     

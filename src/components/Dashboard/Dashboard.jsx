@@ -86,7 +86,7 @@ const Dashboard = ({ setAuth, userEmail }) => {
     };
     fetchData()
   }, [location, desiredLocation, EMAIL, USER_ID])
-
+// main page of our application will not show until user data has been returned
   if(USER_ID > 0)
   {
   return (

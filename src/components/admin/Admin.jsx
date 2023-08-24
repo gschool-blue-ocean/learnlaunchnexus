@@ -19,7 +19,6 @@ const Admin = () => {
   };
 
 
-  // this goes to Admin
   useEffect(() => {
 
     const getCohortData = async () => {
@@ -30,14 +29,14 @@ const Admin = () => {
         });
 
         const parseCohortData = await Cohortres.json();
-        setCohortList(parseCohortData)
+        setCohortList(parseCohortData) // sets a list to be used in cohort choice dropdown
 
         const Statusres = await fetch(`${import.meta.env.VITE_API}/tracking`, {
           method: "GET",
         });
 
         const parseStatusData = await Statusres.json();
-        setStatusList(parseStatusData)
+        setStatusList(parseStatusData) // sets a list to be used in status change dropdown
 
 
       } catch (err) {
@@ -48,7 +47,6 @@ const Admin = () => {
     getCohortData();
   }, []);
 
-  // this should execute this moves to admin
   useEffect(() => {
 
     const getCohortStudents = async () => {
@@ -59,19 +57,19 @@ const Admin = () => {
         });
 
         const parseCohortData = await resCohort.json();
-        setStudentList(parseCohortData);
+        setStudentList(parseCohortData); // sets a student list based upon the selected cohort
 
 
         const resAssignment = await fetch(`${import.meta.env.VITE_API}/cohort_assignment/cohort/${cohortList[currentCohort].id}`, {
           method: "GET"
         });
-        const parseAssignmentData = await resAssignment.json();
-        setAssignmentData(parseAssignmentData)
+        const parseAssignmentData = await resAssignment.json(); // sets an array based off the Assignments a cohort has
+        setAssignmentData(parseAssignmentData) 
 
         const response = await fetch(`${import.meta.env.VITE_API}/students/byCohort/${cohortList[currentCohort].id}`, {
           method: 'GET',
         });
-        const data = await response.json();
+        const data = await response.json(); // retrieves a student list based off the current cohort
         setStudents(data);
       } catch (err) {
         console.error(err.message);
@@ -82,7 +80,7 @@ const Admin = () => {
   }, [currentCohort]);
 
 
-
+// acts as our single page for the admin
   return (
     <div>
       <ChooseCohort cohortList={cohortList} setCurrentCohort={setCurrentCohort} resetSelectedStudent={setSelectedStudent} />

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 
 const StudentTable = ({assignmentData, studentList,  setSelectedStudent, onStudentClick}) => { 
-let Row = [];
+// creates a Table based upon student information and the amount of assignments in the cohort
+    let Row = [];
 let Table = [];
 let RowID = [];
 if(studentList.length > 0)
@@ -33,7 +34,7 @@ studentList.map((student, index) => {
     }
 })}
 
-
+// sets a list of the current colors for the Table
     const bgColors = (item) => {
         if (item === 'Complete') {
           return 'rgb(111, 230, 111)';
@@ -44,7 +45,6 @@ studentList.map((student, index) => {
         }
     }
 
-console.log("row", Row, "Table", Table)
     return (    
     <>
     <table>

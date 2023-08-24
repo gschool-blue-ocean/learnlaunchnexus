@@ -66,7 +66,7 @@ const Register = ({setAuth,setEmail,userEmail}) => { // user email is never used
           toast.error('Missing Credentials')
         }
       };
-    
+    // allows a new user to create an authentication with the system
       return (
         <>
           <ToastContainer />

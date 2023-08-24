@@ -68,7 +68,7 @@ const Submission = ({assignment, index}) => {
       setColorStatus('assignStatus')
     }
   }, [assignment.status]);
-  
+  // sets the table view of the assignment
 return (
     <div className='assign' key={assignment.assignment_id}>
       <div className="assignName">

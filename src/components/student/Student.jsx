@@ -30,7 +30,7 @@ const Student = ({USER_ID}) => {
         getSubmissionData();
         }
     }, [USER_ID]);
- 
+ // sets the main view for non adminstrators
     return (
     <>
      {(submissionList.length > 0) && <div id='table'>
