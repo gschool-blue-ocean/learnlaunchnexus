@@ -13,7 +13,7 @@ import AssignAssignment from './assignAssignment/AssignAssignment';
 import AddAssingment from './addAssignment/AddAssignment';
 
 const SettingDropdown = ({admin, setClose, close}) => {
-
+{/*added prop drill for rerender of location and desired location*/}
     const [openModal, setOpenModal] = useState(null);
 
     const handleLinkClick = (e, content) => {
