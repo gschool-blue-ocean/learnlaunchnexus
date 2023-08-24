@@ -1,48 +1,48 @@
 #emailToast {
-    background-color: transparent;
-    height: 400px;
-    width: 430px;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    box-sizing: border-box;
-    text-align: center;
-    padding-top: 70px;
+	background-color: transparent;
+	height: 400px;
+	width: 430px;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	box-sizing: border-box;
+	text-align: center;
+	padding-top: 70px;
 }
 
 #currentE {
-    color: darkorange;
-    font-size: 25px;
+	color: darkorange;
+	font-size: 25px;
 }
 
 #InputCurrentE {
-    width: 47%;
-    height: 22px;
-    border-radius: 7px;
-    background-color: rgb(217, 232, 252);
+	width: 47%;
+	height: 22px;
+	border-radius: 7px;
+	background-color: rgb(217, 232, 252);
 }
 
 #oldE {
-    color: darkorange;
-    font-size: 25px;
+	color: darkorange;
+	font-size: 25px;
 }
 
 #inputOldE {
-    width: 45%;
-    height: 20px;
-    background-color: rgb(217, 232, 252);
-    border-radius: 7px;
+	width: 45%;
+	height: 20px;
+	background-color: rgb(217, 232, 252);
+	border-radius: 7px;
 }
 
 #updateEM {
-    color: darkblue;
-    background-color: darkorange;
-    border-radius: 15px;
-    padding: 7px 60px;
+	color: darkblue;
+	background-color: darkorange;
+	border-radius: 15px;
+	padding: 7px 60px;
 }
 
 #updateEM:hover {
-    cursor: pointer;
-    color: lightcoral;
-    background-color: blue;
+	cursor: pointer;
+	color: lightcoral;
+	background-color: blue;
 }

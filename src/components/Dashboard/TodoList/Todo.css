@@ -1,186 +1,178 @@
 .todo-container {
-  min-width: 400px;
-  max-height: 284px;
-  margin: 50px auto;
-  background-color: #ffffff;
-  border-radius: 51px;
-  padding: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	min-width: 400px;
+	max-height: 284px;
+	margin: 50px auto;
+	background-color: #ffffff;
+	border-radius: 51px;
+	padding: 30px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .Todo-text {
-  font-size: 18px;
-  font-weight: 200;
+	font-size: 18px;
+	font-weight: 200;
 }
-
-
 
 .todo-container h1 {
-  text-align: center;
-  margin: 10px;
-  color: #333;
-  font-weight: 80;
-  font-size: 35px;
+	text-align: center;
+	margin: 10px;
+	color: #333;
+	font-weight: 80;
+	font-size: 35px;
 }
 
-
 .todo-container .Edit:hover {
-  background-color: #2A453F;
-  /* Add any other styles for the hover state */
+	background-color: #2a453f;
+	/* Add any other styles for the hover state */
 }
 
 .todo-container .Delete:hover {
-  background-color: #C85F48;
-  /* Add any other styles for the hover state */
+	background-color: #c85f48;
+	/* Add any other styles for the hover state */
 }
 
-
 .todo-container ul {
-  list-style-type: none;
-  padding: 0;
-  max-height: 150px;
-  /* Or any value you prefer */
-  overflow-y: auto;
-  /* This will make the content inside the container scrollable */
-  max-width: 400px
+	list-style-type: none;
+	padding: 0;
+	max-height: 150px;
+	/* Or any value you prefer */
+	overflow-y: auto;
+	/* This will make the content inside the container scrollable */
+	max-width: 400px;
 }
 
 .todo-container li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
 }
 
 .todo-container li button {
-  margin-left: 10px;
-  background-color: #847b7bb9;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  justify-content: end;
+	margin-left: 10px;
+	background-color: #847b7bb9;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	justify-content: end;
 }
 
-
-
 .input-group {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
 }
 
 .todo-container input[type="text"] {
-  flex-grow: 10;
-  padding: 20px;
-  margin-left: 52px;
-  margin-right: -51px;
-  border-radius: 31px;
-  width: 272px;
-  height: 11px;
-
+	flex-grow: 10;
+	padding: 20px;
+	margin-left: 52px;
+	margin-right: -51px;
+	border-radius: 31px;
+	width: 272px;
+	height: 11px;
 }
 
 .todo-container button {
-  padding: 8px 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
+	padding: 8px 10px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
 }
 
 .todo-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 5px;
-  outline: #333;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 5px;
+	outline: #333;
 }
 
 .todo-content {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
 }
 
 .todo-actions {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .todo-buttons {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
+	display: flex;
+	align-items: center;
+	margin-top: 5px;
 }
 
 .todo-checkbox {
-  width: 20px;
-  /* Adjust as needed */
-  height: 20px;
-  /* Adjust as needed */
-  margin-left: 5px;
-  margin-right: 0px;
-  /* Space between checkbox and buttons */
-  border-radius: 10px;
-  background-color: #333;
+	width: 20px;
+	/* Adjust as needed */
+	height: 20px;
+	/* Adjust as needed */
+	margin-left: 5px;
+	margin-right: 0px;
+	/* Space between checkbox and buttons */
+	border-radius: 10px;
+	background-color: #333;
 }
 
 .fade-enter {
-  opacity: 0;
+	opacity: 0;
 }
 
 .fade-enter-active {
-  opacity: 1;
-  transition: opacity 200ms;
+	opacity: 1;
+	transition: opacity 200ms;
 }
 
 .fade-exit {
-  opacity: 1;
-  transition: opacity 200ms;
+	opacity: 1;
+	transition: opacity 200ms;
 }
 
 .fade-exit-active {
-  opacity: 0;
-  transition: opacity 200ms;
+	opacity: 0;
+	transition: opacity 200ms;
 }
 
 .completed {
-  text-decoration: line-through;
+	text-decoration: line-through;
 }
 
 /* Create a custom checkbox */
 .checkbox-container .checkmark {
-  width: 1.3em;
-  height: 1.3em;
-  background-color: white;
-  border-radius: 50%;
-  vertical-align: middle;
-  border: 1px solid #ddd;
-  appearance: none;
-  -webkit-appearance: none;
-  outline: none;
-  cursor: pointer;
-  margin-bottom: 2px;
+	width: 1.3em;
+	height: 1.3em;
+	background-color: white;
+	border-radius: 50%;
+	vertical-align: middle;
+	border: 1px solid #ddd;
+	appearance: none;
+	-webkit-appearance: none;
+	outline: none;
+	cursor: pointer;
+	margin-bottom: 2px;
 }
 
 .checkmark:checked {
-  background-color: #4caf50
+	background-color: #4caf50;
 }
 
 #ip2 {
-  border-radius: 25px;
-  border: 2px solid rgb(0, 0, 0);
-  padding: 20px;
-  width: 200px;
-  height: 15px;
+	border-radius: 25px;
+	border: 2px solid rgb(0, 0, 0);
+	padding: 20px;
+	width: 200px;
+	height: 15px;
 }
 
 #Circle {
-  margin-top: 10px;
-  cursor: pointer;
+	margin-top: 10px;
+	cursor: pointer;
 }

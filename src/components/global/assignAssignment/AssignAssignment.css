@@ -1,24 +1,24 @@
 #AssignAssignCon {
-    background-color: transparent;
-    height: 300px;
-    width: 430px;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    box-sizing: border-box;
-    text-align: center;
+	background-color: transparent;
+	height: 300px;
+	width: 430px;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	box-sizing: border-box;
+	text-align: center;
 }
 
 .AssignAssignH {
-    color: darkorange;
-    font-size: 25px;
+	color: darkorange;
+	font-size: 25px;
 }
 
 .inputAssign {
-    width: 48%;
-    height: 20px;
-    background-color: rgb(217, 232, 252);
-    border-radius: 7px;
-    margin-top: 4%;
-    margin-bottom: 2%;
+	width: 48%;
+	height: 20px;
+	background-color: rgb(217, 232, 252);
+	border-radius: 7px;
+	margin-top: 4%;
+	margin-bottom: 2%;
 }
