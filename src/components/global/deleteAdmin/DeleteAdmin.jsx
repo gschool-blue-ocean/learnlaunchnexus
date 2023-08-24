@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import React, {useState} from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './DeleteAdmin.css'
 
 const DeleteAdmin = () => {
 
@@ -33,16 +34,17 @@ const DeleteAdmin = () => {
     return (
         <>
             <ToastContainer />
-            <form>
-            <h1>Delete an Admin Email</h1>
-            <input id="email"
+            <form id='deleteAdminCon'>
+            <h1 id='deleteAdminH'>Delete an Admin Email</h1>
+            <input id="inputDeleAdmin"
                       type="text"
                       name="Email"
                       value={inputs.Email}
                       onChange={e => onChange(e)}
                       className="undefined"
                     />
-            <button onClick={onSubmitForm} id='submitAdmin' className="Submission">Submit</button>
+                    <br></br>
+            <button onClick={onSubmitForm} id='submitAdminDele' className="Submission">Submit</button>
             </form>
         </>
     )

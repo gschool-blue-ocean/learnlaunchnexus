@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './SettingModal.css'
 
 const SettingModal = ({ isOpen, content, onClose}) => {
   if (!isOpen) {
@@ -33,7 +33,9 @@ const SettingModal = ({ isOpen, content, onClose}) => {
         lineHeight: '20px',  
       }}>
         {content}
-        <button onClick={onClose}>Close</button>
+        <button id='closeBtn'
+         onClick={onClose}
+         >Close</button>
       </div>
     </div>
   );

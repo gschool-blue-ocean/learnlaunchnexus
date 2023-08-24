@@ -1,0 +1,12 @@
+#closeBtn {
+    color: darkblue;
+    background-color: darkorange;
+    border-radius: 15px;
+    padding: 7px 85px;
+}
+
+#closeBtn:hover {
+    cursor: pointer;
+    color: lightcoral;
+    background-color: blue;
+}

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './AddAssignment.css'
 
 const AddAssingment = () => {
     
@@ -47,16 +48,16 @@ setInputs({ [e.target.name]: e.target.value })
 return (
 <>
     <ToastContainer />
-    <form>
-     <h1> Add an Assignment</h1>
-    <input id="name"
+    <form id='AddAssignCon'>
+     <h1 id='AddAssignH'> Add an Assignment</h1>
+    <input id="inputAssignment"
               type="text"
               name="name"
               value={inputs.name}
               onChange={e => onChange(e)}
               className="undefined"
             />
-    
+    <br></br>
     <button onClick={onSubmitForm} id='submitAdmin' className="Submission">Submit</button>
     </form>
 </>
