@@ -1,15 +1,13 @@
-import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
-import UpdateEmailForm from './UpdateEmailForm'
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import UpdateEmailForm from "./UpdateEmailForm";
 
 const ChangeEmail = () => {
+	return (
+		<>
+			<UpdateEmailForm />
+		</>
+	);
+};
 
-    return (
-        <>
-            <UpdateEmailForm/>
-        </>
-    )
-}
-
-export default ChangeEmail
+export default ChangeEmail;
