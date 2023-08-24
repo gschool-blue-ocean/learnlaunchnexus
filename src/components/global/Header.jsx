@@ -54,24 +54,19 @@ const Header = ({ USER_ID, admin, setAuth, setClose }) => {
 		<div>
 			<header className={styles.appheader}>
 				<h1 className={styles.apptitle}>{name}</h1>
-  			<img
-					className={styles.galvanize_logo}
-					src={"/images/galvanizelogo.png"}
-				></img>
-				<nav className={styles.navmenu}>
-					<ul>
-						{/* <li><Link to="/dashboard">Home</Link></li> */}
-
-						<SettingDropdown admin={admin} setClose={setClose} />
-						<button onClick={(e) => logout(e)} className={styles.logbtn}>
-							Logout
-						</button>
-					</ul>
-				</nav>
-			</header>
-		</div>
-	);
-
+  			    <img className={styles.galvanize_logo} src={'/images/galvanizelogo.png'} ></img>
+            <nav className={styles.navmenu}>
+                <ul>
+                    {/* <li><Link to="/dashboard">Home</Link></li> */}
+                      {/*added prop drill for rerender of location and desired location*/}
+                    <SettingDropdown admin={admin} setClose={setClose} close={close}/>
+                    <button onClick={e => logout(e)} className={styles.logbtn}>Logout</button>
+                </ul>
+                
+            </nav>
+         </header>
+         </div>
+    );
 };
 
 export default Header;
