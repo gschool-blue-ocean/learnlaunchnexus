@@ -10,7 +10,7 @@ import SettingModal from "./SettingModal";
 import AssignCohort from "./assignCohort/AssignCohort";
 import AddCohort from "./addCohort/AddCohort";
 import AssignAssignment from "./assignAssignment/AssignAssignment";
-import AddAssingment from "./addAssignment/AddAssignment";
+import AddAssignment from "./addAssignment/AddAssignment";
 
 const SettingDropdown = ({admin, setClose, close}) => {
 {/*added prop drill for rerender of location and desired location*/}
@@ -28,7 +28,7 @@ const SettingDropdown = ({admin, setClose, close}) => {
 		} else if (content === "assignCohort") {
 			setOpenModal(<AssignCohort />);
 		} else if (content === "addAssignment") {
-			setOpenModal(<AddAssingment />);
+			setOpenModal(<AddAssignment />);
 		} else if (content === "assignAssignment") {
 			setOpenModal(<AssignAssignment />);
 		} else if (content === "changeLocation") {
