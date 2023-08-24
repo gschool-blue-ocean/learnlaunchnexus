@@ -53,7 +53,6 @@ res.status(500).json(err.message);    }
 });*/
 
 const onSubmitForm = async (e) => {
-    console.log('inside onSubmitForm')
     e.preventDefault();
     const { cohort_id, user_id } = inputs
     const body = {cohort_id, user_id}
@@ -65,7 +64,6 @@ const onSubmitForm = async (e) => {
 
           });
           const parseData = await res.json();
-          console.log
           toast.success(`assigned a student`)
         } catch (err) {
           console.error(err.message);
@@ -75,7 +73,6 @@ const onSubmitForm = async (e) => {
 
 const onChange = (e) => {
 setInputs({ ...inputs ,[e.target.name]: e.target.value })
-console.log(inputs)
 }
 return (
 <>

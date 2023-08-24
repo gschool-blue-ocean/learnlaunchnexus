@@ -25,19 +25,15 @@ const Dashboard = ({ setAuth, userEmail }) => {
       const parseData = await res.json();
       setName(parseData.first_name);
       setAdmin(parseData.isadmin)
-      console.log('DATA', parseData.id)
       if((parseData.id === null) || (parseData.id === undefined))
       {
-        console.log('do nothing')
       }
       else
       {
         setUSER_ID(parseData.id)
       }
-      console.log("fullData", parseData)
       if((parseData.github_acct === null) || (parseData.github_acct === undefined))
       {
-        console.log('do nothing')
       }
       else
       {
@@ -52,7 +48,6 @@ const Dashboard = ({ setAuth, userEmail }) => {
   localStorage.setItem('user_id', JSON.stringify(USER_ID))
 
 
-  console.log(USER_ID)
   const EMAIL = JSON.parse(localStorage.getItem('email'))
 
   const [location, setLocation] = useState("")
@@ -90,8 +85,6 @@ const Dashboard = ({ setAuth, userEmail }) => {
         setDesiredLocation(locationData.desired_location);
     };
     fetchData()
-    console.log(location)
-    console.log(desiredLocation)
   }, [location, desiredLocation, EMAIL, USER_ID])
 
   if(USER_ID > 0)

@@ -18,21 +18,18 @@ const FinishRegistration = () => { // user email is never used can it be removed
     
       const onSubmitForm = async e => {
         const localEmail = localStorage.getItem("email").split('"')
-        console.log(localEmail)
         let email
         for(let i = 0; i < localEmail.length; i++)
         {
             if(localEmail[i].length > 3)
             {
                 email = localEmail[i]
-                console.log(email)
 
             }
         }
         e.preventDefault();
         try {
           const body = { first_name, last_name, email };
-          console.log(body)
           const response = await fetch(
             `${import.meta.env.VITE_API}/users`,
             {

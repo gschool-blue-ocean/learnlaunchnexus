@@ -4,14 +4,11 @@ const StudentTable = ({assignmentData, studentList,  setSelectedStudent, onStude
 let Row = [];
 let Table = [];
 let RowID = [];
-console.log("inTABLE", studentList, studentList.length)
 if(studentList.length > 0)
 {
 studentList.map((student, index) => {
-    console.log("inside Map", student)
     if((index % assignmentData.length) === 0)
     {
-        console.log(index)
         Row.push(student.last_name + "," + student.first_name);
         RowID.push(student.user_id)
         Row.push(student.status);       
@@ -19,7 +16,6 @@ studentList.map((student, index) => {
     }
     else if((index % assignmentData.length) === (assignmentData.length-1 ))
     {
-        console.log(index)
         Row.push(student.status);
         Table.push(Row);
         Row = [];
@@ -27,7 +23,6 @@ studentList.map((student, index) => {
     }
     else
     {
-        console.log(index)
         Row.push(student.status);
 
     }

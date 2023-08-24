@@ -23,7 +23,6 @@ const AddAssingment = () => {
 });*/
 
 const onSubmitForm = async (e) => {
-    console.log('inside onSubmitForm')
     e.preventDefault();
     const {  name } = inputs
     const body = { name}

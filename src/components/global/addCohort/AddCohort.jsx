@@ -26,7 +26,6 @@ const AddCohort = () => {
 });*/
 
 const onSubmitForm = async (e) => {
-    console.log('inside onSubmitForm')
     e.preventDefault();
     const { start_date, end_date, name } = inputs
     const body = {start_date, end_date, name}

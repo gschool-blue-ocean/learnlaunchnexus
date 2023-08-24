@@ -62,7 +62,6 @@ const StudentView = ({ statusList,students, studentID, onBack }) => {
 
     const onStatusChange = (e) => {
         setStatusUpdate({ [e.target.name]: e.target.value })
-        console.log(statusUpdate)
     }
 
     // Find the selected student object based on the selectedStudentId // this stays prop drill students

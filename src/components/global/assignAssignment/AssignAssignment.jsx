@@ -54,7 +54,6 @@ res.status(500).json(err.message);    }
 });*/
 
 const onSubmitForm = async (e) => {
-    console.log('inside onSubmitForm')
     e.preventDefault();
     const { cohort_id, assignment_id } = inputs
     const body = {assignment_id, cohort_id}

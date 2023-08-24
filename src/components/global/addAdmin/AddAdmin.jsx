@@ -11,7 +11,6 @@ const AddAdmin = () => {
     })
     
         const onSubmitForm = async (e) => {
-            console.log('inside onSubmitForm')
             e.preventDefault();
             const email = inputs.Email
             try {
