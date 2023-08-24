@@ -1,4 +1,4 @@
-#locationCon {
+#desiredLocaCon {
     background-color: transparent;
     height: 300px;
     width: 430px;
@@ -10,12 +10,12 @@
     padding-top: 65px;
 }
 
-#locationH {
+#desiredLocaH {
     color: darkorange;
     font-size: 25px;
 }
 
-#InputLocation {
+#inputDesLoca {
     width: 46%;
     height: 20px;
     background-color: rgb(217, 232, 252);
@@ -23,15 +23,15 @@
     margin-top: 2%;
 }
 
-#updateLocation {
+#updateDesLoca {
     color: darkblue;
     background-color: darkorange;
     border-radius: 15px;
-    padding: 7px 55px;
+    padding: 7px 33px;
     margin-top: 4%;
 }
 
-#updateLocation:hover {
+#updateDesLoca:hover {
     cursor: pointer;
     color: lightcoral;
     background-color: blue;
