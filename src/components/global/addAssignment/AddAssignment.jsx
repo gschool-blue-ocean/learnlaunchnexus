@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./AddAssignment.css";
 
-const AddAssingment = () => {
+const AddAssignment = () => {
 	const [inputs, setInputs] = useState({
 		name: "", //text
 	});
@@ -62,4 +62,4 @@ const AddAssingment = () => {
 		</>
 	);
 };
-export default AddAssingment;
+export default AddAssignment;
