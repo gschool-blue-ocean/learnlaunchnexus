@@ -1,106 +1,98 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./App.module.css";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Dashboard from "../Dashboard/Dashboard"
-import Register from "../Register/Register.jsx"
-import Login from "../Login/Login.jsx"
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate,
+} from "react-router-dom";
+import Dashboard from "../Dashboard/Dashboard";
+import Register from "../Register/Register.jsx";
+import Login from "../Login/Login.jsx";
 import FinishRegistration from "../FinishRegistration/FinishRegistration";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userEmail, setUserEmail] = useState('');
-  const setAuth = (boolean) => {
-    setIsAuthenticated(boolean);
-  }
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
+	const [userEmail, setUserEmail] = useState("");
+	const setAuth = (boolean) => {
+		setIsAuthenticated(boolean);
+	};
 
-  const setEmail = (str) => {
-    setUserEmail(str);
-  }
+	const setEmail = (str) => {
+		setUserEmail(str);
+	};
 
+	useEffect(() => {
+		checkAuthenticated();
+	}, []);
 
-  useEffect(() => {
-    checkAuthenticated()
+	const checkAuthenticated = async () => {
+		try {
+			const res = await fetch(
+				`${import.meta.env.VITE_API}/authentication/verify`,
+				{
+					method: "GET",
+					headers: { token: localStorage.token },
+				}
+			);
+			const parseRes = await res.json();
+			parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
+		} catch (error) {
+			console.error("Error message");
+		}
+	};
+	// authentication is set to local storage
+	//client side routes to different pages of our application
+	return (
+		<Router>
+			<div className='container'>
+				<Routes>
+					<Route
+						path='/'
+						element={
+							isAuthenticated ? (
+								<Navigate to='/dashboard' replace />
+							) : (
+								<Login
+									setAuth={setAuth}
+									setEmail={setEmail}
+									userEmail={userEmail}
+								/>
+							)
+						}
+					/>
+					<Route
+						path='/register'
+						element={
+							isAuthenticated ? (
+								<Navigate to='/register-contd' replace />
+							) : (
+								<Register
+									setAuth={setAuth}
+									setEmail={setEmail}
+									userEmail={userEmail}
+								/>
+							)
+						}
+					/>
+					<Route path='/register-contd' element={<FinishRegistration />} />
+					<Route
+						path='/dashboard'
+						element={
+							isAuthenticated ? (
+								<Dashboard setAuth={setAuth} userEmail={userEmail} />
+							) : (
+								<Navigate to='/' replace />
+							)
+						}
+					/>
 
-  }, [])
-
-
-  const checkAuthenticated = async () => {
-    try {
-      const res = await fetch(`${import.meta.env.VITE_API}/authentication/verify`, {
-        method: "GET",
-        headers: { token: localStorage.token }
-
-      })
-      const parseRes = await res.json();
-      parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
-
-    }
-    catch (error) {
-      console.error("Error message")
-    }
-  }
-// authentication is set to local storage 
-//client side routes to different pages of our application
-  return (
-    <Router>
-    
-      <div className="container" >
-      <Routes>
-        <Route 
-        path = "/"
-        element={(
-          isAuthenticated ? (
-            <Navigate to= "/dashboard" replace/>
-          ) : (
-            <Login setAuth={setAuth} setEmail={setEmail} userEmail={userEmail}/>
-          )
-        )}
-        />
-        <Route 
-        path = "/register"
-        element={(
-          isAuthenticated ? (
-            <Navigate to= "/register-contd" replace />
-          ) : (
-            <Register setAuth={setAuth} setEmail={setEmail} userEmail={userEmail}/>
-          )
-        )}
-        /> 
-        <Route 
-        path = "/register-contd"
-        element={(
-          (
-            <FinishRegistration/> 
-          )
-          )
-        } 
-        />
-        <Route 
-        path = "/dashboard"
-        element={(
-          isAuthenticated ? (
-            <Dashboard setAuth={setAuth} userEmail={userEmail}/>
-          ) : (
-            <Navigate to="/" replace/>
-          )
-        )}
-        /> 
-
-        <Route
-        path = "/*"
-        element = {<Navigate to="/" replace />}
-        />
-
-        </Routes>
-       </div>
- 
-    </Router>  
-    
-  )
-
-
+					<Route path='/*' element={<Navigate to='/' replace />} />
+				</Routes>
+			</div>
+		</Router>
+	);
 };
-
 
 export default App;

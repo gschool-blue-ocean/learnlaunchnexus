@@ -1,77 +1,77 @@
 /* General Table Styles */
 .table-container {
-    max-width: 100%;
-    overflow-x: auto;
+	max-width: 100%;
+	overflow-x: auto;
 }
 
 table {
-    margin-top: 5px;
-    width: 100%;
-    border-collapse: collapse;
-    font-family: helvetica;
-    color: #333;
-    font-size: 19px;
+	margin-top: 5px;
+	width: 100%;
+	border-collapse: collapse;
+	font-family: helvetica;
+	color: #333;
+	font-size: 19px;
 }
 
 table th,
 table td {
-    font-size: 11px;
-    padding: 9px;
-    border: 1px solid black;
+	font-size: 11px;
+	padding: 9px;
+	border: 1px solid black;
 }
 
 table th {
-    background-color: #f2f2f2;
-    font-size: 12px;
+	background-color: #f2f2f2;
+	font-size: 12px;
 }
 
 /* Student Display Styles */
 .Student-display {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: Georgia, sans-serif;
-    font-size: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: Georgia, sans-serif;
+	font-size: 15px;
 }
 
 .custom-select {
-    margin-left: 15px;
-    padding-top: 6px;
-    font-size: 10px;
-    width: 200px;
-    display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
+	margin-left: 15px;
+	padding-top: 6px;
+	font-size: 10px;
+	width: 200px;
+	display: flex;
+	/* justify-content: center; */
+	/* align-items: center; */
 }
 
 .select {
-    padding: 6px 6px;
-    font-size: 17px;
+	padding: 6px 6px;
+	font-size: 17px;
 }
 
 /* Assignment Styles */
 .assignment-text {
-    max-width: 250px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+	max-width: 250px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
-.assignment-text-submission{
-    max-width: 150px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.assignment-text-submission {
+	max-width: 150px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .Submit-assignment {
-    margin-left: 10px;
-    border-radius: 10%;
-    border-color: #ddd;
+	margin-left: 10px;
+	border-radius: 10%;
+	border-color: #ddd;
 }
 
 /* Additional Assignment Styles */
 .assignments .due-soon {
-    color: red;
-    font-weight: bold;
+	color: red;
+	font-weight: bold;
 }

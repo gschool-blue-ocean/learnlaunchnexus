@@ -1,113 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 
 body {
-    background-image: url('/images/GalvanizeBackground.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-
+	background-image: url("/images/GalvanizeBackground.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
 
 #logpage {
-    position:absolute;
-    top:0px;
-    right:0px;
-    bottom:0px;
-    left:0px;
-    text-align: center;
-    margin: 0px;
-    font-family: 'Quicksand', sans-serif;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	text-align: center;
+	margin: 0px;
+	font-family: "Quicksand", sans-serif;
 }
 
 #log {
-    margin: auto;
-    position: absolute;
-    top: 8%;
-    left: 25%;
-    padding-top: 6%;
-    padding-bottom: 3%;
-    padding-left: 19%;
-    padding-right: 19%;
-    background-color: transparent;
-    border-radius: 15px;
+	margin: auto;
+	position: absolute;
+	top: 8%;
+	left: 25%;
+	padding-top: 6%;
+	padding-bottom: 3%;
+	padding-left: 19%;
+	padding-right: 19%;
+	background-color: transparent;
+	border-radius: 15px;
 }
 
 #loginput {
-    padding-left: 28%;
-    padding-right: 35%;
-    padding-top: 12%;
-    padding-bottom: 12%;
-    width: 90%;
-    position: relative;
-    right: 23%;
-    border-radius: 15px;
+	padding-left: 28%;
+	padding-right: 35%;
+	padding-top: 12%;
+	padding-bottom: 12%;
+	width: 90%;
+	position: relative;
+	right: 23%;
+	border-radius: 15px;
 }
 
 #galhead {
-    color: darkorange;
-    font-size: xx-large;
+	color: darkorange;
+	font-size: xx-large;
 }
 
 #logo {
-    width: 10%;
-    top: 13%;
-    left: 5%;
-    position: absolute;
+	width: 10%;
+	top: 13%;
+	left: 5%;
+	position: absolute;
 }
 
 #logbtn {
-    background-color: darkblue;
-    padding-left: 17%;
-    padding-right: 17%;
-    padding-top: 1.7%;
-    padding-bottom: 1.7%;
-    position: absolute;
-    bottom: 3%;
-    right: 31%;
-    border-radius: 15px;
-    color: lightcoral;
+	background-color: darkblue;
+	padding-left: 17%;
+	padding-right: 17%;
+	padding-top: 1.7%;
+	padding-bottom: 1.7%;
+	position: absolute;
+	bottom: 3%;
+	right: 31%;
+	border-radius: 15px;
+	color: lightcoral;
 }
 
 #logbtn:hover {
-    background-color: darkorange;
-    color: darkblue;
-    cursor: pointer;
+	background-color: darkorange;
+	color: darkblue;
+	cursor: pointer;
 }
 
 #reglin {
-    background-color: darkblue;
-    padding-left: 23.5%;
-    padding-right: 23.5%;
-    padding-top: 2.7%;
-    padding-bottom: 2.7%;
-    border-radius: 15px;
-    color: lightcoral;
+	background-color: darkblue;
+	padding-left: 23.5%;
+	padding-right: 23.5%;
+	padding-top: 2.7%;
+	padding-bottom: 2.7%;
+	border-radius: 15px;
+	color: lightcoral;
 }
 
 #reglin:hover {
-    background-color: darkorange;
-    color: darkblue;
-    cursor: pointer;
+	background-color: darkorange;
+	color: darkblue;
+	cursor: pointer;
 }
 
 #input1 {
-    background-color: rgb(217, 232, 252);
-    border-radius: 7px;
+	background-color: rgb(217, 232, 252);
+	border-radius: 7px;
 }
 
 #input2 {
-    background-color: rgb(217, 232, 252);
-    border-radius: 7px;
+	background-color: rgb(217, 232, 252);
+	border-radius: 7px;
 }
 
 #emailH {
-    color: darkorange;
+	color: darkorange;
 }
 
 #passwordH {
-    color: darkorange;
+	color: darkorange;
 }
-
-
-
