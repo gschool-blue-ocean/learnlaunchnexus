@@ -56,7 +56,7 @@ const Header = ({ USER_ID, admin, setAuth, setClose, close }) => {
             <nav className={styles.navmenu}>
                 <ul>
                     {/* <li><Link to="/dashboard">Home</Link></li> */}
-                      
+                      {/*added prop drill for rerender of location and desired location*/}
                     <SettingDropdown admin={admin} setClose={setClose} close={close}/>
                     <button onClick={e => logout(e)} className={styles.logbtn}>Logout</button>
                 </ul>
