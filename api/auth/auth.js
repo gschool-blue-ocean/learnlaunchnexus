@@ -5,7 +5,8 @@ import pool from "../db.js";
 import express from "express";
 import bcrypt from "bcrypt";
 const router = express.Router();
-
+// main Routes for authentication
+// manually update databse password to encrypted version if a plain text was inserted into seed files
 router.post("/updatePass/:pass", middlewareValidInfo, async (req, res) => {
   try {
     
@@ -25,7 +26,7 @@ router.post("/updatePass/:pass", middlewareValidInfo, async (req, res) => {
   }
 });
 
-
+// creates a new authentication entry for a user and returns a token
 router.post("/register", middlewareValidInfo, async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -54,7 +55,7 @@ router.post("/register", middlewareValidInfo, async (req, res) => {
     res.status(500).send(err.message);
   }
 });
-
+// checks for proper authentication credentials and returns a token
 router.post("/login", middlewareValidInfo, async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -84,7 +85,7 @@ router.post("/login", middlewareValidInfo, async (req, res) => {
     res.status(500).send(err.message);
   }
 });
-
+// checks the token for accuracy
 router.get("/verify", middlewareAUTH, async (req, res) => {
   try {
     console.log(req)

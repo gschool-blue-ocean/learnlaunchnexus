@@ -2,7 +2,7 @@ import express from 'express'
 import pool from "../../db.js";
 const router = express.Router();
 
- 
+ // routes based off the administrator table
 
 // Get all admins
 router.get('/', async (req, res) => {

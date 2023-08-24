@@ -8,7 +8,7 @@ import pool from "../../db.js";
 
 const router = express.Router();
 
-
+// routes based off the tracking table
 // Get all tracking statuses
 router.get('/', async (req, res) => {
     try {

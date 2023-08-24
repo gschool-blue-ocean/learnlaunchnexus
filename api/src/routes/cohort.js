@@ -10,8 +10,8 @@ import express from 'express'
 import pool from "../../db.js";
 const router = express.Router();
 
-
-
+// routes based off the cohorts table
+// get all
 router.get('/', async (req, res) => {
     try {
         const results = await pool.query("SELECT * FROM cohort");

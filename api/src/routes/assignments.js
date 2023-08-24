@@ -7,7 +7,7 @@ DELETE /assignments/:id : Delete an assignment.*/
 import express from 'express'
 import pool from "../../db.js";
 const router = express.Router();
-
+// routes based of the assignments table
 // Get all assignments
 router.get('/', async (req, res) => {
     try {

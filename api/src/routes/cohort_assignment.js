@@ -7,7 +7,7 @@ DELETE /cohort_assignments/:id : Remove an assignment from a cohort.*/
 import express from 'express'
 import pool from "../../db.js";
 const router = express.Router();
-
+// routes based of the cohort assignment join table
 
 router.get('/', async (req, res) => {
     try {
@@ -31,7 +31,7 @@ router.get('/:id', async (req, res) => {
          res.status(500).json(err.message);
     }
 });
-
+// retrieves all assignments for a specific cohort and evaluates thier ids to a name
 router.get('/cohort/:id', async (req, res) => {
     const { id } = req.params;
     try {

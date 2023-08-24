@@ -1,7 +1,7 @@
 import express from 'express'
 import pool from "../../db.js";
 const router = express.Router();
-
+// routes based off the user table
 // Get all users
 router.get('/', async (req, res) => {
     try {
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-
+// returns all users that do not have a cohort and are not admins
 router.get('/unassigned', async (req, res) => {
     try {
         const results = await pool.query("SELECT * FROM users WHERE isadmin = false AND NOT EXISTS (SELECT 1 FROM student WHERE users.id = student.user_id)");
@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
          res.status(500).json(err.message);
     }
 });
-
+// returns the user information based off the authentication email that is given
 router.get('/init/:email', async (req, res) => {
     const { email } = req.params;
     try {
@@ -49,7 +49,7 @@ router.get('/init/:email', async (req, res) => {
          res.status(500).json(err.message);
     }
 });
-
+// updates the email
 router.put('/update-email/:email', async (req, res) => {
     const currentEmail = req.params.email;
     const newEmail = req.body.email;

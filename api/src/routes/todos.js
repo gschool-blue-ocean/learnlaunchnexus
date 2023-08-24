@@ -1,7 +1,7 @@
 import express from 'express'
 import pool from "../../db.js";
 const router = express.Router();
-
+// routes based off of the todo table
 // Get all todos
 router.get('/', async (req, res) => {
     try {

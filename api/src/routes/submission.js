@@ -10,7 +10,7 @@ import pool from "../../db.js";
 const router = express.Router();
 
 import format from 'pg-format';
-
+// routes based off of the submission table
 
 // Get all submissions
 router.get('/', async (req, res) => {
@@ -36,7 +36,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// Get a specific submission by ID
+// retrieve all usefull information for the students submissions
 router.get('/student/:id', async (req, res) => {
     const { id } = req.params;
     try {

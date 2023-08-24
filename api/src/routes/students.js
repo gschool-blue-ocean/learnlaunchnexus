@@ -1,7 +1,7 @@
 import express from 'express'
 import pool from "../../db.js";
 const router = express.Router();
-
+// routes based off the student table
 // Get all students
 router.get('/', async (req, res) => {
     try {
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         console.error(err.message);
     res.status(500).json(err.message);    }
 });
-
+// retrieves all students for a cohort with user information
 router.get('/byCohort/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -36,7 +36,7 @@ res.status(500).json(err.message);
     }
 });
 
-// Get a specific student by ID
+// Get all student information from a specific cohort
 router.get('/cohort/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -78,30 +78,12 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-
-
-router.put('/location/:id', async (req, res) => {
-    const { id } = req.params;
-    const { location } = req.body;
-    try {
-        const result = await pool.query("UPDATE student SET location = $1 WHERE id = $2 RETURNING *", 
-            [location, id]);
-
-        if (result.rows.length === 0) {
-            return res.status(404).json({ message: "Student not found." });
-        }
-        
-        res.json(result.rows[0]);
-    } catch (err) {
-        console.error(err.message);
-res.status(500).json(err.message);    }
-});
-
+// update a students desired location
 router.put('/desired-location/:id', async (req, res) => {
     const { id } = req.params;
     const { desired_location } = req.body;
     try {
-        const result = await pool.query("UPDATE student SET desired_location = $1 WHERE id = $2 RETURNING *", 
+        const result = await pool.query("UPDATE student SET desired_location = $1 WHERE user_id = $2 RETURNING *", 
             [desired_location, id]);
 
         if (result.rows.length === 0) {
@@ -114,12 +96,12 @@ router.put('/desired-location/:id', async (req, res) => {
 res.status(500).json(err.message);    }
 });
 
-
+// update a students current location
 router.put('/location/:id', async (req, res) => {
     const { id } = req.params;
     const { location } = req.body;
     try {
-        const result = await pool.query("UPDATE student SET location = $1 WHERE id = $2 RETURNING *", 
+        const result = await pool.query("UPDATE student SET location = $1 WHERE user_id = $2 RETURNING *", 
             [location, id]);
 
         if (result.rows.length === 0) {

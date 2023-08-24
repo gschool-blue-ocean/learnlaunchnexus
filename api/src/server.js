@@ -28,7 +28,7 @@ import userRoutes from './routes/users.js'
 import toDoRoutes from './routes/todos.js'
 
 import authRoutes from '../auth/auth.js'
-
+// create API routes
 app.use('/admins', adminRoutes);
 app.use('/assignment', assignmentRoutes);
 app.use('/cohort_assignment', cohortAssignmentRoutes);
@@ -45,7 +45,7 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Internal Server Error');
 });
-
+// simple testing route
 app.get('/test', async (req, res) => {
   try {
       const results = await pool.query("SELECT * FROM users");
@@ -56,7 +56,7 @@ app.get('/test', async (req, res) => {
   }
 });
 
-
+// if a route does not match from the above return the user to the indes.html for reacts client side routing
 app.get('/*', function(req,res) {
   try {
     console.log(__filename);
