@@ -1,0 +1,24 @@
+#addCohortCon {
+	background-color: transparent;
+	height: 400px;
+	width: 430px;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	box-sizing: border-box;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.AddCohortsH {
+	color: darkorange;
+	font-size: 25px;
+}
+
+.Dates {
+	width: 46%;
+	height: 20px;
+	background-color: rgb(217, 232, 252);
+	border-radius: 7px;
+	margin-top: 3%;
+}

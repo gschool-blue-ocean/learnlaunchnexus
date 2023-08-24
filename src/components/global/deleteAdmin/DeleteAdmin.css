@@ -1,47 +1,37 @@
-#emailToast {
+#deleteAdminCon {
 	background-color: transparent;
-	height: 400px;
+	height: 300px;
 	width: 430px;
 	border: none;
 	outline: none;
 	box-shadow: none;
 	box-sizing: border-box;
 	text-align: center;
-	padding-top: 70px;
+	padding-top: 30px;
 }
 
-#currentE {
+#deleteAdminH {
 	color: darkorange;
 	font-size: 25px;
 }
 
-#InputCurrentE {
-	width: 47%;
-	height: 22px;
-	border-radius: 7px;
-	background-color: rgb(217, 232, 252);
-}
-
-#oldE {
-	color: darkorange;
-	font-size: 25px;
-}
-
-#inputOldE {
-	width: 45%;
+#inputDeleAdmin {
+	width: 46%;
 	height: 20px;
 	background-color: rgb(217, 232, 252);
 	border-radius: 7px;
+	margin-top: 10%;
 }
 
-#updateEM {
+#submitAdminDele {
 	color: darkblue;
 	background-color: darkorange;
 	border-radius: 15px;
-	padding: 7px 60px;
+	padding: 6px 85px;
+	margin-top: 13%;
 }
 
-#updateEM:hover {
+#submitAdminDele:hover {
 	cursor: pointer;
 	color: lightcoral;
 	background-color: blue;

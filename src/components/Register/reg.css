@@ -1,86 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 
 #regpage {
-    position:absolute;
-    top:0px;
-    right:0px;
-    bottom:0px;
-    left:0px;
-    text-align: center;
-    margin: 0px;
-    font-family: 'Quicksand', sans-serif;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	text-align: center;
+	margin: 0px;
+	font-family: "Quicksand", sans-serif;
 }
 
 #reg {
-    margin: auto;
-    position: absolute;
-    top: 8%;
-    left: 20%;
-    padding-top: 6%;
-    padding-bottom: 3%;
-    padding-left: 19%;
-    padding-right: 19%;
-    background-color: transparent;
-    border-radius: 15px;
+	margin: auto;
+	position: absolute;
+	top: 8%;
+	left: 20%;
+	padding-top: 6%;
+	padding-bottom: 3%;
+	padding-left: 19%;
+	padding-right: 19%;
+	background-color: transparent;
+	border-radius: 15px;
 }
 
 #reginput {
-    padding-left: 4%;
-    padding-right: 4%;
-    padding-bottom: 2%;
-    padding-top: 4%;
-    left: .01%;
-    width: 95%;
-    position: relative;
-    right: 10%;
-    border-radius: 15px;
+	padding-left: 4%;
+	padding-right: 4%;
+	padding-bottom: 2%;
+	padding-top: 4%;
+	left: 0.01%;
+	width: 95%;
+	position: relative;
+	right: 10%;
+	border-radius: 15px;
 }
 
 #regbtn {
-    background-color: darkblue;
-    padding-left: 16%;
-    padding-right: 16%;
-    padding-top: 1.6%;
-    padding-bottom: 1.6%;
-    border-radius: 15px;
-    color: lightcoral;
+	background-color: darkblue;
+	padding-left: 16%;
+	padding-right: 16%;
+	padding-top: 1.6%;
+	padding-bottom: 1.6%;
+	border-radius: 15px;
+	color: lightcoral;
 }
 
 #regbtn:hover {
-    background-color: darkorange;
-    color: darkblue;
-    cursor: pointer;
+	background-color: darkorange;
+	color: darkblue;
+	cursor: pointer;
 }
 
 #loglin {
-    background-color: darkblue;
-    padding-left: 18%;
-    padding-right: 18%;
-    padding-top: 1.6%;
-    padding-bottom: 1.6%;
-    border-radius: 15px;
-    color: lightcoral;
+	background-color: darkblue;
+	padding-left: 18%;
+	padding-right: 18%;
+	padding-top: 1.6%;
+	padding-bottom: 1.6%;
+	border-radius: 15px;
+	color: lightcoral;
 }
 
 #loglin:hover {
-    background-color: darkorange;
-    color: darkblue;
-    cursor: pointer;
+	background-color: darkorange;
+	color: darkblue;
+	cursor: pointer;
 }
 
 #reghead {
-    color: darkorange;
-    font-size: xx-large;
+	color: darkorange;
+	font-size: xx-large;
 }
 
 #emailH2 {
-    color: darkorange;
+	color: darkorange;
 }
 
 #passwordH2 {
-    color: darkorange;
+	color: darkorange;
 }
 
 #userH {
-    color: darkorange;
+	color: darkorange;
 }
