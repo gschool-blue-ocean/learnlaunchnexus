@@ -9,6 +9,7 @@ const Todo = lazy(() => import("./TodoList/Todo.jsx"));
 import Footer from "./Footer/Footer.jsx";
 import FinishRegistration from "../FinishRegistration/FinishRegistration.jsx";
 const Dashboard = ({ setAuth, userEmail }) => {
+
 	const [name, setName] = useState("");
 	const [admin, setAdmin] = useState("");
 	const [USER_ID, setUSER_ID] = useState(0);

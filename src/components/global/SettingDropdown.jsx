@@ -12,8 +12,10 @@ import AddCohort from "./addCohort/AddCohort";
 import AssignAssignment from "./assignAssignment/AssignAssignment";
 import AddAssingment from "./addAssignment/AddAssignment";
 
+
 const SettingDropdown = ({ admin, setClose }) => {
 	const [openModal, setOpenModal] = useState(null);
+
 
 	const handleLinkClick = (e, content) => {
 		if (content === "changeEmail") {
@@ -81,7 +83,7 @@ const SettingDropdown = ({ admin, setClose }) => {
 						assign a student
 					</a>
 					<a
-						onClick={(e) => handleLinkClick(e, "addAssingment")}
+						onClick={(e) => handleLinkClick(e, "addAssignment")}
 						className={styles.settingDropdownItem}
 					>
 						Add an Assignment
@@ -101,6 +103,7 @@ const SettingDropdown = ({ admin, setClose }) => {
 			</div>
 		);
 	}
+
 
 	return (
 		<div className={styles.settingDropdown}>

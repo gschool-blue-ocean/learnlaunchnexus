@@ -137,11 +137,14 @@ const StudentView = ({ statusList, students, studentID, onBack }) => {
 			</div>
 
 			{/* <h1>Admin page for {name}</h1>
+
+
             <h1>Choose Cohort</h1>
             <form>
                 <input></input>
                 <button type="submit">Cohort</button>
             </form> */}
+
 
 			<table>
 				<thead>
@@ -212,4 +215,5 @@ const StudentView = ({ statusList, students, studentID, onBack }) => {
 		</>
 	);
 };
+
 export default StudentView;

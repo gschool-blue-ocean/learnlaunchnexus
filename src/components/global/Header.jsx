@@ -11,6 +11,7 @@ const Header = ({ USER_ID, admin, setAuth, setClose }) => {
 	// const [isOpen, setIsModalOpen] = useState(false);
 	const EMAIL = JSON.parse(localStorage.getItem("email"));
 
+
 	const getUsername = async (EMAIL) => {
 		try {
 			const res = await fetch(
@@ -53,8 +54,7 @@ const Header = ({ USER_ID, admin, setAuth, setClose }) => {
 		<div>
 			<header className={styles.appheader}>
 				<h1 className={styles.apptitle}>{name}</h1>
-
-				<img
+  			<img
 					className={styles.galvanize_logo}
 					src={"/images/galvanizelogo.png"}
 				></img>
@@ -71,6 +71,7 @@ const Header = ({ USER_ID, admin, setAuth, setClose }) => {
 			</header>
 		</div>
 	);
+
 };
 
 export default Header;
